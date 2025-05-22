@@ -18,4 +18,18 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Afrowave.SharedTools.Models\Results\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Afrowave.SharedTools.Abstractions\Afrowave.SharedTools.Abstractions.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Helpers\Afrowave.SharedTools.Helpers.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Terminal\Afrowave.SharedTools.Terminal.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools\Afrowave.SharedTools.csproj" />
+  </ItemGroup>
+
 </Project>
