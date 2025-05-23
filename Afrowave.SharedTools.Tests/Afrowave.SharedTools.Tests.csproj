@@ -24,11 +24,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Afrowave.SharedTools.Abstractions\Afrowave.SharedTools.Abstractions.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Api\Afrowave.SharedTools.Api.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Blazor\Afrowave.SharedTools.Blazor.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.EF\Afrowave.SharedTools.EF.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools.Helpers\Afrowave.SharedTools.Helpers.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Json\Afrowave.SharedTools.Json.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools.Terminal\Afrowave.SharedTools.Terminal.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Text\Afrowave.SharedTools.Text.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Time\Afrowave.SharedTools.Time.csproj" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Validation\Afrowave.SharedTools.Validation.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools\Afrowave.SharedTools.csproj" />
   </ItemGroup>
 

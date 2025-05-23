@@ -6,8 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DI\" />
-    <Folder Include="Static\" />
+    <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DI\Conversions\" />
   </ItemGroup>
 
 </Project>

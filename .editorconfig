@@ -1,0 +1,3 @@
+# .editorconfig - přidání slova Afrowave do slovníku pro SPELL analyzátor
+[*.cs]
+dotnet_diagnostic.SPELL.excluded_words = Afrowave

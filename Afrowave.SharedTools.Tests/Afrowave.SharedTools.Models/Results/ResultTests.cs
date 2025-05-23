@@ -1,6 +1,6 @@
 ﻿using Afrowave.SharedTools.Models.Results;
 
-namespace Afrowave.SharedTools.Tests.Models.Results
+namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Models.Results
 {
 	public class ResultTests
 	{
