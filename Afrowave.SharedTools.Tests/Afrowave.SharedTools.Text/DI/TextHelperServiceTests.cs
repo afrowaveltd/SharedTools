@@ -59,5 +59,16 @@ namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.DI
 			var result = _helper.Slugify(input);
 			Assert.Equal(expected, result);
 		}
+
+		[Theory]
+		[InlineData("krasny-den", "krasny den")]
+		[InlineData("multi--slug", "multi  slug")]
+		[InlineData("", "")]
+		[InlineData(null, "")]
+		public void Unslugify_ShouldReplaceDashesWithSpaces(string input, string expected)
+		{
+			var result = _helper.Unslugify(input);
+			Assert.Equal(expected, result);
+		}
 	}
 }

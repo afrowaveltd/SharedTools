@@ -76,6 +76,15 @@ namespace Afrowave.SharedTools.Text.Static
 			}
 			return sb.ToString().Trim('-');
 		}
+
+		/// <summary>
+		/// Converts a slug back to a readable phrase.
+		/// </summary>
+		public static string Unslugify(string input)
+		{
+			if(input == null) return string.Empty;
+			return input.Replace('-', ' ');
+		}
 	}
 
 	/// <summary>

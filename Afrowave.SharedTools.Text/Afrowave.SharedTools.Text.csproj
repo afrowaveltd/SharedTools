@@ -9,8 +9,4 @@
     <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DI\Conversions\" />
-  </ItemGroup>
-
 </Project>

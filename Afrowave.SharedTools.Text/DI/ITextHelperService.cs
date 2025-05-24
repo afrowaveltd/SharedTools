@@ -43,5 +43,13 @@ namespace Afrowave.SharedTools.Text.DI
 		/// <param name="input">The input string to slugify.</param>
 		/// <returns>The slugified string.</returns>
 		string Slugify(string input);
+
+		/// <summary>
+		/// Converts a slug-formatted string into a more human-readable format.
+		/// </summary>
+		/// <param name="input">The slug-formatted string to convert. Typically, this is a string where words are separated by hyphens (e.g.,
+		/// "example-slug").</param>
+		/// <returns>A human-readable string with spaces replacing hyphens and proper capitalization applied, if applicable.</returns>
+		string Unslugify(string input);
 	}
 }
