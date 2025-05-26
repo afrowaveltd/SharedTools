@@ -19,6 +19,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Afrowave.SharedTools.Localization\Helpers\" />
+		<Folder Include="Afrowave.SharedTools.Localization\Services\Di\" />
+		<Folder Include="Afrowave.SharedTools.Localization\Services\Static\" />
 		<Folder Include="Afrowave.SharedTools.Models\Results\" />
 	</ItemGroup>
 
