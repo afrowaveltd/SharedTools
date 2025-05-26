@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
+	</ItemGroup>
 
 </Project>
