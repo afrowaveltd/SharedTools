@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace Afrowave.SharedTools.Localization.Helpers
 {
 	/// <summary>
-	/// Provides utility methods for locating, validating and repairing localization backend definitions.
+	/// Helper for backend implementations that rely on file-based localization (e.g., JSON, YAML, XML).
+	/// Provides standardized file naming, structure conventions, and safe lookup logic.
 	/// </summary>
+
 	public static class LocalizationBackendHelper
 	{
 		private const string BackendIdFileName = ".afrowave-backend-id.txt";

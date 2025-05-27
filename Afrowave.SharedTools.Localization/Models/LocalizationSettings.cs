@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Afrowave.SharedTools.Models.Enums;
+using System;
 
 namespace Afrowave.SharedTools.Localization.Models
 {
@@ -19,33 +20,34 @@ namespace Afrowave.SharedTools.Localization.Models
 		public string FallbackLanguage { get; set; } = "en";
 
 		/// <summary>
-		/// All allowed languages for translation. If empty, all present in /Locales are allowed.
+		/// List of all available languages from registered backends.
+		/// Used for UI selectors, language detection, or display.
+		/// May be left empty to resolve dynamically from backends (if supported).
 		/// </summary>
 		public string[] SupportedLanguages { get; set; } = Array.Empty<string>();
 
 		/// <summary>
-		/// List of language codes to ignore (not offered for UI or autoload).
-		/// </summary>
-		public string[] IgnoreLanguages { get; set; } = Array.Empty<string>();
-
-		/// <summary>
 		/// Order of locale detection: "query", "cookie", "header". Used by middleware, if any.
 		/// </summary>
-		public string[] LocaleDetectionOrder { get; set; } = Array.Empty<string>();
+		public LocaleDetectionMethod[] LocaleDetectionOrder { get; set; } = Array.Empty<LocaleDetectionMethod>();
 
 		/// <summary>
-		/// If true, missing translations will be requested automatically from translation backends.
+		/// If true, resolved fallback translations (e.g., from AI translator) will be saved to the first writable backend.
 		/// </summary>
 		public bool AutoTranslateMissing { get; set; } = false;
-
-		/// <summary>
-		/// Path to the Locales folder (relative to app root). Default is "Locales".
-		/// </summary>
-		public string LocalesFolderPath { get; set; } = "Locales";
 
 		/// <summary>
 		/// Enable debug mode for verbose logging (optional).
 		/// </summary>
 		public bool DebugMode { get; set; } = false;
+
+		// ✅ NEW: Cache Settings
+		/// <summary>
+		/// Gets or sets the settings for localization caching.
+		/// This includes options for enabling/disabling global and backend-level caching,
+		/// This property contains configuration settings for caching strategies used in localization.
+		/// </summary>
+
+		public LocalizationCacheSettings Cache { get; set; } = new LocalizationCacheSettings();
 	}
 }
