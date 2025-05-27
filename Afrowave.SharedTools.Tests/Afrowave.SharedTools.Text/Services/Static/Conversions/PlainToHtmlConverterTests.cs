@@ -1,6 +1,6 @@
 ﻿using Afrowave.SharedTools.Text.Static.Conversions;
 
-namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.Static.Conversions
+namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.Services.Static.Conversions
 {
 	public class PlainToHtmlConverterTests
 	{

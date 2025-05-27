@@ -34,6 +34,18 @@ namespace Afrowave.SharedTools.Localization.Services.Static
 		}
 
 		/// <summary>
+		/// Resets all static state – for test use (cache, path).
+		/// </summary>
+		public static void ResetStaticState()
+		{
+			lock(_lock)
+			{
+				_settings = null;
+				_settingsPath = PathHelper.ResolveJsonsFile("localization_settings.json");
+			}
+		}
+
+		/// <summary>
 		/// Gets a deep clone of the current settings, always up to date.
 		/// If the settings file is missing, creates it with defaults.
 		/// </summary>
@@ -49,8 +61,11 @@ namespace Afrowave.SharedTools.Localization.Services.Static
 		public static async Task UpdateAsync(Func<LocalizationSettings, Task> update)
 		{
 			await EnsureLoadedAsync();
-			lock(_lock) { }
-			await update(_settings!);
+			lock(_lock)
+			{
+				var task = update(_settings!);
+				task.GetAwaiter().GetResult();
+			}
 			await SaveAsync();
 		}
 
@@ -69,38 +84,55 @@ namespace Afrowave.SharedTools.Localization.Services.Static
 		/// <summary>
 		/// Returns the actual full path to the settings file for diagnostics/UI.
 		/// </summary>
-		public static string SettingsPath => _settingsPath;
+		public static string SettingsPath
+		{
+			get
+			{
+				lock(_lock) { return _settingsPath; }
+			}
+		}
 
 		private static async Task EnsureLoadedAsync()
 		{
-			if(_settings == null)
+			bool needToSave = false;
+			lock(_lock)
 			{
-				// Ensure Jsons folder exists
-				var dir = Path.GetDirectoryName(_settingsPath) ?? "";
-				if(!Directory.Exists(dir))
-					Directory.CreateDirectory(dir);
+				if(_settings == null)
+				{
+					var dir = Path.GetDirectoryName(_settingsPath) ?? "";
+					if(!Directory.Exists(dir))
+						Directory.CreateDirectory(dir);
 
-				if(File.Exists(_settingsPath))
-				{
-					var json = await File.ReadAllTextAsync(_settingsPath);
-					_settings = JsonSerializer.Deserialize<LocalizationSettings>(json)
-									?? new LocalizationSettings();
-				}
-				else
-				{
-					_settings = new LocalizationSettings();
-					await SaveAsync(); // Auto-create settings file if not found
+					if(File.Exists(_settingsPath))
+					{
+						var json = File.ReadAllText(_settingsPath);
+						_settings = JsonSerializer.Deserialize<LocalizationSettings>(json)
+										?? new LocalizationSettings();
+					}
+					else
+					{
+						_settings = new LocalizationSettings();
+						needToSave = true;
+					}
 				}
 			}
+			if(needToSave)
+				await SaveAsync();
 		}
 
 		private static async Task SaveAsync()
 		{
-			var json = JsonSerializer.Serialize(_settings, new JsonSerializerOptions { WriteIndented = true });
-			var dir = Path.GetDirectoryName(_settingsPath) ?? "";
+			string json;
+			string path;
+			lock(_lock)
+			{
+				json = JsonSerializer.Serialize(_settings, new JsonSerializerOptions { WriteIndented = true });
+				path = _settingsPath;
+			}
+			var dir = Path.GetDirectoryName(path) ?? "";
 			if(!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
-			await File.WriteAllTextAsync(_settingsPath, json);
+			await File.WriteAllTextAsync(path, json);
 		}
 
 		private static LocalizationSettings Clone(LocalizationSettings src)

@@ -1,18 +1,16 @@
-﻿using Afrowave.SharedTools.Text.DI.Conversions;
+﻿using Afrowave.SharedTools.Text.Static.Conversions;
 using System.Text.RegularExpressions;
 
-namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
+namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.Services.Static.Conversions
 {
-	public class MarkdownToHtmlConverterServiceTests
+	public class MarkdownToHtmlConverterTests
 	{
-		private readonly MarkdownToHtmlConverterService _service = new MarkdownToHtmlConverterService();
-
 		[Theory]
 		[InlineData("```csharp\nvar a = 5;\n```", "<pre><code data-lang=\"csharp\">var a = 5;</code></pre>")]
 		[InlineData("```\nplain code\n```", "<pre><code>plain code</code></pre>")]
 		public void Converts_CodeBlocks(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -20,7 +18,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("Text with `inline code` in it.", "<p>Text with <code>inline code</code> in it.</p>")]
 		public void Converts_InlineCode(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -29,7 +27,8 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("> level 1\n> > level 2", "<blockquote><p>level 1</p><blockquote><p>level 2</p></blockquote></blockquote>")]
 		public void Converts_Blockquotes(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
+			// Remove newlines for comparison robustness
 			Assert.Equal(expected.Replace("\n", ""), html.Replace("\n", ""));
 		}
 
@@ -38,7 +37,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("___", "<hr />")]
 		public void Converts_HorizontalRule(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -47,7 +46,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("## Heading 2", "<h2>Heading 2</h2>")]
 		public void Converts_Headings(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -56,7 +55,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("- [x] Done Task", "<ul>\n<li><input type=\"checkbox\" checked disabled /> Done Task</li>\n</ul>")]
 		public void Converts_TaskList(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected.Replace("\r", ""), html.Replace("\r", ""));
 		}
 
@@ -65,7 +64,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("__bold__ and _italic_", "<strong>bold</strong> and <em>italic</em>")]
 		public void Converts_BoldAndItalic(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -73,7 +72,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("^sup^ and ~sub~", "<sup>sup</sup> and <sub>sub</sub>")]
 		public void Converts_SupAndSub(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -82,7 +81,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		[InlineData("![alt](img.jpg)", "<img alt=\"alt\" src=\"img.jpg\" />")]
 		public void Converts_LinksAndImages(string md, string expected)
 		{
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected, html);
 		}
 
@@ -91,7 +90,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		{
 			var md = "1. First\n2. Second\n3. Third";
 			var expected = "<ol>\n<li>First</li>\n<li>Second</li>\n<li>Third</li>\n</ol>";
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected.Replace("\r", ""), html.Replace("\r", ""));
 		}
 
@@ -100,7 +99,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		{
 			var md = "- Apple\n- Banana\n- Cherry";
 			var expected = "<ul>\n<li>Apple</li>\n<li>Banana</li>\n<li>Cherry</li>\n</ul>";
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected.Replace("\r", ""), html.Replace("\r", ""));
 		}
 
@@ -115,7 +114,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 <tr><td>Anna</td><td>9</td></tr>
 </table>
 ";
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 			Assert.Equal(expected.Replace("\r", "").Replace("\n", ""), html.Replace("\r", "").Replace("\n", ""));
 		}
 
@@ -123,8 +122,10 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		public void Converts_EscapedMarkdown()
 		{
 			var md = @"\*\*not bold\*\* \_not italic\_";
-			var html = _service.Convert(md, "", true);
-			Assert.True(html.Contains(@"\*"));
+			var html = MarkdownToHtmlConverter.Convert(md, "", true);
+			Console.WriteLine("HTML výstup: " + html);
+			foreach(var c in html) Console.Write((int)c + " "); // Zobrazí ASCII kódy
+			Assert.True(html.Contains(@"\*")); // True pokud je alespoň jeden backslash a hvězdička
 		}
 
 		[Fact]
@@ -132,8 +133,9 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		{
 			var md = "<div>Custom HTML</div>\n\nParagraph text";
 			var expected = "<div>Custom HTML</div>\n<p>Paragraph text</p>";
-			var html = _service.Convert(md);
+			var html = MarkdownToHtmlConverter.Convert(md);
 
+			// Normalize newlines (any sequence of \n or \r to a single \n)
 			string normalize(string s) => Regex.Replace(s, @"[\r\n]+", "\n").Trim();
 			Assert.Equal(normalize(expected), normalize(html));
 		}
@@ -142,9 +144,9 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 		public void Converts_Footnotes()
 		{
 			var md = "Some text with a footnote.[^1]\n\n[^1]: Footnote text here";
-			var html = _service.Convert(md);
-			Assert.Contains("footnote-1", html);
-			Assert.Contains("Footnote text here", html);
+			var html = MarkdownToHtmlConverter.Convert(md);
+			Assert.Contains("footnote-1", html); // Footnote anchor generated
+			Assert.Contains("Footnote text here", html); // Footnote body present
 		}
 
 		[Theory]
@@ -158,8 +160,9 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 			using(var reader = new StringReader(md))
 			using(var writer = new StringWriter())
 			{
-				await _service.ConvertStreamAsync(reader, writer);
+				await MarkdownToHtmlConverter.ConvertStreamAsync(reader, writer);
 				var output = writer.ToString();
+				// Odstraň \r kvůli Windows/Linux rozdílu v testu
 				Assert.Contains(expectedHtml.Replace("\r", ""), output.Replace("\r", ""));
 			}
 		}
@@ -172,7 +175,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 			using(var reader = new StringReader(md))
 			using(var writer = new StringWriter())
 			{
-				await _service.ConvertStreamAsync(reader, writer, "", true);
+				await MarkdownToHtmlConverter.ConvertStreamAsync(reader, writer, "", true);
 				var output = writer.ToString();
 				Assert.Equal(expected, output);
 			}
@@ -186,7 +189,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 			using(var reader = new StringReader(md))
 			using(var writer = new StringWriter())
 			{
-				await _service.ConvertStreamAsync(reader, writer, "test-class");
+				await MarkdownToHtmlConverter.ConvertStreamAsync(reader, writer, "test-class");
 				var output = writer.ToString();
 				Assert.Contains(expected, output);
 			}
@@ -199,7 +202,7 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 			using(var reader = new StringReader(md))
 			using(var writer = new StringWriter())
 			{
-				await _service.ConvertStreamAsync(reader, writer);
+				await MarkdownToHtmlConverter.ConvertStreamAsync(reader, writer);
 				var output = writer.ToString();
 				Assert.Contains("footnote-1", output);
 				Assert.Contains("This is a footnote", output);
@@ -214,8 +217,9 @@ namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
 			using(var reader = new StringReader(md))
 			using(var writer = new StringWriter())
 			{
-				await _service.ConvertStreamAsync(reader, writer);
+				await MarkdownToHtmlConverter.ConvertStreamAsync(reader, writer);
 				var output = writer.ToString();
+				// Normalizace výstupu pro porovnání
 				string norm(string s) => s.Replace("\r", "").Replace("\n", "").Replace(" ", "");
 				Assert.Contains(norm("<table><tr><th>Name</th><th>Age</th></tr>"), norm(output));
 				Assert.Contains(norm("<tr><td>Tom</td><td>10</td></tr>"), norm(output));

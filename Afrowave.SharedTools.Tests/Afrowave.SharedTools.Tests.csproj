@@ -19,9 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Afrowave.SharedTools.Localization\Helpers\" />
-		<Folder Include="Afrowave.SharedTools.Localization\Services\Di\" />
-		<Folder Include="Afrowave.SharedTools.Localization\Services\Static\" />
 		<Folder Include="Afrowave.SharedTools.Models\Results\" />
 	</ItemGroup>
 
@@ -33,6 +30,7 @@
 		<ProjectReference Include="..\Afrowave.SharedTools.Helpers\Afrowave.SharedTools.Helpers.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Json\Afrowave.SharedTools.Json.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Mock\Afrowave.SharedTools.Localization.Backend.Mock.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Terminal\Afrowave.SharedTools.Terminal.csproj" />

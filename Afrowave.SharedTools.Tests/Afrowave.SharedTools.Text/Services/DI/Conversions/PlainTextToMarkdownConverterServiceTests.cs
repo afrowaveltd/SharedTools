@@ -1,6 +1,6 @@
 ﻿using Afrowave.SharedTools.Text.DI.Conversions;
 
-namespace Afrowave.SharedTools.Text.Tests.DI.Conversions
+namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.Services.DI.Conversions
 {
 	public class PlainTextToMarkdownConverterServiceTests
 	{

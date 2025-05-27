@@ -30,12 +30,21 @@ namespace Afrowave.SharedTools.Localization.Services.Di
 			// Load is always async, user must call one of the async methods
 		}
 
+		/// <summary>
+		/// Retrieves the current localization settings asynchronously.
+		/// </summary>
+		/// <returns>The current localization settings.</returns>
 		public async Task<LocalizationSettings> GetSettingsAsync()
 		{
 			await EnsureLoadedAsync();
 			lock(_lock) { return Clone(_settings!); }
 		}
 
+		/// <summary>
+		/// Retrieves the current localization settings asynchronously.
+		/// </summary>
+		/// <param name="update">The update function to modify the localization settings.</param>
+		/// <returns>The task representing the asynchronous update operation.</returns>
 		public async Task UpdateAsync(Func<LocalizationSettings, Task> update)
 		{
 			await EnsureLoadedAsync();
@@ -43,6 +52,10 @@ namespace Afrowave.SharedTools.Localization.Services.Di
 			await SaveAsync();
 		}
 
+		/// <summary>
+		/// Resets the localization settings to their default values asynchronously.
+		/// </summary>
+		/// <returns>The task representing the asynchronous reset operation.</returns>
 		public async Task ResetToDefaultAsync()
 		{
 			lock(_lock) { _settings = new LocalizationSettings(); }

@@ -56,6 +56,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Locali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Frontend.SpectreConsole", "Afrowave.SharedTools.Localization.Frontend.SpectreConsole\Afrowave.SharedTools.Localization.Frontend.SpectreConsole.csproj", "{CE71F693-6D90-4312-9069-F391BA6138BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Backend.Mock", "Afrowave.SharedTools.Localization.Backend.Mock\Afrowave.SharedTools.Localization.Backend.Mock.csproj", "{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{62C2F264-1D02-43C5-BA6F-82C9B703FFA0} = {62C2F264-1D02-43C5-BA6F-82C9B703FFA0}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,6 +147,10 @@ Global
 		{CE71F693-6D90-4312-9069-F391BA6138BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE71F693-6D90-4312-9069-F391BA6138BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE71F693-6D90-4312-9069-F391BA6138BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +177,7 @@ Global
 		{C13BCDEA-0A16-4C7A-BC42-5F236B9621E2} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{AEFA9B9D-ACB2-4FCE-AD28-0326F33BE230} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{CE71F693-6D90-4312-9069-F391BA6138BE} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
+		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A1E5EFA-9EB7-40F9-A9FD-4999E1F1EE25}

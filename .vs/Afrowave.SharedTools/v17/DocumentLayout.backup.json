@@ -3,72 +3,76 @@
   "WorkspaceRootPath": "D:\\repos\\Afrowave.SharedTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.models\\results\\responsetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.models\\results\\responsetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.localization.backend\\mocklocalizationbackendtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.localization.backend\\mocklocalizationbackendtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.text\\static\\texthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|solutionrelative:afrowave.sharedtools.text\\static\\texthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\helpers\\localizationbackendhelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\helpers\\localizationbackendhelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.text\\di\\texthelperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|solutionrelative:afrowave.sharedtools.text\\di\\texthelperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}|Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization.backend.mock\\mocklocalizationbackend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}|Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj|solutionrelative:afrowave.sharedtools.localization.backend.mock\\mocklocalizationbackend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.models\\results\\resulttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.models\\results\\resulttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}|Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization.backend.mock\\afrowave.sharedtools.localization.backend.mock.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}|Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj|solutionrelative:afrowave.sharedtools.localization.backend.mock\\afrowave.sharedtools.localization.backend.mock.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\globalsuppressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\globalsuppressions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.text\\services\\chained\\chainedlocalizationbackendtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.text\\services\\chained\\chainedlocalizationbackendtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.text\\static\\texthelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.text\\static\\texthelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\services\\chained\\chainedlocalizationbackend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\services\\chained\\chainedlocalizationbackend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.text\\static\\conversions\\plaintohtmlconvertertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.text\\static\\conversions\\plaintohtmlconvertertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\helpers\\localizationbackendhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\helpers\\localizationbackendhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.text\\di\\texthelperservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.text\\di\\texthelperservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\interfaces\\ilocalizationbackend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\interfaces\\ilocalizationbackend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.models\\localization\\localizationbackendcapabilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|solutionrelative:afrowave.sharedtools.models\\localization\\localizationbackendcapabilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.text\\static\\conversions\\plaintohtmlconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|solutionrelative:afrowave.sharedtools.text\\static\\conversions\\plaintohtmlconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.text\\services\\static\\conversions\\htmltoplaintextconvertertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.text\\services\\static\\conversions\\htmltoplaintextconvertertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.text\\di\\itexthelperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A645CE4-1BC5-4135-9FA0-AA6D1A13953E}|Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj|solutionrelative:afrowave.sharedtools.text\\di\\itexthelperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\services\\static\\localizationsettingsstatictests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\services\\static\\localizationsettingsstatictests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73E6DEBC-5D85-E032-7380-14D1E53616C6}|Polo\u017Eky \u0159e\u0161en\u00ED{73E6DEBC-5D85-E032-7380-14D1E53616C6}|D:\\repos\\Afrowave.SharedTools\\Modules.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{73E6DEBC-5D85-E032-7380-14D1E53616C6}|Polo\u017Eky \u0159e\u0161en\u00ED{73E6DEBC-5D85-E032-7380-14D1E53616C6}|solutionrelative:Modules.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\services\\static\\localizationsettingsstatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\services\\static\\localizationsettingsstatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.models\\readme\\en.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|solutionrelative:afrowave.sharedtools.models\\readme\\en.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\services\\di\\localizationsettingsservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\services\\di\\localizationsettingsservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B482C93-D090-44E3-8AD8-6C700F353BAA}|Afrowave.SharedTools.Time\\Afrowave.SharedTools.Time.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.time\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B482C93-D090-44E3-8AD8-6C700F353BAA}|Afrowave.SharedTools.Time\\Afrowave.SharedTools.Time.csproj|solutionrelative:afrowave.sharedtools.time\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\afrowave.sharedtools.localization.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\afrowave.sharedtools.localization.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.models\\results\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|solutionrelative:afrowave.sharedtools.models\\results\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.text\\services\\di\\conversions\\htmltoplaintextconverterservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.text\\services\\di\\conversions\\htmltoplaintextconverterservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.models\\afrowave.sharedtools.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|solutionrelative:afrowave.sharedtools.models\\afrowave.sharedtools.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\helpers\\pathhelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C99DCF4-14CD-435C-88DB-9A64170DD614}|Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj|solutionrelative:afrowave.sharedtools.tests\\afrowave.sharedtools.localization\\helpers\\pathhelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.models\\results\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|solutionrelative:afrowave.sharedtools.models\\results\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\services\\di\\localizationsettingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\services\\di\\localizationsettingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\repos\\afrowave.sharedtools\\afrowave.sharedtools.localization\\services\\di\\ilocalizationsettingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\services\\di\\ilocalizationsettingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -77,9 +81,87 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 286,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 328,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Afrowave.SharedTools.Localization.Backend.Mock",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization.Backend.Mock\\Afrowave.SharedTools.Localization.Backend.Mock.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-27T12:38:25.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MockLocalizationBackend.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization.Backend.Mock\\MockLocalizationBackend.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Backend.Mock\\MockLocalizationBackend.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization.Backend.Mock\\MockLocalizationBackend.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization.Backend.Mock\\MockLocalizationBackend.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:38:21.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChainedLocalizationBackendTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Chained\\ChainedLocalizationBackendTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Chained\\ChainedLocalizationBackendTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Chained\\ChainedLocalizationBackendTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Chained\\ChainedLocalizationBackendTests.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAuwGQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:28:22.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChainedLocalizationBackend.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Chained\\ChainedLocalizationBackend.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Chained\\ChainedLocalizationBackend.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Chained\\ChainedLocalizationBackend.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Services\\Chained\\ChainedLocalizationBackend.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAcwE0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:13:44.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HtmlToPlainTextConverterTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Static\\Conversions\\HtmlToPlainTextConverterTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Static\\Conversions\\HtmlToPlainTextConverterTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Static\\Conversions\\HtmlToPlainTextConverterTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\Static\\Conversions\\HtmlToPlainTextConverterTests.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAmwDMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T10:53:06.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LocalizationBackendCapabilities.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Localization\\LocalizationBackendCapabilities.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Localization\\LocalizationBackendCapabilities.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Localization\\LocalizationBackendCapabilities.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Models\\Localization\\LocalizationBackendCapabilities.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvzUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T09:30:48.495Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:1682933510:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
@@ -90,219 +172,164 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ResponseTests.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResponseTests.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResponseTests.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResponseTests.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResponseTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T11:04:47.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TextHelper.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\Static\\TextHelper.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\Static\\TextHelper.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\Static\\TextHelper.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Text\\Static\\TextHelper.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAIAwwBEAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T05:35:59.236Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TextHelperService.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\DI\\TextHelperService.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\DI\\TextHelperService.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\DI\\TextHelperService.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Text\\DI\\TextHelperService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIAwwA8AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T06:06:49.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GlobalSuppressions.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\GlobalSuppressions.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\GlobalSuppressions.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\GlobalSuppressions.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\GlobalSuppressions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T08:23:18.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PlainToHtmlConverterTests.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverterTests.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverterTests.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverterTests.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverterTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T07:47:41.656Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TextHelperServiceTests.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\DI\\TextHelperServiceTests.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\DI\\TextHelperServiceTests.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\DI\\TextHelperServiceTests.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\DI\\TextHelperServiceTests.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAMwDcAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T06:29:06.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TextHelperTests.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\TextHelperTests.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\TextHelperTests.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\TextHelperTests.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Static\\TextHelperTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T06:13:26.186Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResultTests.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResultTests.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResultTests.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResultTests.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Models\\Results\\ResultTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T11:05:04.489Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PlainToHtmlConverter.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverter.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverter.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverter.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Text\\Static\\Conversions\\PlainToHtmlConverter.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAqwGsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T07:20:51.025Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Afrowave.SharedTools.Tests.csproj",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj",
-              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Tests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-22T11:04:41.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ITextHelperService.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\DI\\ITextHelperService.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\DI\\ITextHelperService.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Text\\DI\\ITextHelperService.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Text\\DI\\ITextHelperService.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAgwC0AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T06:06:56.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Time\\Class1.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Time\\Class1.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Time\\Class1.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Time\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T11:18:54.835Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Result.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Results\\Result.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Results\\Result.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Results\\Result.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Models\\Results\\Result.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAgwA8AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T07:10:01.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Response.cs",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Results\\Response.cs",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Results\\Response.cs",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Results\\Response.cs",
-              "RelativeToolTip": "Afrowave.SharedTools.Models\\Results\\Response.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAADgv2cAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T07:09:45.63Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Modules.md",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Modules.md",
-              "RelativeDocumentMoniker": "Modules.md",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Modules.md",
-              "RelativeToolTip": "Modules.md",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-05-22T11:24:04.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Afrowave.SharedTools.Models.csproj",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj",
-              "RelativeToolTip": "Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-22T06:58:39.483Z"
+              "Title": "LocalizationSettingsStatic.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:04:28.684Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "en.md",
-              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Readme\\en.md",
-              "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Readme\\en.md",
-              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Models\\Readme\\en.md",
-              "RelativeToolTip": "Afrowave.SharedTools.Models\\Readme\\en.md",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAACsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-05-22T11:30:56.153Z"
+              "Title": "LocalizationSettingsServiceTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsServiceTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsServiceTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsServiceTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsServiceTests.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAgwFUAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:42:56.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HtmlToPlainTextConverterServiceTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\DI\\Conversions\\HtmlToPlainTextConverterServiceTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\DI\\Conversions\\HtmlToPlainTextConverterServiceTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\DI\\Conversions\\HtmlToPlainTextConverterServiceTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Text\\Services\\DI\\Conversions\\HtmlToPlainTextConverterServiceTests.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA6wDUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:33:44.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LocalizationSettingsStaticTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStaticTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStaticTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStaticTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStaticTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:31:34.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Afrowave.SharedTools.Localization.csproj",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-27T07:04:22.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PathHelperTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\PathHelperTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\PathHelperTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\PathHelperTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\PathHelperTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T05:50:12.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ILocalizationSettingsService.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Di\\ILocalizationSettingsService.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Di\\ILocalizationSettingsService.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Di\\ILocalizationSettingsService.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Services\\Di\\ILocalizationSettingsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T05:42:55.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LocalizationSettingsService.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsService.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsService.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsService.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAnwDkAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T05:40:15.2Z"
             }
           ]
         },
         {
-          "DockedWidth": 296,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 278,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MockLocalizationBackendTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization.Backend\\MockLocalizationBackendTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization.Backend\\MockLocalizationBackendTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization.Backend\\MockLocalizationBackendTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization.Backend\\MockLocalizationBackendTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:50:15.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LocalizationBackendHelper.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelper.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelper.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelper.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T10:45:58.532Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocalizationBackendHelperTests.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelperTests.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelperTests.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelperTests.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Tests\\Afrowave.SharedTools.Localization\\Helpers\\LocalizationBackendHelperTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T10:48:34.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ILocalizationBackend.cs",
+              "DocumentMoniker": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Interfaces\\ILocalizationBackend.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Interfaces\\ILocalizationBackend.cs",
+              "ToolTip": "D:\\repos\\Afrowave.SharedTools\\Afrowave.SharedTools.Localization\\Interfaces\\ILocalizationBackend.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Interfaces\\ILocalizationBackend.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAswB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T11:25:10.968Z",
+              "EditorCaption": ""
             }
           ]
         },
