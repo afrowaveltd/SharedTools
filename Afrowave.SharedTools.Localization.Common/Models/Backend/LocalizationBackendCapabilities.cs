@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Models.Localization
+﻿namespace Afrowave.SharedTools.Localization.Common.Models.Backend
 {
 	/// <summary>
 	/// Describes the capabilities and metadata of a localization backend.
@@ -54,5 +54,20 @@
 		/// Uses the key as the default value if no translation is found.
 		/// </summary>
 		public bool UsesKeyAsDefaultValue { get; set; } = false;
+
+		/// <summary>
+		/// Indicates whether this backend implementation includes its own internal caching mechanism.
+		/// </summary>
+		public bool HasInternalCache { get; set; } = false;
+
+		/// <summary>
+		/// Indicates whether this backend is able to detect external data changes (e.g., file watcher, SQL triggers).
+		/// </summary>
+		public bool CanDetectExternalChanges { get; set; } = false;
+
+		/// <summary>
+		/// Indicates whether this backend supports clearing or reloading its internal cache manually.
+		/// </summary>
+		public bool SupportsManualCacheClear { get; set; } = false;
 	}
 }

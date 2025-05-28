@@ -1,5 +1,5 @@
-﻿using Afrowave.SharedTools.Localization.Services.Di;
-using Afrowave.SharedTools.Models.Enums;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Enums;
+using Afrowave.SharedTools.Localization.Services.Di;
 
 namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Localization.Services.Di
 {

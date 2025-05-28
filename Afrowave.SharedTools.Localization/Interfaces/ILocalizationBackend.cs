@@ -1,4 +1,5 @@
-﻿using Afrowave.SharedTools.Models.Localization;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
+
 using Afrowave.SharedTools.Models.Results;
 using System.Collections.Generic;
 using System.Threading.Tasks;

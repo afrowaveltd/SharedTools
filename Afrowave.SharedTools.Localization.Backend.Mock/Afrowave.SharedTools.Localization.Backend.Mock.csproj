@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Afrowave.SharedTools.Localization.Common\Afrowave.SharedTools.Localization.Common.csproj" />
     <ProjectReference Include="..\Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.csproj" />
   </ItemGroup>
 

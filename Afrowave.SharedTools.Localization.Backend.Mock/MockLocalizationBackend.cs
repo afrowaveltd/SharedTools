@@ -1,5 +1,5 @@
-﻿using Afrowave.SharedTools.Localization.Interfaces;
-using Afrowave.SharedTools.Models.Localization;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
+using Afrowave.SharedTools.Localization.Interfaces;
 using Afrowave.SharedTools.Models.Results;
 using System;
 using System.Collections.Generic;

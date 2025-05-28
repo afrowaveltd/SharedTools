@@ -1,6 +1,6 @@
-﻿using Afrowave.SharedTools.Localization.Interfaces;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
+using Afrowave.SharedTools.Localization.Interfaces;
 using Afrowave.SharedTools.Localization.Services.Chained;
-using Afrowave.SharedTools.Models.Localization;
 using Afrowave.SharedTools.Models.Results;
 
 namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.Services.Chained

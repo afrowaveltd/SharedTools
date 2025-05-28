@@ -1,4 +1,4 @@
-﻿using Afrowave.SharedTools.Models.Localization;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
 using System;
 using System.IO;
 using System.Text.Json;
