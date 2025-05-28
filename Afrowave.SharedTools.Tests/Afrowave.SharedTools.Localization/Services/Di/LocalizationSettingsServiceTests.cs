@@ -1,4 +1,5 @@
-﻿using Afrowave.SharedTools.Localization.Services.Di;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Enums;
+using Afrowave.SharedTools.Localization.Services.Di;
 
 namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Localization.Services.Di
 {
@@ -50,33 +51,31 @@ namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Localization.Services.
 			if(!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
 
-			ILocalizationSettingsService service = new LocalizationSettingsService(testPath);
+			LocalizationSettingsService localizationSettingsService = new(testPath);
+			ILocalizationSettingsService service = localizationSettingsService;
 
 			// Nastav složitější nastavení
 			await service.UpdateAsync(async s =>
 			{
 				s.DefaultLanguage = "es";
 				s.FallbackLanguage = "en";
-				s.SupportedLanguages = new[] { "en", "es", "cs" };
-				s.IgnoreLanguages = new[] { "xx", "xy" };
-				s.LocaleDetectionOrder = new[] { "query", "header" };
+				s.SupportedLanguages = ["en", "es", "cs"];
+				s.LocaleDetectionOrder = [LocaleDetectionMethod.QueryParameter, LocaleDetectionMethod.Cookie];
 				s.AutoTranslateMissing = true;
-				s.LocalesFolderPath = "CustomLocales";
 				s.DebugMode = true;
 				await Task.CompletedTask;
 			});
 
 			// Nový servis musí umět načíst uložené hodnoty
-			ILocalizationSettingsService service2 = new LocalizationSettingsService(testPath);
+			LocalizationSettingsService localizationSettingsService1 = new(testPath);
+			ILocalizationSettingsService service2 = localizationSettingsService1;
 			var settings = await service2.GetSettingsAsync();
 
 			Assert.Equal("es", settings.DefaultLanguage);
 			Assert.Equal("en", settings.FallbackLanguage);
 			Assert.Contains("cs", settings.SupportedLanguages);
-			Assert.Contains("xy", settings.IgnoreLanguages);
-			Assert.Equal(new[] { "query", "header" }, settings.LocaleDetectionOrder);
+			Assert.Equal(new[] { LocaleDetectionMethod.QueryParameter, LocaleDetectionMethod.Cookie }, settings.LocaleDetectionOrder);
 			Assert.True(settings.AutoTranslateMissing);
-			Assert.Equal("CustomLocales", settings.LocalesFolderPath);
 			Assert.True(settings.DebugMode);
 
 			// Úklid

@@ -30,7 +30,13 @@
 		<ProjectReference Include="..\Afrowave.SharedTools.Helpers\Afrowave.SharedTools.Helpers.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Json\Afrowave.SharedTools.Json.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Api\Afrowave.SharedTools.Localization.Backend.Api.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Folder\Afrowave.SharedTools.Localization.Backend.Folder.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Memory\Afrowave.SharedTools.Localization.Backend.Memory.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Mock\Afrowave.SharedTools.Localization.Backend.Mock.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Common\Afrowave.SharedTools.Localization.Common.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Frontend.SpectreConsole\Afrowave.SharedTools.Localization.Frontend.SpectreConsole.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Translation.LibreTranslate\Afrowave.SharedTools.Localization.Translation.LibreTranslate.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Terminal\Afrowave.SharedTools.Terminal.csproj" />

@@ -1,5 +1,5 @@
-﻿using Afrowave.SharedTools.Localization.Helpers;
-using Afrowave.SharedTools.Models.Localization;
+﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
+using Afrowave.SharedTools.Localization.Helpers;
 using System.Text.Json;
 
 namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Localization.Helpers

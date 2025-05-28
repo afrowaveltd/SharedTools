@@ -17,6 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Afrowave.SharedTools.Localization.Common\Afrowave.SharedTools.Localization.Common.csproj" />
 	  <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
 	</ItemGroup>
 
