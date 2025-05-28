@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\C#\\SharedTools\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\c#\\sharedtools\\afrowave.sharedtools.localization\\models\\localizationcachesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\models\\localizationcachesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\c#\\sharedtools\\afrowave.sharedtools.localization\\models\\localizationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\models\\localizationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|d:\\c#\\sharedtools\\afrowave.sharedtools.models\\enums\\localedetectionmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07EF8374-0A48-4919-A09B-6E219E0D01B3}|Afrowave.SharedTools.Models\\Afrowave.SharedTools.Models.csproj|solutionrelative:afrowave.sharedtools.models\\enums\\localedetectionmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\c#\\sharedtools\\afrowave.sharedtools.localization\\services\\static\\localizationsettingsstatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\services\\static\\localizationsettingsstatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -24,10 +36,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SharedTools\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|d:\\c#\\sharedtools\\afrowave.sharedtools.localization\\models\\localizationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}|Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj|solutionrelative:afrowave.sharedtools.localization\\models\\localizationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{65581454-9B7B-45D4-93FF-87F727E5B50D}|Afrowave.SharedTools.Validation\\Afrowave.SharedTools.Validation.csproj|d:\\c#\\sharedtools\\afrowave.sharedtools.validation\\afrowave.sharedtools.validation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -113,7 +121,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 291,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -132,12 +140,34 @@
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LocalizationCacheSettings.cs",
+              "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Models\\LocalizationCacheSettings.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Models\\LocalizationCacheSettings.cs",
+              "ToolTip": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Models\\LocalizationCacheSettings.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Localization\\Models\\LocalizationCacheSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T19:39:22.381Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "LocaleDetectionMethod.cs",
+              "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Models\\Enums\\LocaleDetectionMethod.cs",
+              "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Enums\\LocaleDetectionMethod.cs",
+              "ToolTip": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Models\\Enums\\LocaleDetectionMethod.cs",
+              "RelativeToolTip": "Afrowave.SharedTools.Models\\Enums\\LocaleDetectionMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T19:24:07.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "LocalizationSettingsService.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsService.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Di\\LocalizationSettingsService.cs",
@@ -149,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ILocalizationSettingsService.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Services\\Di\\ILocalizationSettingsService.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Di\\ILocalizationSettingsService.cs",
@@ -161,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "LocalizationSettingsStatic.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
@@ -174,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "LocalizationSettingsStatic.cs",
               "DocumentMoniker": "D:\\SharedTools\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
               "RelativeDocumentMoniker": "..\\..\\SharedTools\\Afrowave.SharedTools.Localization\\Services\\Static\\LocalizationSettingsStatic.cs",
@@ -186,19 +216,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "LocalizationSettings.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Models\\LocalizationSettings.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Models\\LocalizationSettings.cs",
               "ToolTip": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Models\\LocalizationSettings.cs",
               "RelativeToolTip": "Afrowave.SharedTools.Localization\\Models\\LocalizationSettings.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAmwDIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAiwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T19:13:28.98Z"
+              "WhenOpened": "2025-05-26T19:13:28.98Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Afrowave.SharedTools.Validation.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Validation\\Afrowave.SharedTools.Validation.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Validation\\Afrowave.SharedTools.Validation.csproj",
@@ -210,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Afrowave.SharedTools.Time.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Time\\Afrowave.SharedTools.Time.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Time\\Afrowave.SharedTools.Time.csproj",
@@ -222,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Afrowave.SharedTools.Localization.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Afrowave.SharedTools.Localization.csproj",
@@ -234,11 +265,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "PathHelper.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization\\Helpers\\PathHelper.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization\\Helpers\\PathHelper.cs",
@@ -250,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Afrowave.SharedTools.Text.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\Afrowave.SharedTools.Text.csproj",
@@ -262,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Afrowave.SharedTools.Localization.Frontend.SpectreConsole.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization.Frontend.SpectreConsole\\Afrowave.SharedTools.Localization.Frontend.SpectreConsole.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Frontend.SpectreConsole\\Afrowave.SharedTools.Localization.Frontend.SpectreConsole.csproj",
@@ -274,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Afrowave.SharedTools.Terminal.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Terminal\\Afrowave.SharedTools.Terminal.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Terminal\\Afrowave.SharedTools.Terminal.csproj",
@@ -286,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Afrowave.SharedTools.Localization.Translation.LibreTranslate.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization.Translation.LibreTranslate\\Afrowave.SharedTools.Localization.Translation.LibreTranslate.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Translation.LibreTranslate\\Afrowave.SharedTools.Localization.Translation.LibreTranslate.csproj",
@@ -298,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Afrowave.SharedTools.Abstractions.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Abstractions\\Afrowave.SharedTools.Abstractions.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Abstractions\\Afrowave.SharedTools.Abstractions.csproj",
@@ -310,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Afrowave.SharedTools.Json.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Json\\Afrowave.SharedTools.Json.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Json\\Afrowave.SharedTools.Json.csproj",
@@ -322,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Afrowave.SharedTools.IO.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.IO\\Afrowave.SharedTools.IO.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.IO\\Afrowave.SharedTools.IO.csproj",
@@ -334,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Afrowave.SharedTools.Helpers.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Helpers\\Afrowave.SharedTools.Helpers.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Helpers\\Afrowave.SharedTools.Helpers.csproj",
@@ -346,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Afrowave.SharedTools.EF.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.EF\\Afrowave.SharedTools.EF.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.EF\\Afrowave.SharedTools.EF.csproj",
@@ -358,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Afrowave.SharedTools.Api.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Api\\Afrowave.SharedTools.Api.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Api\\Afrowave.SharedTools.Api.csproj",
@@ -370,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Afrowave.SharedTools.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools\\Afrowave.SharedTools.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools\\Afrowave.SharedTools.csproj",
@@ -382,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Afrowave.SharedTools.Localization.Backend.Memory.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization.Backend.Memory\\Afrowave.SharedTools.Localization.Backend.Memory.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Backend.Memory\\Afrowave.SharedTools.Localization.Backend.Memory.csproj",
@@ -394,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Afrowave.SharedTools.Localization.Backend.Folder.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization.Backend.Folder\\Afrowave.SharedTools.Localization.Backend.Folder.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Backend.Folder\\Afrowave.SharedTools.Localization.Backend.Folder.csproj",
@@ -406,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "Afrowave.SharedTools.Localization.Backend.Api.csproj",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Localization.Backend.Api\\Afrowave.SharedTools.Localization.Backend.Api.csproj",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Localization.Backend.Api\\Afrowave.SharedTools.Localization.Backend.Api.csproj",
@@ -418,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "MenuItem.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Models\\Ui\\MenuItem.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Models\\Ui\\MenuItem.cs",
@@ -430,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "PlainTextToMarkdownConverterService.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Text\\DI\\Conversions\\PlainTextToMarkdownConverterService.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\DI\\Conversions\\PlainTextToMarkdownConverterService.cs",
@@ -442,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "PlainTextToMarkdownConverter.cs",
               "DocumentMoniker": "D:\\C#\\SharedTools\\Afrowave.SharedTools.Text\\Static\\Conversions\\PlainTextToMarkdownConverter.cs",
               "RelativeDocumentMoniker": "Afrowave.SharedTools.Text\\Static\\Conversions\\PlainTextToMarkdownConverter.cs",
@@ -451,6 +482,10 @@
               "ViewState": "AgIAAAcAAAAAAAAAAAAwwCcAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-25T20:51:27.908Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }

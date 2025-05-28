@@ -1,85 +1,68 @@
-## Ignore Visual Studio temporary files, build results, and
-## user-specific files
+# ---------------------------
+# Visual Studio
+# ---------------------------
+.vs/
+.vs/**
 
-# Build results
+# Visual Studio Code
+.vscode/
+.vscode/**
+
+# Rider
+.idea/
+.idea/**
+
+# Build output
+bin/
+obj/
 [Bb]in/
 [Oo]bj/
+Debug/
+Release/
 
-# User-specific files
+# User files
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
+*.sln.iml
+*.local.json
 
-# Visual Studio Code settings
-.vscode/
-
-# Visual Studio settings
-.vs/
-.vs/*
-
-# Rider settings
-.idea/
-
-# Backup & crash files
+# Backups, logs, crash
 *.bak
 *.tmp
 *.log
-*.vspscc
-*.vssscc
+*.dmp
 
-# NuGet packages
+# NuGet
 *.nupkg
 *.snupkg
-packages/
 *.nuspec
+packages/
+artifacts/
 
-# Project-specific
+# dotnet tools
+.dotnet_tool/
+
+# ReSharper
+_ReSharper*/
+*.ReSharper
+
+# Test results
+TestResults/
+
+# Databases
 *.db
 *.db-shm
 *.db-wal
 *.sqlite
 *.sqlite3
 
-# Auto-generated folders
-TestResults/
-Debug/
-Release/
-
-# Dotnet tools
-.dotnet_tool/
-
-# Dotnet restore artifacts
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# JetBrains Rider
-*.sln.iml
-
-# Local settings
-*.local.json
-
-# Logs and crash dumps
-*.log
-*.dmp
-
-# Windows image thumbnails
-Thumbs.db
-
-# macOS files
-.DS_Store
-
-# Linux
-*~
-
-# ReSharper
-_ReSharper*/
-*.ReSharper
-
-# Rider caches
-.idea/
-
-# JSON translation backups
+# Translation backups
 Old/
 old.json
+
+# System files
+Thumbs.db
+.DS_Store
+*~
