@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Termin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.IO", "Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj", "{05307371-173D-44E4-932F-8653E54B28F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization", "Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.csproj", "{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Core", "Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.Core.csproj", "{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Abstractions", "Afrowave.SharedTools.Abstractions\Afrowave.SharedTools.Abstractions.csproj", "{858D51EB-1603-42A7-BD3C-E6AF170EC11A}"
 EndProject
