@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Afrowave.SharedTools.Localization.Common.Models.Communication
+namespace Afrowave.SharedTools.Localization.Common.Communication
 {
 	public class PluginEvent
 	{

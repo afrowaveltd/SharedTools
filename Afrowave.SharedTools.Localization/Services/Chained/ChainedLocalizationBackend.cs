@@ -1,4 +1,4 @@
-﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
+﻿using Afrowave.SharedTools.Localization.Common.Communication;
 using Afrowave.SharedTools.Localization.Interfaces;
 using Afrowave.SharedTools.Models.Results;
 using System;
@@ -26,8 +26,8 @@ namespace Afrowave.SharedTools.Localization.Services.Chained
 		/// <summary>
 		/// Gets the capabilities and metadata of the backend, aggregated from the chain.
 		/// </summary>
-		public LocalizationBackendCapabilities Capabilities =>
-			 new LocalizationBackendCapabilities
+		public Capabilities Capabilities =>
+			 new Capabilities
 			 {
 				 BackendType = "Composite",
 				 Description = "Chains multiple localization backends with fallback logic",

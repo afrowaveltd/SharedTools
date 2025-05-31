@@ -34,7 +34,7 @@ namespace Afrowave.SharedTools.Localization.Models
 		/// <summary>
 		/// If true, resolved fallback translations (e.g., from AI translator) will be saved to the first writable backend.
 		/// </summary>
-		public bool AutoTranslateMissing { get; set; } = false;
+		public bool AutoTranslateAndSaveMissing { get; set; } = false;
 
 		/// <summary>
 		/// Enable debug mode for verbose logging (optional).

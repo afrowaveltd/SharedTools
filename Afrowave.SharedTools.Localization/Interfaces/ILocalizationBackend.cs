@@ -1,5 +1,4 @@
-﻿using Afrowave.SharedTools.Localization.Common.Models.Backend;
-
+﻿using Afrowave.SharedTools.Localization.Common.Communication;
 using Afrowave.SharedTools.Models.Results;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -19,7 +18,7 @@ namespace Afrowave.SharedTools.Localization.Interfaces
 		/// <summary>
 		/// Gets the capabilities and metadata of the backend.
 		/// </summary>
-		LocalizationBackendCapabilities Capabilities { get; }
+		Capabilities Capabilities { get; }
 
 		/// <summary>
 		/// Loads a localized value for a given language and key.

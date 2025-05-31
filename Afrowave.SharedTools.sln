@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Termin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.IO", "Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj", "{05307371-173D-44E4-932F-8653E54B28F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Core", "Afrowave.SharedTools.Localization\Afrowave.SharedTools.Localization.Core.csproj", "{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Abstractions", "Afrowave.SharedTools.Abstractions\Afrowave.SharedTools.Abstractions.csproj", "{858D51EB-1603-42A7-BD3C-E6AF170EC11A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Tests", "Afrowave.SharedTools.Tests\Afrowave.SharedTools.Tests.csproj", "{4C99DCF4-14CD-435C-88DB-9A64170DD614}"
@@ -57,11 +55,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Frontend.SpectreConsole", "Afrowave.SharedTools.Localization.Frontend.SpectreConsole\Afrowave.SharedTools.Localization.Frontend.SpectreConsole.csproj", "{CE71F693-6D90-4312-9069-F391BA6138BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Backend.Mock", "Afrowave.SharedTools.Localization.Backend.Mock\Afrowave.SharedTools.Localization.Backend.Mock.csproj", "{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{62C2F264-1D02-43C5-BA6F-82C9B703FFA0} = {62C2F264-1D02-43C5-BA6F-82C9B703FFA0}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Common", "Afrowave.SharedTools.Localization.Common\Afrowave.SharedTools.Localization.Common.csproj", "{4A4809DB-697F-425A-96FE-300543033F0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Dispatcher", "Afrowave.SharedTools.Localization.Dispatcher\Afrowave.SharedTools.Localization.Dispatcher.csproj", "{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,10 +86,6 @@ Global
 		{05307371-173D-44E4-932F-8653E54B28F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05307371-173D-44E4-932F-8653E54B28F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05307371-173D-44E4-932F-8653E54B28F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62C2F264-1D02-43C5-BA6F-82C9B703FFA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{858D51EB-1603-42A7-BD3C-E6AF170EC11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{858D51EB-1603-42A7-BD3C-E6AF170EC11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{858D51EB-1603-42A7-BD3C-E6AF170EC11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -157,6 +150,10 @@ Global
 		{4A4809DB-697F-425A-96FE-300543033F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A4809DB-697F-425A-96FE-300543033F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A4809DB-697F-425A-96FE-300543033F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +181,7 @@ Global
 		{CE71F693-6D90-4312-9069-F391BA6138BE} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{4A4809DB-697F-425A-96FE-300543033F0D} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
+		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A1E5EFA-9EB7-40F9-A9FD-4999E1F1EE25}
