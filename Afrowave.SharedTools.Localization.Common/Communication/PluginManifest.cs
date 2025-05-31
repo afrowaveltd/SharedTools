@@ -1,7 +1,10 @@
 ﻿namespace Afrowave.SharedTools.Localization.Communication
 {
 	using Afrowave.SharedTools.Localization.Common.Communication;
+	using Afrowave.SharedTools.Localization.Common.Models;
 	using Afrowave.SharedTools.Localization.Common.Models.Enums;
+	using Afrowave.SharedTools.Localization.Common.Options;
+	using System.Collections.Generic;
 
 	/// <summary>
 	/// Represents a plugin and its declared capabilities, metadata, and runtime status.
@@ -36,5 +39,15 @@
 		/// Optional extended data.
 		/// </summary>
 		public object Extra { get; set; } = new object();
+
+		/// <summary>
+		/// Default handshake configuration used if none is supplied explicitly.
+		/// </summary>
+		public Handshake DefaultHandshake { get; set; } = new Handshake();
+
+		/// <summary>
+		/// Plugin-specific configuration options.
+		/// </summary>
+		public Dictionary<string, PluginOptionSet> Options { get; set; } = new Dictionary<string, PluginOptionSet>();
 	}
 }

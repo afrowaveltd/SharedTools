@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Manifest\" />
+		<Folder Include="Readme\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.0-preview.4.25258.110" />
+		<PackageReference Include="System.Text.Json" Version="10.0.0-preview.4.25258.110" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Common\Afrowave.SharedTools.Localization.Common.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
+	</ItemGroup>
+
+</Project>

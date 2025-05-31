@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Locali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Dispatcher", "Afrowave.SharedTools.Localization.Dispatcher\Afrowave.SharedTools.Localization.Dispatcher.csproj", "{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.Plugin.Backend.JsonBackend", "Afrowave.SharedTools.Localization.Plugin.Backend.JsonBackend\Afrowave.SharedTools.Localization.Plugin.Backend.JsonBackend.csproj", "{CC55D69D-27EB-4B9D-9293-0F05EA6D27EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -154,6 +156,10 @@ Global
 		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC55D69D-27EB-4B9D-9293-0F05EA6D27EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC55D69D-27EB-4B9D-9293-0F05EA6D27EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC55D69D-27EB-4B9D-9293-0F05EA6D27EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC55D69D-27EB-4B9D-9293-0F05EA6D27EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,6 +188,7 @@ Global
 		{6538ED96-DC9C-4EDA-9B7C-DDA21ACB266C} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{4A4809DB-697F-425A-96FE-300543033F0D} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{724C3D49-DAF0-41AD-B5E4-2AB33BFA2A52} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
+		{CC55D69D-27EB-4B9D-9293-0F05EA6D27EC} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A1E5EFA-9EB7-40F9-A9FD-4999E1F1EE25}
