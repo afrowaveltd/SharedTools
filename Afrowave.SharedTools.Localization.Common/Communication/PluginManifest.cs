@@ -1,6 +1,6 @@
 ﻿namespace Afrowave.SharedTools.Localization.Communication
 {
-	using Afrowave.SharedTools.Localization.Common.Models.Backend;
+	using Afrowave.SharedTools.Localization.Common.Communication;
 	using Afrowave.SharedTools.Localization.Common.Models.Enums;
 
 	/// <summary>

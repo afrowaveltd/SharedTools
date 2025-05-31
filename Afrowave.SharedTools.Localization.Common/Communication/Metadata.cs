@@ -32,6 +32,9 @@ namespace Afrowave.SharedTools.Localization.Common.Communication
 		/// </summary>
 		public string License { get; set; } = string.Empty;
 
+		/// <summary>
+		/// Gets or sets the collection of tags associated with the current object.
+		/// </summary>
 		public List<string> Tags { get; set; } = new List<string>();
 	}
 }
