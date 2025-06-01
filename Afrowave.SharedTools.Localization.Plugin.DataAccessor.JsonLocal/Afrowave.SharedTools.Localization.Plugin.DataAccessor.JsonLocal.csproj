@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<Folder Include="Core\" />
+		<Folder Include="Events\" />
+		<Folder Include="Logging\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0-preview.4.25258.110" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Common\Afrowave.SharedTools.Localization.Common.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
+	</ItemGroup>
+
+</Project>

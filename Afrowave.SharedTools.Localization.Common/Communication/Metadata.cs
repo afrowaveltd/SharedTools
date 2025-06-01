@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Afrowave.SharedTools.Localization.Common.Communication
 {
@@ -7,6 +8,11 @@ namespace Afrowave.SharedTools.Localization.Common.Communication
 	/// </summary>
 	public sealed class Metadata
 	{
+		/// <summary>
+		/// Unique plugin identifier for the current instance (auto-generated GUID).
+		/// </summary>
+		public string Id { get; set; } = Guid.NewGuid().ToString();
+
 		/// <summary>
 		/// Display name of the plugin.
 		/// </summary>

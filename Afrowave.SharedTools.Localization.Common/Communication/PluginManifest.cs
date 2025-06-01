@@ -18,7 +18,7 @@
 		/// <summary>
 		/// Plugin type(s) – determines the functional class of this plugin.
 		/// </summary>
-		public PluginType Type { get; set; } = PluginType.None;
+		public PluginType Type { get; set; } = PluginType.Diagnostics;
 
 		/// <summary>
 		/// Declared capabilities supported by this plugin.

@@ -8,6 +8,9 @@ namespace Afrowave.SharedTools.Localization.Plugin.Backend.JsonBackend.Options
 	/// </summary>
 	public sealed class JsonBackendOptions : PluginOptionSet
 	{
+		/// <summary>
+		/// Gets the unique key identifying the JSON backend.
+		/// </summary>
 		public override string Key => "json-backend";
 
 		// 📁 File I/O

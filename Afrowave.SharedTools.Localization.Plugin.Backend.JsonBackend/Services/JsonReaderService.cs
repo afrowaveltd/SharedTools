@@ -14,11 +14,26 @@ namespace Afrowave.SharedTools.Localization.Plugin.Backend.JsonBackend.Services
 	{
 		private readonly ILogger<JsonReaderService> _logger;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonReaderService"/> class.
+		/// </summary>
+		/// <param name="logger">The logger instance used to record diagnostic and operational messages.</param>
 		public JsonReaderService(ILogger<JsonReaderService> logger)
 		{
 			_logger = logger;
 		}
 
+		/// <summary>
+		/// Parses the provided JSON string and determines its structure.
+		/// </summary>
+		/// <remarks>This method attempts to parse the JSON string and classify its structure as either flat or
+		/// hierarchical. If the JSON is invalid or cannot be parsed, an invalid result is returned with an error
+		/// message.</remarks>
+		/// <param name="json">The JSON string to parse. Must be a valid JSON document.</param>
+		/// <returns>A <see cref="ReadJsonResult"/> representing the parsed JSON.  If the JSON is recognized as a flat object, the
+		/// result contains a dictionary of key-value pairs. If the JSON is recognized as a structured tree, the result
+		/// contains a hierarchical representation. Returns an invalid result if the JSON is malformed or the root element is
+		/// not an object.</returns>
 		public async Task<ReadJsonResult> ParseAsync(string json)
 		{
 			await Task.Yield(); // ensure true async boundary

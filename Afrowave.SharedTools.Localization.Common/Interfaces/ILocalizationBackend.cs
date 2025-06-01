@@ -78,16 +78,9 @@ namespace Afrowave.SharedTools.Localization.Common.Interfaces
 		/// <summary>
 		/// Asynchronously updates a structured key in the translation tree for the specified language code.
 		/// </summary>
-		/// <param name="langCode">
-		/// The language code associated with the translation tree. Must be a valid ISO 639-1 code.
-		/// </param>
-		/// <param name="path">
-		/// The path to the key in the structured translation tree. Cannot be null or empty.
-		/// </param>
-		///
-		/// <param name="value">
-		/// Updated value for the specified key in the structured translation tree. Cannot be null.
-		/// </param>
+		/// <param name="langCode">The language code associated with the translation tree. Must be a valid ISO 639-1 code.</param>
+		/// <param name="path">The path to the key in the structured translation tree. Cannot be null or empty.</param>
+		/// <param name="value">Updated value for the specified key in the structured translation tree. Cannot be null.</param>
 		/// <param name="createIfMissing"></param>
 		/// <returns></returns>
 		Task<Response<bool>> UpdateStructuredKeyAsync(string langCode, string[] path, string value, bool createIfMissing = true);

@@ -1,4 +1,6 @@
-﻿namespace Afrowave.SharedTools.Localization.Common.Communication
+﻿using Afrowave.SharedTools.Localization.Common.Models.Enums;
+
+namespace Afrowave.SharedTools.Localization.Common.Communication
 {
 	/// <summary>
 	/// Describes the declared capabilities supported by a plugin.
@@ -92,5 +94,10 @@
 		/// Gets or sets a value indicating whether formatting is supported.
 		/// </summary>
 		public bool CanVisualize { get; set; } = false;
+
+		/// <summary>
+		/// Gets or sets the expected data format for processing input or output.
+		/// </summary>
+		public DataFormat ExpectedDataFormat { get; set; } = DataFormat.RawJson;
 	}
 }

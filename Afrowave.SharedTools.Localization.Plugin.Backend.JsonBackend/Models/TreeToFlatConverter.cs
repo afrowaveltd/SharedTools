@@ -7,6 +7,12 @@ namespace Afrowave.SharedTools.Localization.Plugin.Backend.JsonBackend.Models
 	/// </summary>
 	public static class TreeToFlatConverter
 	{
+		/// <summary>
+		/// Converts a <see cref="TranslationTree"/> into a dictionary representation.
+		/// </summary>
+		/// <param name="tree">The <see cref="TranslationTree"/> to convert. Cannot be null.</param>
+		/// <returns>A dictionary where the keys represent paths in the translation tree and the values represent the corresponding
+		/// translations.</returns>
 		public static Dictionary<string, string> Convert(TranslationTree tree)
 		{
 			var result = new Dictionary<string, string>();

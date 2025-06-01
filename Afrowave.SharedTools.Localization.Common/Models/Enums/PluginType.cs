@@ -3,59 +3,57 @@
 namespace Afrowave.SharedTools.Localization.Common.Models.Enums
 {
 	/// <summary>
-	/// Specifies the types of plugins that can be used within the application.
+	/// Specifies the distinct roles/plugins that can be combined to build the localization pipeline.
 	/// </summary>
-	/// <remarks>This enumeration supports bitwise combination of its values using the <see langword="|"/> operator,
-	/// as it is marked with the <see cref="FlagsAttribute"/>. For example, a plugin can be both  <see cref="Backend"/> and
-	/// <see cref="Cache"/>.</remarks>
+	/// <remarks>
+	/// This enumeration supports bitwise combination of its values using the <see langword="|"/> operator.
+	/// Plugins may implement multiple roles (e.g. <see cref="Backend"/> | <see cref="Cache"/>).
+	/// </remarks>
 	[Flags]
 	public enum PluginType
 	{
 		/// <summary>
-		/// Represents the absence of a specific value or state.
+		/// Represents a data accessor: provides low-level access to localization resources
+		/// (filesystem, HTTP, FTP, SQL, etc.), but does not process their content.
 		/// </summary>
-		None = 0,
+		DataAccessor = 1,
 
 		/// <summary>
-		/// Represents a backend plugin used for processing and management tasks.
+		/// Represents a backend plugin that implements localization/business logic
+		/// (parsing, saving, validating dictionaries, handling structured/flat models).
 		/// </summary>
-		Backend = 1,
+		Backend = 2,
 
 		/// <summary>
-		/// Represents the role of a translator in the system.
+		/// Represents a translator plugin that performs machine or human translation
+		/// between languages (e.g. LibreTranslate, DeepL, Google Translate).
 		/// </summary>
-		/// <remarks>This enumeration value is used to identify users or entities responsible for translating
-		/// content.</remarks>
-		Translator = 2,
+		Translator = 4,
 
 		/// <summary>
-		/// Represents the frontend layer in a multi-tier application architecture.
+		/// Represents a frontend plugin (UI, middleware, or bridge for presenting/consuming localized content).
 		/// </summary>
-		Frontend = 4,
+		Frontend = 8,
 
 		/// <summary>
-		/// Represents a tool category in the application.
+		/// Represents a utility or tool plugin (e.g. migration, validation, batch editing).
 		/// </summary>
-		Tool = 8,
+		Tool = 16,
 
 		/// <summary>
-		/// Represents a caching behavior or option in the system.
+		/// Represents a cache plugin that provides temporary storage and fast access
+		/// to frequently used data.
 		/// </summary>
-		/// <remarks>This value is typically used to indicate that caching should be applied to improve performance by
-		/// storing frequently accessed data temporarily. The specific caching mechanism depends on the
-		/// implementation.</remarks>
-		Cache = 16,
+		Cache = 32,
 
 		/// <summary>
-		/// Represents diagnostic logging level, used to capture detailed information for debugging purposes.
+		/// Represents a plugin for diagnostics, monitoring, or health checking of the system.
 		/// </summary>
-		Diagnostics = 32,
+		Diagnostics = 64,
 
 		/// <summary>
-		/// Represents a logging flag with a value of 64.
+		/// Represents a plugin dedicated to logging events, errors, and system activity.
 		/// </summary>
-		/// <remarks>This flag is typically used to enable or identify logging functionality within the
-		/// application.</remarks>
-		Logger = 64
+		Logger = 128
 	}
 }
