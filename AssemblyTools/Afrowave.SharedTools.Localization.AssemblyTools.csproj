@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Models\Localization\" />
+		<Folder Include="Models\Events\" />
+		<Folder Include="Models\Readme\" />
+		<Folder Include="Models\SignalR\" />
+		<Folder Include="Models\Responses\" />
+		<Folder Include="Models\Requests\" />
+		<Folder Include="Models\Plugin\" />
+		<Folder Include="Models\Shared\" />
+		<Folder Include="Interfaces\" />
+		<Folder Include="Manifest\" />
+		<Folder Include="Helpers\" />
+		<Folder Include="Readme\" />
+		<Folder Include="Options\" />
+	</ItemGroup>
+
+</Project>
