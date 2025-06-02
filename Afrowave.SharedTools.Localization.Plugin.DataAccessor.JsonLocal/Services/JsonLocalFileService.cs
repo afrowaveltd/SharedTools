@@ -70,7 +70,7 @@ namespace Afrowave.SharedTools.Localization.Plugin.DataAccessor.JsonLocal.Servic
 		public async Task<string?> ReadJsonFileAsync(string langCode)
 		{
 			var folder = GetTranslationFolder();
-			var fileName = _options.FilePattern.Replace("{lang}", langCode);
+			var fileName = _options.FilePattern.Replace("{lang}", langCode.ToLowerInvariant());
 			var path = Path.Combine(folder, fileName);
 
 			if(!File.Exists(path))
@@ -90,7 +90,7 @@ namespace Afrowave.SharedTools.Localization.Plugin.DataAccessor.JsonLocal.Servic
 		{
 			var folder = GetTranslationFolder();
 			Directory.CreateDirectory(folder);
-			var fileName = _options.FilePattern.Replace("{lang}", langCode);
+			var fileName = _options.FilePattern.Replace("{lang}", langCode.ToLowerInvariant());
 			var path = Path.Combine(folder, fileName);
 
 			using var writer = new StreamWriter(path, false, Encoding.UTF8);
@@ -114,7 +114,7 @@ namespace Afrowave.SharedTools.Localization.Plugin.DataAccessor.JsonLocal.Servic
 
 			foreach(var file in files)
 			{
-				var lang = Path.GetFileNameWithoutExtension(file);
+				var lang = Path.GetFileNameWithoutExtension(file).ToLowerInvariant();
 				try
 				{
 					using var reader = new StreamReader(file, Encoding.UTF8);
@@ -142,7 +142,7 @@ namespace Afrowave.SharedTools.Localization.Plugin.DataAccessor.JsonLocal.Servic
 			{
 				var langCode = kv.Key;
 				var json = kv.Value;
-				var fileName = _options.FilePattern.Replace("{lang}", langCode);
+				var fileName = _options.FilePattern.Replace("{lang}", langCode.ToLowerInvariant());
 				var path = Path.Combine(folder, fileName);
 
 				try
@@ -171,8 +171,8 @@ namespace Afrowave.SharedTools.Localization.Plugin.DataAccessor.JsonLocal.Servic
 			var files = Directory.GetFiles(folder, pattern);
 
 			var langs = files
-				 .Select(f => Path.GetFileNameWithoutExtension(f))
-				 .ToList();
+				 .Select(f => Path.GetFileNameWithoutExtension(f).ToLowerInvariant())
+				 .ToList() ?? new List<string>();
 
 			return langs;
 		}

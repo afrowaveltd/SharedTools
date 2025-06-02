@@ -209,5 +209,15 @@ namespace Afrowave.SharedTools.Localization.Common.Handshaking
 		/// to ensure that logging information is not recorded during the handshake process.</remarks>
 		/// <returns>A <see cref="HandshakeBuilder"/> instance with logging excluded from the handshake configuration.</returns>
 		HandshakeBuilder ExcludeLogging();
+
+		/// <summary>
+		/// Marks this plugin as the default for its type.
+		/// </summary>
+		HandshakeBuilder UseAsDefault();
+
+		/// <summary>
+		/// Marks this plugin as a fallback if other plugins fail.
+		/// </summary>
+		HandshakeBuilder UseAsFallback();
 	}
 }

@@ -19,7 +19,7 @@ namespace Afrowave.SharedTools.Localization.Common.Handshaking
 		private readonly Afrowave.SharedTools.Localization.Common.Models.Handshake _handshake = new Afrowave.SharedTools.Localization.Common.Models.Handshake();
 		private readonly HashSet<string> _excluded = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 		private readonly List<PluginScopeExclusion> _exclusionsOnce = new List<PluginScopeExclusion>();
-		private ILogSink _logger;
+		private ILogSink? _logger;
 		private LoggerVerbosity _verbosity = LoggerVerbosity.Info;
 
 		/// <summary>
@@ -258,6 +258,24 @@ namespace Afrowave.SharedTools.Localization.Common.Handshaking
 		public HandshakeBuilder UseDefaults()
 		{
 			return UseRead().UseCache().UseLogging();
+		}
+
+		/// <summary>
+		/// Marks this plugin as the default for its type.
+		/// </summary>
+		public HandshakeBuilder UseAsDefault()
+		{
+			_handshake.UseAsDefault = true;
+			return this;
+		}
+
+		/// <summary>
+		/// Marks this plugin as a fallback if other plugins fail.
+		/// </summary>
+		public HandshakeBuilder UseAsFallback()
+		{
+			_handshake.UseAsFallback = true;
+			return this;
 		}
 
 		/// <summary>

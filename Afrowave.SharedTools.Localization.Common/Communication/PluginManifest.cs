@@ -46,8 +46,19 @@
 		public Handshake DefaultHandshake { get; set; } = new Handshake();
 
 		/// <summary>
+		/// Defines whether this plugin is the default one for its type.
+		/// </summary>
+		public bool IsDefault { get; set; } = false;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the current operation should use fallback behavior.
+		/// </summary>
+		public bool IsFallback { get; set; } = false;
+
+		/// <summary>
 		/// Plugin-specific configuration options.
 		/// </summary>
+
 		public Dictionary<string, PluginOptionSet> Options { get; set; } = new Dictionary<string, PluginOptionSet>();
 	}
 }

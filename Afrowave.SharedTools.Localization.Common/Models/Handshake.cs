@@ -72,6 +72,23 @@ namespace Afrowave.SharedTools.Localization.Common.Models
 		/// <summary>
 		/// Plugin options passed to this handshake, indexed by key.
 		/// </summary>
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the plugin should be used as the default for its type.
+		/// </summary>
+		public bool UseAsDefault { get; set; } = false;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the plugin should act as a fallback if other plugins fail.
+		/// </summary>
+		public bool UseAsFallback { get; set; } = false;
+
+		/// <summary>
+		/// Gets or sets the collection of plugin options, organized by their associated plugin names.
+		/// </summary>
+		/// <remarks>Use this property to access or modify the options for specific plugins. Each plugin is identified
+		/// by its name as the dictionary key, and its corresponding options are stored in a <see
+		/// cref="PluginOptionSet"/>.</remarks>
 		public Dictionary<string, PluginOptionSet> Options { get; set; } = new Dictionary<string, PluginOptionSet>();
 
 		/// <summary>
