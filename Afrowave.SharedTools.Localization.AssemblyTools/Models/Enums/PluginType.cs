@@ -1,8 +1,7 @@
 ﻿namespace Afrowave.SharedTools.Localization.AssemblyTools.Models.Enums
 {
 	/// <summary>
-	/// Specifies the core plugin types supported by the Afrowave.Localization ecosystem.
-	/// Each plugin type defines its main role and expected capabilities in the localization pipeline.
+	/// Specifies all plugin types supported in the Afrowave.Localization ecosystem.
 	/// </summary>
 	public enum PluginType
 	{
@@ -44,6 +43,31 @@
 		/// <summary>
 		/// Executes scheduled background tasks (sync, cleanup, reporting, etc.).
 		/// </summary>
-		Scheduler = 7
+		Scheduler = 7,
+
+		/// <summary>
+		/// Provides automated corrections/self-healing and fixes for plugin configurations.
+		/// </summary>
+		Corrections = 8,
+
+		/// <summary>
+		/// Provides analytics, reporting, statistics, business intelligence, monitoring.
+		/// </summary>
+		Analytics = 9,
+
+		/// <summary>
+		/// Administrative tools for migration, batch operations, upgrades, etc.
+		/// </summary>
+		AdminTool = 10,
+
+		/// <summary>
+		/// Specialized plugin for request/response tracking and audit trails.
+		/// </summary>
+		Tracker = 11,
+
+		/// <summary>
+		/// Provides caching services for other plugins (in-memory, disk, distributed, etc.)
+		/// </summary>
+		Cache = 12
 	}
 }

@@ -13,11 +13,8 @@
 		<Folder Include="Models\SignalR\" />
 		<Folder Include="Models\Responses\" />
 		<Folder Include="Models\Requests\" />
-		<Folder Include="Models\Plugin\" />
 		<Folder Include="Models\Shared\" />
-		<Folder Include="Interfaces\" />
 		<Folder Include="Manifest\" />
-		<Folder Include="Helpers\" />
 		<Folder Include="Readme\" />
 		<Folder Include="Options\" />
 	</ItemGroup>
