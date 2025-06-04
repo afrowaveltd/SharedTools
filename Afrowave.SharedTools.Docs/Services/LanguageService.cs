@@ -57,6 +57,49 @@ namespace Afrowave.SharedTools.Docs.Services
 			return Response<Language>.Successful(language, "Language found successfully.");
 		}
 
+		/// <summary>
+		/// Retrieves the required languages asynchronously.
+		/// </summary>
+		/// <returns>A response containing a list of required languages.</returns>
+		public Response<List<Language>> GetRequiredLanguagesAsync()
+		{
+			try
+			{
+				string _localesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.Split("bin")[0], "Locales");
+
+				if(!Directory.Exists(_localesPath))
+				{
+					return Response<List<Language>>.Fail("Locales directory not found");
+				}
+
+				var languageFiles = Directory.GetFiles(_localesPath, "??.json"); // Pouze 2 znaky před .json
+				List<Language> requiredLanguages = [];
+
+				foreach(var file in languageFiles)
+				{
+					var languageCode = Path.GetFileNameWithoutExtension(file).ToLowerInvariant();
+
+					// Dodatečná validace - pouze písmena, přesně 2 znaky
+					if(languageCode.Length == 2 && languageCode.All(char.IsLetter))
+					{
+						var language = _languages.FirstOrDefault(l =>
+							 l.Code.Equals(languageCode, StringComparison.OrdinalIgnoreCase));
+
+						if(language != null)
+						{
+							requiredLanguages.Add(language);
+						}
+					}
+				}
+
+				return Response<List<Language>>.Successful(requiredLanguages, $"Successfully retrieved {requiredLanguages.Count} languages");
+			}
+			catch(Exception ex)
+			{
+				return Response<List<Language>>.Fail($"Error retrieving languages: {ex.Message}");
+			}
+		}
+
 		private readonly List<Language> _languages =
 		[
 			new Language { Code = "aa", Name = "Afar", Native = "Afar" },
