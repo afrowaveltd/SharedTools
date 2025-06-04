@@ -19,4 +19,8 @@
 		<Folder Include="Jsons\" />
 	</ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
 </Project>
