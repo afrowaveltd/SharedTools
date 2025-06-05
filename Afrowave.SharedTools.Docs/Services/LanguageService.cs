@@ -293,8 +293,15 @@ namespace Afrowave.SharedTools.Docs.Services
 			return response;
 		}
 
-		// gets the list of language codes by presence of files in /Locales folder
-		private static string[] TranslationsPresented()
+		/// <summary>
+		/// Retrieves the list of available translations based on the locale files present in the specified directory.
+		/// </summary>
+		/// <remarks>This method scans the directory specified by the internal locale path for files matching the
+		/// pattern "??.json", where "??" represents a two-character language code. The language codes are extracted from the
+		/// file names and returned in lowercase.</remarks>
+		/// <returns>An array of strings representing the language codes of the available translations.  Each code is derived from the
+		/// file names of the locale files and is in lowercase.</returns>
+		public string[] TranslationsPresented()
 		{
 			List<string> result = [];
 			var languageFiles = Directory.GetFiles(_localesPath, "??.json");

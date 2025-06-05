@@ -106,5 +106,12 @@
 		/// with a dictionary where the keys are translation  identifiers and the values indicate whether each translation was
 		/// saved successfully.</returns>
 		Task<Response<Dictionary<string, bool>>> SaveTranslationsAsync(TranslationTree translationTree);
+
+		/// <summary>
+		/// Retrieves the list of translations currently presented to the user.
+		/// </summary>
+		/// <returns>An array of strings containing the presented translations. The array will be empty if no translations are
+		/// available.</returns>
+		string[] TranslationsPresented();
 	}
 }
