@@ -91,7 +91,7 @@ public class JsonStringLocalizer : IStringLocalizer
 		return File.Exists(filePath) ? filePath : Path.Combine(_localesPath, "en.json");
 	}
 
-	private string? GetValueFromJson(string key, string filePath)
+	private static string? GetValueFromJson(string key, string filePath)
 	{
 		if(string.IsNullOrEmpty(key) || string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
 		{

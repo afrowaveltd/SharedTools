@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace Afrowave.SharedTools.Docs.Middlewares
+﻿namespace Afrowave.SharedTools.Docs.Middlewares
 {
 	/// <summary>
 	/// Middleware for handling internationalization (i18n) by setting culture based on cookies or request headers.
