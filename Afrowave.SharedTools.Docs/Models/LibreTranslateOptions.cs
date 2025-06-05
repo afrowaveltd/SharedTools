@@ -1,0 +1,26 @@
+﻿namespace Afrowave.SharedTools.Docs.Models
+{
+	/// <summary>
+	/// Represents configuration options for connecting to a LibreTranslate service.
+	/// </summary>
+	/// <remarks>This class provides settings for specifying the host, API key, and whether an API key is required
+	/// when interacting with a LibreTranslate instance. These options are typically used to configure a client for making
+	/// translation requests.</remarks>
+	public class LibreTranslateOptions
+	{
+		/// <summary>
+		/// Gets or sets the host name or IP address of the server.
+		/// </summary>
+		public string Host { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the API key used for authenticating requests to the service.
+		/// </summary>
+		public string ApiKey { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether a key is required for the operation.
+		/// </summary>
+		public bool NeedsKey { get; set; } = false;
+	}
+}
