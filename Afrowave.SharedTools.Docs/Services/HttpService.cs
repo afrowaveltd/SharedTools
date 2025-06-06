@@ -20,12 +20,6 @@ namespace Afrowave.SharedTools.Docs.Services
 		private readonly string _baseUri;
 		private readonly string _apiKey;
 		private readonly bool _needsKey;
-		private readonly string _languagesEndpoint;
-		private readonly string _translateEndpoint;
-		private readonly string _translateFileEndpoint;
-		private readonly string _detectLanguageEndpoint;
-		private readonly int _retries;
-		private readonly int _waitBeforeRetry;
 
 		private readonly JsonSerializerOptions _options = new()
 		{
@@ -49,12 +43,6 @@ namespace Afrowave.SharedTools.Docs.Services
 			_baseUri = o.Host;
 			_apiKey = o.ApiKey;
 			_needsKey = o.NeedsKey;
-			_languagesEndpoint = o.LanguagesEndpoint;
-			_translateEndpoint = o.TranslateEndpoint;
-			_translateFileEndpoint = o.TranslateFileEndpoint;
-			_detectLanguageEndpoint = o.DetectLanguageEndpoint;
-			_retries = o.RetriesOnFailure;
-			_waitBeforeRetry = o.WaitSecondBeforeRetry;
 			_client = new();
 			if(o.NeedsKey)
 			{
