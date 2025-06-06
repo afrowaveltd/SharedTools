@@ -20,6 +20,16 @@ namespace Afrowave.SharedTools.Docs.Data
 		public DbSet<LogEntry> Logs { get; set; } = null!;
 
 		/// <summary>
+		/// Gets or sets the collection of administrators in the database.
+		/// </summary>
+		public DbSet<Admin> Admins { get; set; } = null!;
+
+		/// <summary>
+		/// Gets or sets the database table for managing documentation settings.
+		/// </summary>
+		public DbSet<DocsSettings> DocsSettings { get; set; } = null!;
+
+		/// <summary>
 		/// Configures the model for the database context by defining entity mappings and constraints.
 		/// </summary>
 		/// <remarks>This method is called by the Entity Framework runtime during model creation. It configures the

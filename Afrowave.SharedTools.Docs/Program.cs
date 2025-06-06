@@ -1,13 +1,3 @@
-using Afrowave.SharedTools.Docs.Data;
-using Afrowave.SharedTools.Docs.I18n;
-using Afrowave.SharedTools.Docs.Middlewares;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using Scalar.AspNetCore;
-using Serilog;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Serilog configuration

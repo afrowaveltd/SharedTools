@@ -1,7 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-
-namespace Afrowave.SharedTools.Docs.Services
+﻿namespace Afrowave.SharedTools.Docs.Services
 {
 	public class LibreTranslateCommunicationService
 	{

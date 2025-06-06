@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models
 {
 	/// <summary>
 	/// Represents the configuration settings for documentation, including metadata and related links.
