@@ -22,16 +22,6 @@ namespace Afrowave.SharedTools.Docs.Services
 			translationsOptions.IgnoredForJson = configuration.GetSection("Translations:IgnoredForJson").Get<string[]>() ?? new[] { "en", "cs" };
 			translationsOptions.IgnoredForMd = configuration.GetSection("Translations:IgnoredForMd").Get<string[]>() ?? new[] { "en" };
 			translationsOptions.MinutesBetweenCycles = int.TryParse(configuration["Translations:MinutesBetweenCycles"], out var minutes) ? minutes : 20;
-
-			libreTranslateOptions.Host = configuration["LibreTranslate:Host"] ?? "https://libretranslate.de";
-			libreTranslateOptions.ApiKey = configuration["LibreTranslate:ApiKey"] ?? string.Empty;
-			libreTranslateOptions.NeedsKey = bool.TryParse(configuration["LibreTranslate:NeedsKey"], out var needsKey) && needsKey;
-
-			if(libreTranslateOptions.NeedsKey)
-			{
-				_httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + libreTranslateOptions.ApiKey);
-			}
-			_httpClient.BaseAddress = new Uri(libreTranslateOptions.Host);
 		}
 
 		/// <summary>

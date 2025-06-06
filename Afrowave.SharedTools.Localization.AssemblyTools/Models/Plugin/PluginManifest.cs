@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Afrowave.Localization.Common.Models.Plugin
+namespace Afrowave.SharedTools.Localization.AssemblyTools.Models.Plugin
 {
 	/// <summary>
 	/// Static metadata descriptor for a plugin.

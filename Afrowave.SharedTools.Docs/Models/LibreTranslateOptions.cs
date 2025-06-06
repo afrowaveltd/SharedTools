@@ -42,5 +42,17 @@
 		/// Gets or sets the two characters ISO code of the language detected from providen text.
 		/// </summary>
 		public string DetectLanguageEndpoint { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the number of retry attempts to perform when an operation fails.
+		/// </summary>
+		/// <remarks>This property determines how many times an operation will be retried in the event of a failure.
+		/// Set this value to 0 to disable retries.</remarks>
+		public int RetriesOnFailure { get; set; } = 10;
+
+		/// <summary>
+		/// Gets or sets the number of seconds to wait before retrying a failed operation.
+		/// </summary>
+		public int WaitSecondBeforeRetry { get; set; } = 2;
 	}
 }
