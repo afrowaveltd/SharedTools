@@ -56,7 +56,7 @@ builder.Services.AddTransient<IStringLocalizerFactory, JsonStringLocalizerFactor
 // standalone services
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<ILanguageService, LanguageService>();
-
+builder.Services.AddSingleton<HttpClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
