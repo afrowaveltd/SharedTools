@@ -3,6 +3,7 @@ using System;
 using Afrowave.SharedTools.Docs.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Afrowave.SharedTools.Docs.Migrations
 {
     [DbContext(typeof(DocsDbContext))]
-    partial class DocsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250606200249_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.0-preview.4.25258.110");
@@ -25,9 +28,6 @@ namespace Afrowave.SharedTools.Docs.Migrations
 
                     b.Property<string>("Bearer")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DisplayName")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -49,49 +49,20 @@ namespace Afrowave.SharedTools.Docs.Migrations
                     b.ToTable("Admins");
                 });
 
-            modelBuilder.Entity("Afrowave.SharedTools.Docs.Models.ApplicationSettings", b =>
+            modelBuilder.Entity("Afrowave.SharedTools.Docs.Models.DocsSettings", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("ApplicationName")
-                        .IsRequired()
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("MdAbout")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
+                    b.Property<string>("MdAboutLink")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("EncryptedPasswoord")
-                        .HasColumnType("TEXT");
+                    b.HasKey("Name");
 
-                    b.Property<string>("Host")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Login")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Port")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SecureSocketOptions")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("SenderName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("UseAuthentication")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ApplicationSettings");
+                    b.ToTable("DocsSettings");
                 });
 
             modelBuilder.Entity("Afrowave.SharedTools.Docs.Models.LogEntry", b =>

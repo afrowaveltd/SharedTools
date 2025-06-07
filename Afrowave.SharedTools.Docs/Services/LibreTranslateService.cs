@@ -1,10 +1,13 @@
 ﻿namespace Afrowave.SharedTools.Docs.Services
 {
-	public class LibreTranslateCommunicationService
+	/// <summary>
+	/// Service for interacting with the LibreTranslate API to perform translations and retrieve language information.
+	/// </summary>
+	public class LibreTranslateService
 	{
 		private readonly LibreTranslateOptions options = new();
 		private readonly IHttpService _httpService;
-		private readonly ILogger<LibreTranslateCommunicationService> _logger;
+		private readonly ILogger<LibreTranslateService> _logger;
 
 		private readonly JsonSerializerOptions _options = new()
 		{
@@ -14,7 +17,7 @@
 		};
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="LibreTranslateCommunicationService"/> class,  configuring it to
+		/// Initializes a new instance of the <see cref="LibreTranslateService"/> class,  configuring it to
 		/// communicate with the LibreTranslate API.
 		/// </summary>
 		/// <remarks>If the "LibreTranslateOptions" section is not found in the configuration, default options will be
@@ -23,7 +26,7 @@
 		/// <param name="configuration">The application configuration from which the LibreTranslate options are retrieved.  The "LibreTranslateOptions"
 		/// section is expected to contain the necessary configuration.</param>
 		/// <param name="logger">The logger used to log diagnostic and error information.</param>
-		public LibreTranslateCommunicationService(IHttpService httpService, IConfiguration configuration, ILogger<LibreTranslateCommunicationService> logger)
+		public LibreTranslateService(IHttpService httpService, IConfiguration configuration, ILogger<LibreTranslateService> logger)
 		{
 			options = configuration.GetSection("LibreTranslateOptions").Get<LibreTranslateOptions>() ?? new();
 

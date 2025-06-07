@@ -38,6 +38,8 @@
 
   <ItemGroup>
     <Folder Include="Hubs\" />
+    <Folder Include="Logs\" />
+    <Folder Include="Api\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 

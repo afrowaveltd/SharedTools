@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Afrowave.SharedTools.Docs.Data
+﻿namespace Afrowave.SharedTools.Docs.Data
 {
 	/// <summary>
 	/// Represents the database context for managing log entries in the application.
@@ -15,11 +13,6 @@ namespace Afrowave.SharedTools.Docs.Data
 	public class DocsDbContext(DbContextOptions<DocsDbContext> options) : DbContext(options)
 	{
 		/// <summary>
-		/// Gets or sets the collection of log entries in the database.
-		/// </summary>
-		public DbSet<LogEntry> Logs { get; set; } = null!;
-
-		/// <summary>
 		/// Gets or sets the collection of administrators in the database.
 		/// </summary>
 		public DbSet<Admin> Admins { get; set; } = null!;
@@ -27,7 +20,19 @@ namespace Afrowave.SharedTools.Docs.Data
 		/// <summary>
 		/// Gets or sets the database table for managing documentation settings.
 		/// </summary>
-		public DbSet<DocsSettings> DocsSettings { get; set; } = null!;
+		public DbSet<ApplicationSettings> ApplicationSettings { get; set; } = null!;
+
+		/// <summary>
+		/// Gets or sets the collection of log entries in the database.
+		/// </summary>
+		public DbSet<LogEntry> Logs { get; set; } = null!;
+
+		/// <summary>
+		/// Gets or sets the database set for managing SMTP settings.
+		/// </summary>
+		/// <remarks>This property provides access to the SMTP settings stored in the database, allowing for querying,
+		/// adding, updating,  or deleting SMTP configuration records. It is typically used in the context of Entity Framework
+		/// Core.</remarks>
 
 		/// <summary>
 		/// Configures the model for the database context by defining entity mappings and constraints.

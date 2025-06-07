@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models
 {
 	/// <summary>
 	/// Represents an administrative user with properties for authentication and status management.
@@ -30,6 +28,11 @@ namespace Afrowave.SharedTools.Docs.Models
 		/// </summary>
 		[Required]
 		public string Email { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the display name associated with the object.
+		/// </summary>
+		public string? DisplayName { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or sets a value indicating whether the entity is active.
