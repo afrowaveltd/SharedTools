@@ -40,6 +40,11 @@ namespace Afrowave.SharedTools.Docs.Models
 		public int Port { get; set; } = 0;
 
 		/// <summary>
+		/// Gets or sets the API key used for authenticating requests.
+		/// </summary>
+		public string ApiKey { get; set; } = string.Empty;
+
+		/// <summary>
 		/// Gets or sets the options used to configure the security settings for the socket connection.
 		/// </summary>
 		/// <remarks>Use this property to specify the desired level of security for the socket connection, such as
@@ -73,5 +78,16 @@ namespace Afrowave.SharedTools.Docs.Models
 		/// Gets or sets the encrypted password.
 		/// </summary>
 		public string? EncryptedPasswoord { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the information if the settings were successfully tested.
+		/// </summary>
+		public bool SuccessfullyTested { get; set; } = false;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the entity is active.
+		/// Entity can't be enabled if it is not tested successfully.
+		/// </summary>
+		public bool IsActive { get; set; } = false;
 	}
 }

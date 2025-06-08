@@ -1,3 +1,8 @@
 {
+	"An error occurred while retrieving application settings.": "An error occurred while retrieving application settings.",
+	"An error occurred while retrieving SMTP settings.": "An error occurred while retrieving SMTP settings.",
+	"An error occurred while saving application settings.": "An error occurred while saving application settings.",
+	"No settings found.": "No settings found.",
+	"Settings cannot be null.": "Settings cannot be null.",
 	"test": "Test string to verify that the file works correctly."
 }

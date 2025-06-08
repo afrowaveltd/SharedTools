@@ -1,104 +1,185 @@
-﻿namespace Afrowave.SharedTools.Docs.Services
+﻿using MailKit.Security;
+
+namespace Afrowave.SharedTools.Docs.Services;
+
+public class SettingsService(DocsDbContext context,
+	IStringLocalizer<SettingsService> localizer,
+	ILogger<SettingsService> logger,
+	IEncryptionService encryption)
 {
-	/// <summary>
-	/// Provides methods for managing application settings stored in the database.
-	/// </summary>
-	/// <remarks>This service allows for checking the installation status, saving, loading, and verifying the
-	/// existence of application settings. It interacts with the database to persist and retrieve settings, ensuring
-	/// consistency and validation of the data.</remarks>
-	/// <param name="context">
-	/// The database context for accessing settings.
-	/// </param>
-	/// <param name="logger">
-	/// The logger for logging service-related activities.
-	/// </param>
-	public class SettingsService(DocsDbContext context, ILogger<SettingsService> logger) : ISettingsService
+	private readonly DocsDbContext _context = context;
+	private readonly IStringLocalizer<SettingsService> _localizer = localizer;
+	private readonly ILogger<SettingsService> _logger = logger;
+	private readonly IEncryptionService _encryption = encryption;
+
+	public async Task<Response<ApplicationSettingsDto>> GetApplicationSettingsAsync()
 	{
-		private readonly DocsDbContext _context = context;
-		private readonly ILogger<SettingsService> _logger = logger;
-
-		/// <summary>
-		/// Determines whether any document settings are currently installed in the context.
-		/// </summary>
-		/// <remarks>This method asynchronously checks the underlying data source to determine if any document
-		/// settings exist.</remarks>
-		/// <returns><see langword="true"/> if document settings are installed; otherwise, <see langword="false"/>.</returns>
-		public async Task<bool> IsInstalledAsync()
-			=> await _context.ApplicationSettings.AnyAsync();
-
-		/// <summary>
-		/// Saves the provided settings to the database asynchronously.
-		/// </summary>
-		/// <remarks>This method performs the following actions: <list type="bullet"> <item> If no settings exist in
-		/// the database, it creates a new record using the provided <paramref name="settings"/>.  The <see
-		/// cref="DocsSettings.Name"/> property must be provided in this case. </item> <item> If settings already exist, it
-		/// updates the existing record with the values from the provided <paramref name="settings"/>  if the application name
-		/// matches the stored settings. </item> <item> If the application name in the provided <paramref name="settings"/>
-		/// does not match the stored settings,  the operation fails with an appropriate error message. </item>
-		/// </list></remarks>
-		/// <param name="settings">The <see cref="DocsSettings"/> object containing the settings to be saved.  The <see cref="DocsSettings.Name"/>
-		/// property must not be null when creating new settings.</param>
-		/// <returns>A <see cref="Response{T}"/> object containing the saved <see cref="DocsSettings"/> instance if the operation is
-		/// successful.  If the operation fails, the response will include an error message describing the reason for failure.</returns>
-		public async Task<Response<ApplicationSettings>> SaveSettingsAsync(ApplicationSettings settings)
+		try
 		{
+			var settings = await _context.ApplicationSettings.FirstOrDefaultAsync();
 			if(settings == null)
 			{
-				return Response<ApplicationSettings>.Fail("Null can't be empty");
+				return Response<ApplicationSettingsDto>.SuccessWithWarning(new(), _localizer["No settings found."]);
 			}
-			ApplicationSettings? actualSettings = await _context.ApplicationSettings.FirstOrDefaultAsync();
-			if(actualSettings == null)
+			var dto = new ApplicationSettingsDto
 			{
-				// no settings found in the database
-				if(settings.ApplicationName == null)
-				{
-					return Response<ApplicationSettings>.Fail("Name is required");
-				}
-				ApplicationSettings newDocs = new()
-				{
-					ApplicationName = settings.ApplicationName,
-					Description = settings.Description,
-				};
-				await _context.AddAsync(newDocs);
-				await _context.SaveChangesAsync();
-				return Response<ApplicationSettings>.Successful(newDocs, "New record added");
+				Id = settings.Id,
+				ApplicationName = settings.ApplicationName,
+				Description = settings.Description,
+				Host = settings.Host,
+				Port = settings.Port,
+				ApiKey = settings.ApiKey,
+				SecureSocketOptions = settings.SecureSocketOptions.ToString(),
+				Email = settings.Email,
+				SenderName = settings.SenderName,
+				UseAuthentication = settings.UseAuthentication,
+				Login = settings.Login,
+				Password = _encryption.DecryptTextAsync(settings.EncryptedPasswoord ?? string.Empty, settings.ApiKey),
+				SuccessfullyTested = settings.SuccessfullyTested,
+				IsActive = settings.IsActive
+			};
+			return Response<ApplicationSettingsDto>.Successful(dto, "");
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "Error retrieving application settings.");
+			return Response<ApplicationSettingsDto>.Fail(_localizer["An error occurred while retrieving application settings."]);
+		}
+	}
+
+	public async Task<Response<SmtpSettings>> GetSmtpSettingsAsync()
+	{
+		SmtpSettings settings = new();
+		try
+		{
+			var appSettings = await _context.ApplicationSettings.FirstOrDefaultAsync();
+			if(appSettings == null)
+			{
+				return Response<SmtpSettings>.Fail(_localizer["No settings found."]);
 			}
-			if(actualSettings.Id != settings.Id)
+			settings.Host = appSettings.Host;
+			settings.Port = appSettings.Port;
+			settings.SecureSocketOptions = appSettings.SecureSocketOptions;
+			settings.Email = appSettings.Email;
+			settings.SenderName = appSettings.SenderName;
+			settings.UseAuthentication = appSettings.UseAuthentication;
+			settings.Login = appSettings.Login;
+			settings.Password = _encryption.DecryptTextAsync(appSettings.EncryptedPasswoord ?? string.Empty, appSettings.ApiKey);
+			settings.SuccessfullyTested = appSettings.SuccessfullyTested;
+			return Response<SmtpSettings>.Successful(settings, "");
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "Error retrieving SMTP settings.");
+			return Response<SmtpSettings>.Fail(_localizer["An error occurred while retrieving SMTP settings."]);
+		}
+	}
+
+	public async Task<Response<ApplicationSettings>> SaveApplicationSettingsAsync(ApplicationSettingsDto settingsDto)
+	{
+		if(settingsDto == null)
+		{
+			return Response<ApplicationSettings>.Fail(_localizer["Settings cannot be null."]);
+		}
+
+		bool isNew = !await SettingsExists();
+		ApplicationSettings settings = isNew
+			? await _context.ApplicationSettings.FirstOrDefaultAsync()
+			?? new()
+			: new();
+
+		settings = new ApplicationSettings
+		{
+			Id = settingsDto.Id == 0 ? 0 : settingsDto.Id,
+			ApplicationName = settingsDto.ApplicationName,
+			Description = settingsDto.Description,
+			Host = settingsDto.Host,
+			Port = settingsDto.Port,
+			ApiKey = settingsDto.ApiKey,
+			SecureSocketOptions = Enum.TryParse<SecureSocketOptions>(settingsDto.SecureSocketOptions, out var secureSocketOptions) ? secureSocketOptions : SecureSocketOptions.Auto,
+			Email = settingsDto.Email,
+			SenderName = settingsDto.SenderName,
+			UseAuthentication = settingsDto.UseAuthentication,
+			Login = settingsDto.Login,
+			IsActive = true // Assuming you want to set IsActive to true by default
+		};
+
+		if(settingsDto.Password != null)
+		{
+			settings.EncryptedPasswoord = _encryption.EncryptTextAsync(settingsDto.Password, settings.ApiKey);
+		}
+		if(!await _context.ApplicationSettings.AnyAsync())
+		{
+			settings.Id = 0;
+			await _context.ApplicationSettings.AddAsync(settings);
+		}
+
+		await _context.SaveChangesAsync();
+	}
+
+	private async Task<Response<ApplicationSettings>> SaveRawSettings(ApplicationSettings settings)
+	{
+		try
+		{
+			var existingSettings = await _context.ApplicationSettings.FirstOrDefaultAsync();
+			if(existingSettings == null)
 			{
-				return Response<ApplicationSettings>.Fail("Stored settings are for different application name");
+				await _context.ApplicationSettings.AddAsync(settings);
 			}
 			else
 			{
-				actualSettings.Description = settings.Description;
-
-				await _context.SaveChangesAsync();
-				return Response<ApplicationSettings>.Successful(actualSettings, "Data updated successfuly");
+				existingSettings.ApplicationName = settings.ApplicationName;
+				existingSettings.Description = settings.Description;
+				existingSettings.Host = settings.Host;
+				existingSettings.Port = settings.Port;
+				existingSettings.ApiKey = settings.ApiKey;
+				existingSettings.SecureSocketOptions = settings.SecureSocketOptions;
+				existingSettings.Email = settings.Email;
+				existingSettings.SenderName = settings.SenderName;
+				existingSettings.UseAuthentication = settings.UseAuthentication;
+				existingSettings.Login = settings.Login;
+				existingSettings.SuccessfullyTested = settings.SuccessfullyTested;
+				existingSettings.IsActive = settings.IsActive;
+				_context.ApplicationSettings.Update(existingSettings);
 			}
+			await _context.SaveChangesAsync();
+			return Response<ApplicationSettings>.Successful(settings, "");
 		}
-
-		/// <summary>
-		/// Asynchronously loads the application settings from the database.
-		/// </summary>
-		/// <remarks>If no settings are found in the database, the method returns a failure response.</remarks>
-		/// <returns>A <see cref="Response{T}"/> object containing the loaded <see cref="DocsSettings"/> if successful,  or a failure
-		/// response with an appropriate message if no settings are found.</returns>
-		public async Task<Response<ApplicationSettings>> LoadSettingsAsync()
+		catch(Exception ex)
 		{
-			ApplicationSettings? settings = await _context.ApplicationSettings.FirstOrDefaultAsync();
+			_logger.LogError(ex, "Error saving application settings.");
+			return Response<ApplicationSettings>.Fail(_localizer["An error occurred while saving application settings."]);
+		}
+	}
+
+	private async Task<Response<ApplicationSettings>> LoadRawSettings()
+	{
+		try
+		{
+			var settings = await _context.ApplicationSettings.FirstOrDefaultAsync();
 			if(settings == null)
 			{
-				return Response<ApplicationSettings>.Fail("No settings found in the database");
+				return Response<ApplicationSettings>.Fail(_localizer["No settings found."]);
 			}
-			return Response<ApplicationSettings>.Successful(settings, "Settings loaded successfully");
+			return Response<ApplicationSettings>.Successful(settings, "");
 		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "Error loading application settings.");
+			return Response<ApplicationSettings>.Fail(_localizer["An error occurred while loading application settings."]);
+		}
+	}
 
-		/// <summary>
-		/// Determines whether any settings exist in the data store.
-		/// </summary>
-		/// <remarks>This method asynchronously checks for the presence of settings in the underlying data
-		/// store.</remarks>
-		/// <returns><see langword="true"/> if at least one settings record exists in the data store; otherwise, <see
-		/// langword="false"/>.</returns>
-		public async Task<bool> SettingsExists() => await _context.ApplicationSettings.AnyAsync();
+	private async Task<bool> SettingsExists()
+	{
+		try
+		{
+			return await _context.ApplicationSettings.AnyAsync();
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "Error checking if settings exist.");
+			return false;
+		}
 	}
 }
