@@ -29,7 +29,7 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 		/// <summary>
 		/// Gets or sets the host name or IP address of the server.
 		/// </summary>
-		public string Host { get; set; } = string.Empty;
+		public string SmtpHost { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or sets the port number used for network communication.

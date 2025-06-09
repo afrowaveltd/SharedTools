@@ -2,6 +2,7 @@
 // Add common usings here to reduce repetition across files
 
 global using Afrowave.SharedTools.Docs.Data;
+global using Afrowave.SharedTools.Docs.Helpers;
 global using Afrowave.SharedTools.Docs.I18n;
 global using Afrowave.SharedTools.Docs.Middlewares;
 global using Afrowave.SharedTools.Docs.Models;

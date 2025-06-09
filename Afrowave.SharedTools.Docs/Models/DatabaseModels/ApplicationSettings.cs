@@ -31,7 +31,7 @@ namespace Afrowave.SharedTools.Docs.Models.DatabaseModels
 		/// Gets or sets the host name or address of the server.
 		/// </summary>
 		[Required]
-		public string Host { get; set; } = string.Empty;
+		public string SmtpHost { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or sets the port number used for network communication.
@@ -77,7 +77,7 @@ namespace Afrowave.SharedTools.Docs.Models.DatabaseModels
 		/// <summary>
 		/// Gets or sets the encrypted password.
 		/// </summary>
-		public string? EncryptedPasswoord { get; set; } = string.Empty;
+		public string? EncryptedPassword { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or sets the information if the settings were successfully tested.

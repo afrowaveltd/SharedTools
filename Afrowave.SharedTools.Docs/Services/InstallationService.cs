@@ -23,6 +23,7 @@ public class InstallationService(ILogger<InstallationService> logger,
 
 	public async Task<Response<InstallationResult>> InstallApplication(ApplicationInstall application)
 	{
+		InstallationResult result = new InstallationResult();
 		if(await IsInstalledAsync())
 		{
 			return Response<InstallationResult>.Fail("Settings already exist");
@@ -32,6 +33,68 @@ public class InstallationService(ILogger<InstallationService> logger,
 		{
 			return Response<InstallationResult>.Fail("Missing data");
 		}
+		if(string.IsNullOrWhiteSpace(application.Email)
+			|| string.IsNullOrWhiteSpace(application.SmtpHost))
+		{
+			return Response<InstallationResult>.Fail("Email and Host are required");
+		}
+
+		if(application.SmtpPort < 1 || application.SmtpPort > 65535)
+		{
+			return Response<InstallationResult>.Fail("SMTP Port must be between 1 and 65535");
+		}
+
+		if(!Validators.IsEmail(application.Email))
+		{
+			return Response<InstallationResult>.Fail("Email is not valid");
+		}
+
+		if(string.IsNullOrWhiteSpace(application.SenderEmail))
+		{
+			if(string.IsNullOrWhiteSpace(application.SmtpLogin))
+			{
+				return Response<InstallationResult>.Fail("Sender email is required");
+			}
+			application.SenderEmail = application.SmtpLogin;
+		}
+		if(application.UseAuthentication && string.IsNullOrWhiteSpace(application.SmtpLogin))
+		{
+			return Response<InstallationResult>.Fail("SMTP Login is required when authentication is used");
+		}
+		if(application.UseAuthentication && string.IsNullOrWhiteSpace(application.SmtpPassword))
+		{
+			return Response<InstallationResult>.Fail("SMTP Password is required when authentication is used");
+		}
+		string apiKey = _encryption.GenerateApplicationSecret();
+		ApplicationSettings settings = new()
+		{
+			ApplicationName = application.ApplicationName ?? "Documentation",
+			Description = application.Description,
+			SmtpHost = application.SmtpHost,
+			Port = application.SmtpPort,
+			ApiKey = apiKey,
+			SecureSocketOptions = application.SecureSocketOptions,
+			Email = application.SenderEmail ?? application.SmtpLogin ?? string.Empty,
+			SenderName = application.SenderName ?? application.SmtpLogin ?? string.Empty,
+			UseAuthentication = application.UseAuthentication,
+			Login = application.SmtpLogin ?? application.SenderEmail ?? string.Empty,
+			EncryptedPassword = _encryption.EncryptTextAsync(application.SmtpPassword ?? string.Empty, apiKey)
+		};
+		try
+		{
+			await _context.ApplicationSettings.AddAsync(settings);
+			await _context.SaveChangesAsync();
+			result.ApplicationSettings = settings;
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "Failed to save application settings: {Message}", ex.Message);
+			return Response<InstallationResult>.Fail("Failed to save application settings");
+		}
+
+		// all ready to save settings;
+
+		_logger.LogInformation("Application installation settings prepared for: {ApplicationName}", application.ApplicationName);
 	}
 
 	/// <summary>

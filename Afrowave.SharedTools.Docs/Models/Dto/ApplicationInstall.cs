@@ -35,14 +35,14 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 		/// <summary>
 		/// Gets or sets the hostname or IP address of the server to connect to.
 		/// </summary>
-		public string Host { get; set; } = "localhost";
+		public string SmtpHost { get; set; } = "localhost";
 
 		/// <summary>
 		/// Gets or sets the port number used for the connection.
 		/// </summary>
 		/// <remarks>Ensure the port number is within the valid range of 1 to 65535.  Commonly used for SMTP
 		/// connections.</remarks>
-		public int Port { get; set; } = 25;
+		public int SmtpPort { get; set; } = 25;
 
 		/// <summary>
 		/// Gets or sets the options for configuring the security of the socket connection.
@@ -54,7 +54,7 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 		/// <summary>
 		/// Gets or sets the email address associated with the user.
 		/// </summary>
-		public string Email { get; set; } = "";
+		public string SenderEmail { get; set; } = "";
 
 		/// <summary>
 		/// Gets or sets the name of the sender to be displayed in communications.
@@ -69,11 +69,11 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 		/// <summary>
 		/// Gets or sets the login identifier for the user.
 		/// </summary>
-		public string? Login { get; set; } = string.Empty;
+		public string? SmtpLogin { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or sets the password associated with the user or system.
 		/// </summary>
-		public string? Password { get; set; } = string.Empty;
+		public string? SmtpPassword { get; set; } = string.Empty;
 	}
 }
