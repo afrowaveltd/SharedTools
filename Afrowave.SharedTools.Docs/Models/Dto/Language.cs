@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.Dto
 {
 	/// <summary>
 	/// Represents a language with its associated metadata, including code, name, native name, and text direction.

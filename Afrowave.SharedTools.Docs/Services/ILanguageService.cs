@@ -1,4 +1,6 @@
-﻿namespace Afrowave.SharedTools.Docs.Services
+﻿using Afrowave.SharedTools.Docs.Models.Communication;
+
+namespace Afrowave.SharedTools.Docs.Services
 {
 	/// <summary>
 	/// Defines methods for retrieving and managing language-related information.

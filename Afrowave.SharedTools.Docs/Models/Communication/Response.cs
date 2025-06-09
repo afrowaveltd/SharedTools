@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.Communication
 {
 	/// <summary>
 	/// Represents a standardized response that contains data and metadata about the operation.

@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.Settings
 {
 	/// <summary>
 	/// Represents configuration options for managing translations in various formats.

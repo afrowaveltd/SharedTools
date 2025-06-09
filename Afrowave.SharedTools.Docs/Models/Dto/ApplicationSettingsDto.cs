@@ -1,4 +1,6 @@
-﻿namespace Afrowave.SharedTools.Docs.Models.Dto
+﻿using MailKit.Security;
+
+namespace Afrowave.SharedTools.Docs.Models.Dto
 {
 	/// <summary>
 	/// Represents the configuration settings for an application, including email server details, authentication options,
@@ -44,7 +46,7 @@
 		/// </summary>
 		/// <remarks>This property determines the security settings used for the socket connection.  Valid values may
 		/// depend on the specific implementation or context in which this property is used.</remarks>
-		public string SecureSocketOptions { get; set; } = "Auto"; // Assuming this is a string representation of SecureSocketOptions
+		public SecureSocketOptions SecureSocketOptions { get; set; } = SecureSocketOptions.Auto; // Assuming this is a string representation of SecureSocketOptions
 
 		/// <summary>
 		/// Gets or sets the email address associated with the user.

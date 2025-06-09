@@ -1,4 +1,6 @@
-﻿namespace Afrowave.SharedTools.Docs.Services
+﻿using Afrowave.SharedTools.Docs.Models.Settings;
+
+namespace Afrowave.SharedTools.Docs.Services
 {
 	/// <summary>
 	/// Provides a service for making HTTP requests, including support for JSON serialization,  form submissions, and

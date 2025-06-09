@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.DatabaseModels
 {
 	/// <summary>
 	/// Represents a single log entry containing details about a logged event.

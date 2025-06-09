@@ -1,6 +1,6 @@
 ﻿using MailKit.Security;
 
-namespace Afrowave.SharedTools.Docs.Models
+namespace Afrowave.SharedTools.Docs.Models.DatabaseModels
 {
 	/// <summary>
 	/// Represents the application settings required for configuring the application and SMTP server connection.

@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.LibreTranslate
 {
 	/// <summary>
 	/// Represents a language supported by the LibreTranslate service, including its code, name, and target languages for

@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.LibreTranslate
 {
 	/// <summary>
 	/// Represents the result of a translation operation performed by the LibreTranslation service.

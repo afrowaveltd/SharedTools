@@ -10,7 +10,7 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 	/// server configuration, authentication credentials, and metadata about the application. It provides properties for
 	/// specifying the host, port, security options, and other details  necessary for email communication and application
 	/// setup.</remarks>
-	public class ApplicationSettingsInstall
+	public class ApplicationInstall
 	{
 		/// <summary>
 		/// Gets or sets the name of the application.
@@ -21,6 +21,16 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 		/// Gets or sets the description of the Afrowave Shared Tools.
 		/// </summary>
 		public string? Description { get; set; } = "# Documentation for Afrowave Shared Tools";
+
+		/// <summary>
+		/// Gets or sets the email address associated with the user.
+		/// </summary>
+		public string Email { get; set; } = String.Empty;
+
+		/// <summary>
+		/// Gets or sets the display name associated with the object.
+		/// </summary>
+		public string DisplayName { get; set; } = String.Empty;
 
 		/// <summary>
 		/// Gets or sets the hostname or IP address of the server to connect to.

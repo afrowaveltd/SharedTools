@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.DatabaseModels
 {
 	/// <summary>
 	/// Represents an administrative user with properties for authentication and status management.
@@ -28,6 +28,11 @@
 		/// </summary>
 		[Required]
 		public string Email { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the user's email address has been confirmed.
+		/// </summary>
+		public bool IsEmailConfirmed { get; set; } = false;
 
 		/// <summary>
 		/// Gets or sets the display name associated with the object.

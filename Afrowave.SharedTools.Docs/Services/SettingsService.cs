@@ -1,4 +1,5 @@
-﻿using MailKit.Security;
+﻿using Afrowave.SharedTools.Docs.Models.Communication;
+using Afrowave.SharedTools.Docs.Models.DatabaseModels;
 
 namespace Afrowave.SharedTools.Docs.Services;
 
@@ -29,7 +30,7 @@ public class SettingsService(DocsDbContext context,
 				Host = settings.Host,
 				Port = settings.Port,
 				ApiKey = settings.ApiKey,
-				SecureSocketOptions = settings.SecureSocketOptions.ToString(),
+				SecureSocketOptions = settings.SecureSocketOptions,
 				Email = settings.Email,
 				SenderName = settings.SenderName,
 				UseAuthentication = settings.UseAuthentication,
@@ -77,78 +78,18 @@ public class SettingsService(DocsDbContext context,
 
 	public async Task<Response<ApplicationSettings>> SaveApplicationSettingsAsync(ApplicationSettingsDto settingsDto)
 	{
-		if(settingsDto == null)
-		{
-			return Response<ApplicationSettings>.Fail(_localizer["Settings cannot be null."]);
-		}
-
-		bool isNew = !await SettingsExists();
-		ApplicationSettings settings = isNew
-			? await _context.ApplicationSettings.FirstOrDefaultAsync()
-			?? new()
-			: new();
-
-		settings = new ApplicationSettings
-		{
-			Id = settingsDto.Id == 0 ? 0 : settingsDto.Id,
-			ApplicationName = settingsDto.ApplicationName,
-			Description = settingsDto.Description,
-			Host = settingsDto.Host,
-			Port = settingsDto.Port,
-			ApiKey = settingsDto.ApiKey,
-			SecureSocketOptions = Enum.TryParse<SecureSocketOptions>(settingsDto.SecureSocketOptions, out var secureSocketOptions) ? secureSocketOptions : SecureSocketOptions.Auto,
-			Email = settingsDto.Email,
-			SenderName = settingsDto.SenderName,
-			UseAuthentication = settingsDto.UseAuthentication,
-			Login = settingsDto.Login,
-			IsActive = true // Assuming you want to set IsActive to true by default
-		};
-
-		if(settingsDto.Password != null)
-		{
-			settings.EncryptedPasswoord = _encryption.EncryptTextAsync(settingsDto.Password, settings.ApiKey);
-		}
-		if(!await _context.ApplicationSettings.AnyAsync())
-		{
-			settings.Id = 0;
-			await _context.ApplicationSettings.AddAsync(settings);
-		}
-
-		await _context.SaveChangesAsync();
 	}
 
 	private async Task<Response<ApplicationSettings>> SaveRawSettings(ApplicationSettings settings)
 	{
-		try
+		bool isNew = !await SettingsExists();
+		if(settings == null)
 		{
-			var existingSettings = await _context.ApplicationSettings.FirstOrDefaultAsync();
-			if(existingSettings == null)
-			{
-				await _context.ApplicationSettings.AddAsync(settings);
-			}
-			else
-			{
-				existingSettings.ApplicationName = settings.ApplicationName;
-				existingSettings.Description = settings.Description;
-				existingSettings.Host = settings.Host;
-				existingSettings.Port = settings.Port;
-				existingSettings.ApiKey = settings.ApiKey;
-				existingSettings.SecureSocketOptions = settings.SecureSocketOptions;
-				existingSettings.Email = settings.Email;
-				existingSettings.SenderName = settings.SenderName;
-				existingSettings.UseAuthentication = settings.UseAuthentication;
-				existingSettings.Login = settings.Login;
-				existingSettings.SuccessfullyTested = settings.SuccessfullyTested;
-				existingSettings.IsActive = settings.IsActive;
-				_context.ApplicationSettings.Update(existingSettings);
-			}
-			await _context.SaveChangesAsync();
-			return Response<ApplicationSettings>.Successful(settings, "");
+			return Response<ApplicationSettings>.Fail(_localizer["Settings cannot be null."]);
 		}
-		catch(Exception ex)
+		if(isNew)
 		{
-			_logger.LogError(ex, "Error saving application settings.");
-			return Response<ApplicationSettings>.Fail(_localizer["An error occurred while saving application settings."]);
+			// it means, that we are installing the application and need to consider it OK
 		}
 	}
 

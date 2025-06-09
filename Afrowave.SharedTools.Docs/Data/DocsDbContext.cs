@@ -1,4 +1,6 @@
-﻿namespace Afrowave.SharedTools.Docs.Data
+﻿using Afrowave.SharedTools.Docs.Models.DatabaseModels;
+
+namespace Afrowave.SharedTools.Docs.Data
 {
 	/// <summary>
 	/// Represents the database context for managing log entries in the application.
