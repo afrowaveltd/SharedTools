@@ -2,6 +2,7 @@
 	"An error occurred while retrieving application settings.": "Došlo k chybě při načítání nastavení aplikace.",
 	"An error occurred while retrieving SMTP settings.": "Došlo k chybě při načítání nastavení SMTP.",
 	"An error occurred while saving application settings.": "Došlo k chybě při ukládání nastavení aplikace.",
+	"Application installation settings prepared successfully.": "Inicializační nastavení aplikace dokončeno.",
 	"No settings found.": "Nebyly nalezeny žádná nastavení.",
 	"Settings cannot be null.": "Nastavení nemůže být null.",
 	"test": "Testovací řetězec pro ověření, že soubor funguje správně."

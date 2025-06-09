@@ -66,6 +66,7 @@ public class InstallationService(ILogger<InstallationService> logger,
 			return Response<InstallationResult>.Fail("SMTP Password is required when authentication is used");
 		}
 		string apiKey = _encryption.GenerateApplicationSecret();
+
 		ApplicationSettings settings = new()
 		{
 			ApplicationName = application.ApplicationName ?? "Documentation",
@@ -78,7 +79,9 @@ public class InstallationService(ILogger<InstallationService> logger,
 			SenderName = application.SenderName ?? application.SmtpLogin ?? string.Empty,
 			UseAuthentication = application.UseAuthentication,
 			Login = application.SmtpLogin ?? application.SenderEmail ?? string.Empty,
-			EncryptedPassword = _encryption.EncryptTextAsync(application.SmtpPassword ?? string.Empty, apiKey)
+			EncryptedPassword = _encryption.EncryptTextAsync(application.SmtpPassword ?? string.Empty, apiKey),
+			SuccessfullyTested = true,
+			IsActive = true
 		};
 		try
 		{
@@ -92,9 +95,26 @@ public class InstallationService(ILogger<InstallationService> logger,
 			return Response<InstallationResult>.Fail("Failed to save application settings");
 		}
 
-		// all ready to save settings;
-
+		// all ready to save admin;
+		Admin admin = new()
+		{
+			Email = application.Email,
+			DisplayName = application.DisplayName ?? "Admin",
+			IsActive = true,
+		};
+		try
+		{
+			await _context.Admins.AddAsync(admin);
+			await _context.SaveChangesAsync();
+			result.Admin = admin;
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "Failed to save admin user: {Message}", ex.Message);
+			return Response<InstallationResult>.Fail("Failed to save admin user");
+		}
 		_logger.LogInformation("Application installation settings prepared for: {ApplicationName}", application.ApplicationName);
+		return Response<InstallationResult>.Successful(result, _localizer["Application installation settings prepared successfully."]);
 	}
 
 	/// <summary>
