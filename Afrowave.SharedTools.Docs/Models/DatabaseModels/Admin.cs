@@ -47,6 +47,6 @@
 		/// <summary>
 		/// Gets or sets the bearer token used for authentication or authorization purposes.
 		/// </summary>
-		public string Bearer { get; set; } = Guid.NewGuid().ToString();
+		public string Bearer { get; set; } = string.Empty;
 	}
 }

@@ -21,11 +21,16 @@ public class InstallationService(ILogger<InstallationService> logger,
 	private readonly IEncryptionService _encryption = encryption;
 	private readonly DocsDbContext _context = context;
 
-	public async Task<Response<ApplicationSettings>> InstallApplication(ApplicationInstall application)
+	public async Task<Response<InstallationResult>> InstallApplication(ApplicationInstall application)
 	{
 		if(await IsInstalledAsync())
 		{
-			return Response<ApplicationSettings>.Fail("Settings already exist");
+			return Response<InstallationResult>.Fail("Settings already exist");
+		}
+		// just simple checks
+		if(application == null)
+		{
+			return Response<InstallationResult>.Fail("Missing data");
 		}
 	}
 
