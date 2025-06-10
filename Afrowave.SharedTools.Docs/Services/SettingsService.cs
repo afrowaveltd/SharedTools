@@ -1,52 +1,16 @@
-﻿using Afrowave.SharedTools.Docs.Models.Communication;
-using Afrowave.SharedTools.Docs.Models.DatabaseModels;
-
-namespace Afrowave.SharedTools.Docs.Services;
+﻿namespace Afrowave.SharedTools.Docs.Services;
 
 public class SettingsService(DocsDbContext context,
 	IStringLocalizer<SettingsService> localizer,
 	ILogger<SettingsService> logger,
-	IEncryptionService encryption)
+	IEncryptionService encryption,
+	IInstallationService installation)
 {
 	private readonly DocsDbContext _context = context;
 	private readonly IStringLocalizer<SettingsService> _localizer = localizer;
 	private readonly ILogger<SettingsService> _logger = logger;
 	private readonly IEncryptionService _encryption = encryption;
-
-	public async Task<Response<ApplicationSettingsDto>> GetApplicationSettingsAsync()
-	{
-		try
-		{
-			var settings = await _context.ApplicationSettings.FirstOrDefaultAsync();
-			if(settings == null)
-			{
-				return Response<ApplicationSettingsDto>.SuccessWithWarning(new(), _localizer["No settings found."]);
-			}
-			var dto = new ApplicationSettingsDto
-			{
-				Id = settings.Id,
-				ApplicationName = settings.ApplicationName,
-				Description = settings.Description,
-				Host = settings.Host,
-				Port = settings.Port,
-				ApiKey = settings.ApiKey,
-				SecureSocketOptions = settings.SecureSocketOptions,
-				Email = settings.Email,
-				SenderName = settings.SenderName,
-				UseAuthentication = settings.UseAuthentication,
-				Login = settings.Login,
-				Password = _encryption.DecryptTextAsync(settings.EncryptedPasswoord ?? string.Empty, settings.ApiKey),
-				SuccessfullyTested = settings.SuccessfullyTested,
-				IsActive = settings.IsActive
-			};
-			return Response<ApplicationSettingsDto>.Successful(dto, "");
-		}
-		catch(Exception ex)
-		{
-			_logger.LogError(ex, "Error retrieving application settings.");
-			return Response<ApplicationSettingsDto>.Fail(_localizer["An error occurred while retrieving application settings."]);
-		}
-	}
+	private readonly IInstallationService _installation = installation;
 
 	public async Task<Response<SmtpSettings>> GetSmtpSettingsAsync()
 	{
@@ -58,14 +22,14 @@ public class SettingsService(DocsDbContext context,
 			{
 				return Response<SmtpSettings>.Fail(_localizer["No settings found."]);
 			}
-			settings.Host = appSettings.Host;
+			settings.Host = appSettings.SmtpHost;
 			settings.Port = appSettings.Port;
 			settings.SecureSocketOptions = appSettings.SecureSocketOptions;
 			settings.Email = appSettings.Email;
 			settings.SenderName = appSettings.SenderName;
 			settings.UseAuthentication = appSettings.UseAuthentication;
 			settings.Login = appSettings.Login;
-			settings.Password = _encryption.DecryptTextAsync(appSettings.EncryptedPasswoord ?? string.Empty, appSettings.ApiKey);
+			settings.Password = _encryption.DecryptTextAsync(appSettings.EncryptedPassword ?? string.Empty, appSettings.ApiKey);
 			settings.SuccessfullyTested = appSettings.SuccessfullyTested;
 			return Response<SmtpSettings>.Successful(settings, "");
 		}
@@ -76,20 +40,44 @@ public class SettingsService(DocsDbContext context,
 		}
 	}
 
-	public async Task<Response<ApplicationSettings>> SaveApplicationSettingsAsync(ApplicationSettingsDto settingsDto)
+	private async Task<Response<ApplicationSettings>> SaveRawSettings(ApplicationSettingsDto settings)
 	{
-	}
-
-	private async Task<Response<ApplicationSettings>> SaveRawSettings(ApplicationSettings settings)
-	{
-		bool isNew = !await SettingsExists();
 		if(settings == null)
 		{
 			return Response<ApplicationSettings>.Fail(_localizer["Settings cannot be null."]);
 		}
-		if(isNew)
+		ApplicationSettings? actualSettings = await _context.ApplicationSettings.FirstOrDefaultAsync();
+		if(actualSettings == null)
 		{
-			// it means, that we are installing the application and need to consider it OK
+			return Response<ApplicationSettings>.Fail(_localizer["No settings found"]);
+		}
+
+		// actualize each value
+		actualSettings.ApplicationName = settings.ApplicationName;
+		actualSettings.SenderName = settings.SenderName ?? string.Empty;
+		actualSettings.Description = settings.Description;
+		actualSettings.SmtpHost = settings.SmtpHost;
+		actualSettings.Port = settings.Port;
+		actualSettings.ApiKey = settings.ApiKey;
+		actualSettings.SecureSocketOptions = settings.SecureSocketOptions;
+		actualSettings.Email = settings.Email ?? string.Empty;
+		actualSettings.SenderName = settings.SenderName ?? string.Empty;
+		actualSettings.UseAuthentication = settings.UseAuthentication;
+		actualSettings.Login = settings.Login ?? string.Empty;
+		actualSettings.EncryptedPassword = settings.Password ?? string.Empty;
+		actualSettings.SuccessfullyTested = settings.SuccessfullyTested;
+		actualSettings.IsActive = settings.IsActive;
+
+		try
+		{
+			await _context.SaveChangesAsync();
+			_logger.LogInformation("Application settings updated");
+			return Response<ApplicationSettings>.Successful(actualSettings, "");
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError("Error saving settings {ex}", ex);
+			return Response<ApplicationSettings>.Fail(ex);
 		}
 	}
 
@@ -111,11 +99,11 @@ public class SettingsService(DocsDbContext context,
 		}
 	}
 
-	private async Task<bool> SettingsExists()
+	private async Task<bool> InServiceAsync()
 	{
 		try
 		{
-			return await _context.ApplicationSettings.AnyAsync();
+			return await _installation.IsInstalledAsync();
 		}
 		catch(Exception ex)
 		{

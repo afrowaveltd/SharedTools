@@ -14,16 +14,29 @@
 public class InstallationService(ILogger<InstallationService> logger,
 	IStringLocalizer<InstallationService> localizer,
 	IEncryptionService encryption,
-	DocsDbContext context)
+	DocsDbContext context) : IInstallationService
 {
 	private readonly ILogger<InstallationService> _logger = logger;
 	private readonly IStringLocalizer<InstallationService> _localizer = localizer;
 	private readonly IEncryptionService _encryption = encryption;
 	private readonly DocsDbContext _context = context;
 
+	/// <summary>
+	/// Installs the application by validating the provided configuration, saving application settings,  and creating an
+	/// admin user.
+	/// </summary>
+	/// <remarks>This method performs the following steps: <list type="bullet"> <item>Validates the provided
+	/// <paramref name="application"/> object, ensuring all required fields are populated and valid.</item> <item>Checks if
+	/// the application is already installed and prevents duplicate installations.</item> <item>Saves the application
+	/// settings to the database, including encryption of sensitive data.</item> <item>Creates an admin user with the
+	/// provided email and optional display name.</item> </list> If any validation or database operation fails, the method
+	/// returns a failure response with an appropriate error message.</remarks>
+	/// <param name="application">The <see cref="ApplicationInstall"/> object containing the configuration details required for the installation.</param>
+	/// <returns>A <see cref="Response{T}"/> containing an <see cref="InstallationResult"/> object if the installation is
+	/// successful,  or an error message if the installation fails.</returns>
 	public async Task<Response<InstallationResult>> InstallApplication(ApplicationInstall application)
 	{
-		InstallationResult result = new InstallationResult();
+		InstallationResult result = new();
 		if(await IsInstalledAsync())
 		{
 			return Response<InstallationResult>.Fail("Settings already exist");
@@ -101,6 +114,8 @@ public class InstallationService(ILogger<InstallationService> logger,
 			Email = application.Email,
 			DisplayName = application.DisplayName ?? "Admin",
 			IsActive = true,
+			IsOwner = true,
+			Bearer = _encryption.GenerateApplicationSecret()
 		};
 		try
 		{

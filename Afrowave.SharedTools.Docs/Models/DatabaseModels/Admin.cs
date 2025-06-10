@@ -42,7 +42,12 @@
 		/// <summary>
 		/// Gets or sets a value indicating whether the entity is active.
 		/// </summary>
-		public bool IsActive { get; set; }
+		public bool IsActive { get; set; } = true;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the current user is the owner.
+		/// </summary>
+		public bool IsOwner { get; set; } = false;
 
 		/// <summary>
 		/// Gets or sets the bearer token used for authentication or authorization purposes.

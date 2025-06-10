@@ -51,17 +51,17 @@ namespace Afrowave.SharedTools.Docs.Models.Dto
 		/// <summary>
 		/// Gets or sets the email address associated with the user.
 		/// </summary>
-		public string Email { get; set; } = string.Empty;
+		public string? Email { get; set; }
 
 		/// <summary>
 		/// Gets or sets the name of the sender.
 		/// </summary>
-		public string SenderName { get; set; } = string.Empty;
+		public string? SenderName { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether authentication is required for the operation.
 		/// </summary>
-		public bool UseAuthentication { get; set; } = false;
+		public bool UseAuthentication { get; set; }
 
 		/// <summary>
 		/// Gets or sets the login identifier for the user.
