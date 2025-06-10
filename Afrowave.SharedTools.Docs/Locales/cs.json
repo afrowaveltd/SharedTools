@@ -1,9 +1,12 @@
 {
 	"An error occurred while retrieving application settings.": "Došlo k chybě při načítání nastavení aplikace.",
 	"An error occurred while retrieving SMTP settings.": "Došlo k chybě při načítání nastavení SMTP.",
+	"An error occured while retrieving the Api key": "Došlo k chybě při čtení API klíče",
 	"An error occurred while saving application settings.": "Došlo k chybě při ukládání nastavení aplikace.",
+	"Application informations couldn't be retreived": "Informace o aplikace nebyly staženy",
 	"Application installation settings prepared successfully.": "Inicializační nastavení aplikace dokončeno.",
 	"No settings found.": "Nebyly nalezeny žádná nastavení.",
 	"Settings cannot be null.": "Nastavení nemůže být null.",
-	"test": "Testovací řetězec pro ověření, že soubor funguje správně."
+	"test": "Testovací řetězec pro ověření, že soubor funguje správně.",
+	"The application name can't be empty": "Název aplikace nemůže být prázdný"
 }

@@ -19,12 +19,12 @@
 		/// <summary>
 		/// Gets or sets the message associated with the response.
 		/// </summary>
-		public string Message { get; set; } = string.Empty;
+		public string? Message { get; set; }
 
 		/// <summary>
 		/// Gets or sets the data returned by the operation.
 		/// </summary>
-		public T? Data { get; set; } = default;
+		public T? Data { get; set; }
 
 		/// <summary>
 		/// Creates a successful response with data and a message.
@@ -39,6 +39,22 @@
 				Success = true,
 				Data = data,
 				Message = message ?? string.Empty
+			};
+		}
+
+		/// <summary>
+		/// Creates a successful response containing the specified data.
+		/// </summary>
+		/// <param name="data">The data to include in the response. This value represents the result of the operation.</param>
+		/// <returns>A <see cref="Response{T}"/> object with <see cref="Response{T}.Success"/> set to <see langword="true"/>, the
+		/// specified <paramref name="data"/> assigned to <see cref="Response{T}.Data"/>, and an empty message.</returns>
+		public static Response<T> Successful(T data)
+		{
+			return new Response<T>
+			{
+				Success = true,
+				Data = data,
+				Message = string.Empty
 			};
 		}
 
@@ -60,7 +76,7 @@
 		/// Creates a successful response with no data and no message.
 		/// </summary>
 		/// <returns>A successful <see cref="Response{T}"/> instance.</returns>
-		public static Response<T> SuccessEmty()
+		public static Response<T> Successful()
 		{
 			return new Response<T>
 			{
@@ -96,6 +112,15 @@
 			{
 				Success = false,
 				Message = ex?.Message ?? "Unknown error"
+			};
+		}
+
+		public static Response<T> Fail(string message, Exception ex)
+		{
+			return new Response<T>
+			{
+				Success = false,
+				Message = message + "" + ex.Message
 			};
 		}
 	}

@@ -14,6 +14,11 @@
 		public int Id { get; set; }
 
 		/// <summary>
+		/// Gets or sets the date and time when the registration occurred.
+		/// </summary>
+		public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
+
+		/// <summary>
 		/// Gets or sets the one-time password (OTP) associated with the current operation.
 		/// </summary>
 		public string Otp { get; set; } = string.Empty;
@@ -53,5 +58,15 @@
 		/// Gets or sets the bearer token used for authentication or authorization purposes.
 		/// </summary>
 		public string Bearer { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the total time the user has been online.
+		/// </summary>
+		public TimeSpan TimeOnline { get; set; } = TimeSpan.Zero;
+
+		/// <summary>
+		/// Gets or sets the timestamp of the last recorded activity.
+		/// </summary>
+		public DateTime LastSeen { get; set; } = DateTime.UtcNow;
 	}
 }
