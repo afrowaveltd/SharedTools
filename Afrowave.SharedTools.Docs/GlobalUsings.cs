@@ -15,6 +15,7 @@ global using Afrowave.SharedTools.Docs.Models.Settings;
 global using Afrowave.SharedTools.Docs.Services;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.RazorPages;
+global using Microsoft.AspNetCore.SignalR;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Localization;
 global using Scalar.AspNetCore;
