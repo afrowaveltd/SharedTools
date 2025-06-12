@@ -4,7 +4,7 @@
 	--navbar: #212121;
 	--background: #121212;
 	--text: #e0e0e0;
-	--article-background: #330011;
+	--color2-background: #330011;
 	--article-text: #03dac6;
 	--border: #03dac6;
 	--link: #cf6679;
@@ -16,5 +16,8 @@
 	--info: #1e1e1e;
 	--warning: #444444;
 	--error: #cf6679;
-}
+	--button-background: #03dac6;
+	--button-text: #121212;
+	--button-hover: #03dac6;
 
+}
