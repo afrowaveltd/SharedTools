@@ -1,0 +1,21 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+:root {
+	--navbar: #212121;
+	--background: #121212;
+	--text: #e0e0e0;
+	--article-background: #330011;
+	--article-text: #03dac6;
+	--border: #03dac6;
+	--link: #cf6679;
+	--link-hover: #333333;
+	--link-active: #1f1f1f;
+	--disabled-background: #3700b3;
+	--disabled-text: #ffffff;
+	--success: #bb86fc;
+	--info: #1e1e1e;
+	--warning: #444444;
+	--error: #cf6679;
+
+}
+

@@ -1,9 +1,9 @@
-﻿namespace Afrowave.SharedTools.Docs.Services
+﻿namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 {
 	/// <summary>
 	/// Service for interacting with the LibreTranslate API to perform translations and retrieve language information.
 	/// </summary>
-	public class LibreTranslateService
+	public class LibreTranslateService : ILibreTranslateService
 	{
 		private readonly LibreTranslateOptions options = new();
 		private readonly IHttpService _httpService;

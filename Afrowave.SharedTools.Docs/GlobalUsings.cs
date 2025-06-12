@@ -13,6 +13,7 @@ global using Afrowave.SharedTools.Docs.Models.Enums;
 global using Afrowave.SharedTools.Docs.Models.LibreTranslate;
 global using Afrowave.SharedTools.Docs.Models.Settings;
 global using Afrowave.SharedTools.Docs.Services;
+global using Afrowave.SharedTools.Docs.Services.LibreTranslate;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.RazorPages;
 global using Microsoft.AspNetCore.SignalR;

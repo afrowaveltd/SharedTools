@@ -1,0 +1,7 @@
+﻿body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+	font-family: "Ubuntu", sans-serif;
+	display: flex;
+	flex-direction: column;
+}
