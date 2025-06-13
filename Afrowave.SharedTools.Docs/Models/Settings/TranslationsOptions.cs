@@ -23,6 +23,11 @@
 		public string[] IgnoredForMd { get; set; } = ["en"];
 
 		/// <summary>
+		/// Gets or sets the list of folder names used for Markdown files.
+		/// </summary>
+		public string[] MdFolders { get; set; } = ["docs"];
+
+		/// <summary>
 		/// Gets or sets the number of minutes between each cycle.
 		/// </summary>
 		public int MinutesBetweenCycles { get; set; } = 20;

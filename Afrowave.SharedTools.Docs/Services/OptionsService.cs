@@ -24,6 +24,10 @@ public class OptionsService(IStringLocalizer<OptionsService> localizer,
 	private readonly ILibreTranslateService _libreTranslateService = libreTranslateService;
 	private readonly ILanguageService _languagesService = languagesService;
 
+	private readonly string _cssFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory
+	[..AppDomain.CurrentDomain.BaseDirectory
+	 .IndexOf("bin")], "wwwroot", "css");
+
 	// Synchronous methods
 	/// <summary>
 	/// Generates a list of binary options represented as select list items.
@@ -84,5 +88,57 @@ public class OptionsService(IStringLocalizer<OptionsService> localizer,
 		return languages;
 	}
 
+	/// <summary>
+	/// Retrieves a list of themes formatted as selectable items, with an optional preselected theme.
+	/// </summary>
+	/// <remarks>This method generates a list of themes suitable for use in dropdowns or other selection controls.
+	/// If no themes are available, a default "dark" theme is added to the list.</remarks>
+	/// <param name="selected">The theme to mark as selected in the resulting list. If <paramref name="selected"/> is null or does not match any
+	/// theme, no item will be preselected.</param>
+	/// <returns>A list of <see cref="SelectListItem"/> objects representing the available themes. If no themes are available, the
+	/// list will contain a single item with the value "dark" preselected.</returns>
+	public List<SelectListItem> GetThemes(string? selected)
+	{
+		List<SelectListItem> result = new();
+		var themes = GetThemesList();
+		if(themes == null || themes.Count == 0)
+		{
+			result.Add(new SelectListItem { Text = "dark", Value = "dark", Selected = true });
+		}
+		else
+		{
+			foreach(var theme in themes)
+			{
+				result.Add(new SelectListItem
+				{
+					Text = theme,
+					Value = theme,
+					Selected = theme == selected
+				});
+			}
+		}
+		return result;
+	}
+
 	// Asynchronous methods
+
+	// private methods
+	private List<string> GetThemesList()
+	{
+		if(!Directory.Exists(_cssFolderPath))
+		{
+			throw new DirectoryNotFoundException($"The folder '{_cssFolderPath}' does not exist.");
+		}
+
+		string[] themeFiles = Directory.GetFiles(_cssFolderPath, "*-theme.css", SearchOption.TopDirectoryOnly);
+
+		List<string> themeNames = [.. themeFiles
+					 .Select(file => Path.GetFileNameWithoutExtension(file)) // Extract file name without extension
+					 .Select(fileName =>
+					 {
+						 string[] parts = fileName.Split('_', 2);
+						 return fileName.Replace("-theme", "");
+					 })];
+		return themeNames;
+	}
 }

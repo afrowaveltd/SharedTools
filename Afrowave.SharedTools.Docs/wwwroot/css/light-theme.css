@@ -1,1 +1,42 @@
-﻿
+﻿@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+:root {
+	--navbar-text: #111131;
+	--navbar: #aa6633;
+	--navbar-border: #770033;
+	--text: #121221;
+	--background: #e0e0f3;
+	--dimmed: #353549;
+	--highlight: #000000;
+	--border: #101020;
+	--color2-background: #F7F7FF;
+	--color2-text: #151525;
+	--color2-border: #151525;
+	--help-text: #033a99;
+	--help-background: #FFFFEE;
+	--help-border: #033a99;
+	--table-th-background: #110022;
+	--table-th-text: #ccccee;
+	--table-row-text: #000011;
+	--table-row-background: #aaaacc;
+	--table-border: #000011;
+	--input-background: #AAAAAA;
+	--input-border: #111122;
+	--input-text: #111122;
+	--input-placeholder: #777788;
+	--link: #664400;
+	--link-hover: #885500;
+	--link-active: #995500;
+	--link-visited: #202020;
+	--disabled-background: #555566;
+	--disabled-text: #aaaaff;
+	--success: #11aa11;
+	--info: #1111aa;
+	--warning: #aa2200;
+	--error: #aa0000;
+	--button-border: #111111;
+	--button-background: #aaaaaa;
+	--button-text: #111111;
+	--button-hover: #03dac6;
+	--font-face: "Ubuntu", sans-serif;
+}

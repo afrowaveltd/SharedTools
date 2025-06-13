@@ -1,6 +1,6 @@
 ﻿namespace Afrowave.SharedTools.Docs.Hubs
 {
-	public class OpenHub
+	public class OpenHub : Hub
 	{
 	}
 }
