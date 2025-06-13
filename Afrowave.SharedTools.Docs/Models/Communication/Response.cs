@@ -27,6 +27,11 @@
 		public T? Data { get; set; }
 
 		/// <summary>
+		/// Gets or sets the execution time of the operation, in milliseconds.
+		/// </summary>
+		public int ExecutionTime { get; set; } = 0;
+
+		/// <summary>
 		/// Creates a successful response with data and a message.
 		/// </summary>
 		/// <param name="data">The data to return.</param>

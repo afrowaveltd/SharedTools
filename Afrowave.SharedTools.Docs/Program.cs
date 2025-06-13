@@ -1,3 +1,5 @@
+using Afrowave.SharedTools.Docs.Hubs;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Serilog configuration
@@ -39,6 +41,16 @@ try
 		 .AddLocalization();
 
 	builder.Services.AddOpenApi("Afrowave");
+	builder.Services.AddSignalR()
+		.AddJsonProtocol(options =>
+		{
+			// Set property naming policy to camelCase
+			options.PayloadSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+			// Allow complex object types like Lists<T> or other nested members
+			options.PayloadSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.Never;
+			// Add support for preserving references if needed (useful for circular references)
+			options.PayloadSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+		});
 	builder.Services.AddRazorPages()
 		.AddViewLocalization();
 
@@ -136,5 +148,7 @@ app.MapControllers();
 app.MapStaticAssets();
 app.MapRazorPages()
 	.WithStaticAssets();
+app.MapHub<AdminHub>("/admin");
+app.MapHub<OpenHub>("/open");
 
 app.Run();

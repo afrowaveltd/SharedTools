@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Localization;
-
 namespace Afrowave.SharedTools.Docs.Pages
 {
 	/// <summary>
@@ -11,7 +9,6 @@ namespace Afrowave.SharedTools.Docs.Pages
 	{
 		private readonly IStringLocalizer<IndexModel> _t = t;
 
-		public string Test = string.Empty;
 		/// <summary>
 		/// Handles GET requests for the page.
 		/// </summary>
@@ -19,7 +16,6 @@ namespace Afrowave.SharedTools.Docs.Pages
 		/// implement any logic needed to initialize the page's state or prepare data for rendering.</remarks>
 		public void OnGet()
 		{
-			Test = _t["test"];
 		}
 	}
 }

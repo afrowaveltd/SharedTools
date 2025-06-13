@@ -1,10 +1,11 @@
 ﻿@page
 @model IndexModel
+@inject IStringLocalizer<IndexModel> _localizer;
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = _localizer["Afrowave documentation"];
 }
 
 <div class="text-center">
-    <h4 class="display-4">@Model.Test</h4>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>@_localizer["test"]</h2>
+    
 </div>
