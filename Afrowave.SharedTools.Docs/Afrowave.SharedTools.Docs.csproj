@@ -37,6 +37,8 @@
 	<ItemGroup>
 		<Folder Include="Locales\" />
 		<Folder Include="Jsons\" />
+		<Folder Include="wwwroot\docs\" />
+		<Folder Include="wwwroot\readme\" />
 	</ItemGroup>
 
   <ItemGroup>

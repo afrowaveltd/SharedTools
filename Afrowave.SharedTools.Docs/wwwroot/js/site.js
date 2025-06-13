@@ -1,9 +1,4 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
-// SIG // Begin signature block
+﻿// SIG // Begin signature block
 // SIG // MIIpJgYJKoZIhvcNAQcCoIIpFzCCKRMCAQExDzANBglg
 // SIG // hkgBZQMEAgEFADB3BgorBgEEAYI3AgEEoGkwZzAyBgor
 // SIG // BgEEAYI3AgEeMCQCAQEEEBDgyQbOONQRoqMAEEvTUJAC
@@ -325,3 +320,66 @@
 // SIG // 6c3wQjM6ebV0TEurQ/nOGm/SzFlSyRbmNS8FYHY1Cdtz
 // SIG // HmjKIfL20Ws/wMw=
 // SIG // End signature block
+
+// JSON data pro ikony a navigaci
+const layoutData = {
+	topIcons: [
+		{ id: 1, emoji: "🔔", title: "Notifikace" },
+		{ id: 2, emoji: "✉️", title: "Zprávy" },
+		{ id: 3, emoji: "⚙️", title: "Nastavení" }
+	],
+	navItems: [
+		{ id: 1, emoji: "🏠", text: "Domů", href: "#" },
+		{ id: 2, emoji: "📊", text: "Statistiky", href: "#" },
+		{ id: 3, emoji: "📝", text: "Dokumenty", href: "#" },
+		{ id: 4, emoji: "📅", text: "Kalendář", href: "#" },
+		{ id: 5, emoji: "👤", text: "Profil", href: "#" }
+	]
+};
+
+// Page initialization
+document.addEventListener('DOMContentLoaded', function () {
+	// top side icons
+	const topIconsContainer = document.getElementById('top-icons');
+	layoutData.topIcons.forEach(icon => {
+		const iconElement = document.createElement('span');
+		iconElement.className = 'emoji-icon mx-2';
+		iconElement.innerHTML = icon.emoji;
+		iconElement.title = icon.title;
+		iconElement.style.cursor = 'pointer';
+		topIconsContainer.appendChild(iconElement);
+	});
+
+	// Naplnění navigace
+	const navContainer = document.getElementById('nav-items');
+	layoutData.navItems.forEach(item => {
+		const li = document.createElement('li');
+		li.className = 'nav-item';
+
+		const a = document.createElement('a');
+		a.className = 'nav-link';
+		a.href = item.href;
+		a.innerHTML = `<span class="emoji me-2">${item.emoji}</span> ${item.text}`;
+
+		li.appendChild(a);
+		navContainer.appendChild(li);
+	});
+
+	// Ovládání postranního menu
+	const menuToggle = document.getElementById('menu-toggle');
+	const sideNav = document.getElementById('side-nav');
+	const mainContent = document.getElementById('main-content');
+
+	menuToggle.addEventListener('click', function () {
+		sideNav.classList.toggle('open');
+		mainContent.classList.toggle('shifted');
+
+		// Změna ikony podle stavu menu
+		const emojiSpan = this.querySelector('.emoji');
+		if (sideNav.classList.contains('open')) {
+			emojiSpan.textContent = '✖️';
+		} else {
+			emojiSpan.textContent = '📑';
+		}
+	});
+});

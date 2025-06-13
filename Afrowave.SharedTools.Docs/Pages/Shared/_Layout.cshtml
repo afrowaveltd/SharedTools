@@ -10,21 +10,38 @@
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <div id="app">
+        <!-- Horní lišta -->
+        <nav id="top-bar" class="navbar fixed-top">
+            <div class="container-fluid">
+                <a href="#" id="menu-toggle" class="btn">
+                    <span class="emoji">📑</span>
+                </a>
+                <div id="top-icons" class="d-flex">
+                    <!-- Ikony budou dynamicky naplněny z JSON -->
 
-    <footer class="border-top footer">
-        <div class="container">
-            &copy; 2025 - Afrowave.SharedTools.Docs - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Postranní navigace -->
+        <div id="side-nav" class="sidenav">
+            <ul id="nav-items" class="nav flex-column">
+                <!-- Navigační položky budou dynamicky naplněny z JSON -->
+            </ul>
         </div>
-    </footer>
 
+        <!-- Hlavní obsah -->
+        <main id="main-content" class="main-content">
+            <div class="container-fluid mt-5 pt-4">
+               @RenderBody()
+            </div>
+        </main>
+        <footer class="footer">
+            footer
+        </footer>
+    </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
