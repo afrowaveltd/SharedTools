@@ -11,4 +11,4 @@ let manager = new SignalRConnectionsManager({
 		else
 			admin_hub_status_element.textContent = '🔒';
 	}
-}).init();
+});
