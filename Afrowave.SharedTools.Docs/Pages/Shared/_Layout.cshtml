@@ -1,15 +1,22 @@
 ﻿@inject IStringLocalizer<IndexModel> _localizer;
-@inject ICookieService _cookieService;
-@inject IOptions
+@inject ICookieService _cookie_service;
+@inject IOptionsService _options_service;
+@inject ILanguageService _language_service;
+@{
+    var theme = _cookie_service.GetOrCreateCookie("theme", "dark", 0);
+    var style = $"/css/{theme}-theme.css";
+    string selected = _cookie_service.GetCookie("language") ?? "en";
+	string direction = _language_service.IsRtl(selected) ? "rtl": "ltr";
+}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@selected" dir="@direction">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Afrowave.SharedTools.Docs</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/dark-theme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="@style" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 </head>
 <body>
