@@ -7,7 +7,7 @@
 				open: {
 					url: '/open_hub',
 					connection: null,
-					connected: false,
+					connected: true,
 					reconnectDelay: 1000,
 					maxReconnectDelay: 60000,
 				},
@@ -94,7 +94,7 @@
 					hub.reconnectDelay = 1000;
 					this.onStatusChange(this.getStatuses());
 				})
-				.catch(() => {
+				.catch((ex) => {
 					hub.connected = false;
 					this.onStatusChange(this.getStatuses());
 					this.scheduleReconnect(hubKey);

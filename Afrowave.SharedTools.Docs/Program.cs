@@ -148,7 +148,7 @@ app.MapControllers();
 app.MapStaticAssets();
 app.MapRazorPages()
 	.WithStaticAssets();
-app.MapHub<AdminHub>("/admin");
-app.MapHub<OpenHub>("/open");
+app.MapHub<AdminHub>("/admin_hub");
+app.MapHub<OpenHub>("/open_hub");
 
 app.Run();
