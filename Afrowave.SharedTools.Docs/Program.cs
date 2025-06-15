@@ -73,6 +73,7 @@ try
 
 	// scoped services
 	builder.Services.AddScoped<ICookieService, CookieService>();
+	builder.Services.AddScoped<IOptionsService, OptionsService>();
 
 	// transient services
 	builder.Services.AddTransient<IStringLocalizerFactory, JsonStringLocalizerFactory>();

@@ -17,7 +17,7 @@ namespace Afrowave.SharedTools.Docs.Services;
 public class OptionsService(IStringLocalizer<OptionsService> localizer,
 	ILogger<OptionsService> logger,
 	ILibreTranslateService libreTranslateService,
-	ILanguageService languagesService)
+	ILanguageService languagesService) : IOptionsService
 {
 	private readonly IStringLocalizer<OptionsService> _localizer = localizer;
 	private readonly ILogger<OptionsService> _logger = logger;
