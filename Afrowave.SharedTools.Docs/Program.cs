@@ -9,6 +9,7 @@ Log.Logger = new LoggerConfiguration()
 try
 {
 	builder.Logging.ClearProviders();
+
 	builder.Host.UseSerilog((context, services, configuration) => configuration
 		  .ReadFrom.Configuration(context.Configuration)
 		  .ReadFrom.Services(services)
@@ -85,7 +86,7 @@ try
 	builder.Services.AddSingleton<IHttpService, HttpService>();
 	Log.Information("Services loaded");
 }
-catch (Exception ex)
+catch(Exception ex)
 {
 	Log.Fatal(ex, "Application start-up failed");
 	throw;
@@ -105,7 +106,7 @@ app.UseHsts();
 string[] supportedCultures = ["en"];
 
 ILanguageService languageService = app.Services.GetRequiredService<ILanguageService>();
-if (languageService != null)
+if(languageService != null)
 {
 	supportedCultures = languageService.TranslationsPresented();
 }
@@ -131,7 +132,7 @@ app.MapScalarApiReference(options =>
 });
 app.Use(async (context, next) =>
 {
-	if (context.Request.Path == "/api" || context.Request.Path == "/api/")
+	if(context.Request.Path == "/api" || context.Request.Path == "/api/")
 	{
 		context.Response.Redirect("/scalar/afrowave");
 		return;

@@ -1,4 +1,4 @@
-﻿namespace Afrowave.SharedTools.Docs.Models
+﻿namespace Afrowave.SharedTools.Docs.Models.LibreTranslate
 {
 	/// <summary>
 	/// Represents a hierarchical structure for managing translations across multiple languages and keys.
