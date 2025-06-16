@@ -177,6 +177,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	/// <returns></returns>
 	public void SaveOldDefaultAsync()
 	{
+		CreateOrCheckTheTemporaryFolder();
 		string defaultLanguage = _translationsOptions.DefaultLanguage ?? "en";
 		var filepath = Path.Combine(localesPath, defaultLanguage + ".json");
 		if(File.Exists(oldTranslation))
@@ -193,7 +194,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 		}
 	}
 
-	private bool CreateOrCheckTheTemporaryFolderAsync()
+	private bool CreateOrCheckTheTemporaryFolder()
 	{
 		if(!Directory.Exists(afrowavePath))
 		{
