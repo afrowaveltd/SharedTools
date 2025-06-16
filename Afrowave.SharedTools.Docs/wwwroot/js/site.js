@@ -341,6 +341,7 @@ const layoutData = {
 /**
  *
  */
+/*
 document.addEventListener('DOMContentLoaded', function () {
 	// top side icons
 	const topIconsContainer = document.getElementById('top-icons');
@@ -367,25 +368,25 @@ document.addEventListener('DOMContentLoaded', function () {
 		li.appendChild(a);
 		navContainer.appendChild(li);
 	});
+	*/
+// Ovládání postranního menu
+const menuToggle = document.getElementById('menu-toggle');
+const sideNav = document.getElementById('side-nav');
+const mainContent = document.getElementById('main-content');
 
-	// Ovládání postranního menu
-	const menuToggle = document.getElementById('menu-toggle');
-	const sideNav = document.getElementById('side-nav');
-	const mainContent = document.getElementById('main-content');
+menuToggle.addEventListener('click', function () {
+	sideNav.classList.toggle('open');
+	mainContent.classList.toggle('shifted');
 
-	menuToggle.addEventListener('click', function () {
-		sideNav.classList.toggle('open');
-		mainContent.classList.toggle('shifted');
-
-		// Změna ikony podle stavu menu
-		const emojiSpan = this.querySelector('.emoji');
-		if (sideNav.classList.contains('open')) {
-			emojiSpan.textContent = '✖️';
-		} else {
-			emojiSpan.textContent = '📑';
-		}
-	});
+	// Změna ikony podle stavu menu
+	const emojiSpan = this.querySelector('.emoji');
+	if (sideNav.classList.contains('open')) {
+		emojiSpan.textContent = '✖️';
+	} else {
+		emojiSpan.textContent = '📑';
+	}
 });
+
 
 /**
  * Sets a cookie with a specified name, value, and expiration period.

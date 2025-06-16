@@ -9,6 +9,7 @@
     string direction = _language_service.IsRtl(selected) ? "rtl": "ltr";
 
     List<SelectListItem> languageSelect = _options_service.GetLanguagesOptionsAsync(selected);
+    List<SelectListItem> themes = _options_service.GetThemes(theme);
 
 }
 <!DOCTYPE html>
@@ -24,27 +25,64 @@
 </head>
 <body>
     <div id="app">
-        <!-- Horní lišta -->
+        <!-- Top Bar -->
         <nav id="top-bar" class="navbar fixed-top">
             <div class="container-fluid">
                 <a href="#" id="menu-toggle" class="btn">
                     <span class="emoji">📑</span>
                 </a>
                 <div id="top-icons" class="d-flex">
-                    <!-- Ikony budou dynamicky naplněny z JSON -->
-
+                    <!-- Theme changer, language changer, user icon (if user is logged in) -->
+                    <span>
+                        <select id="language-selector"
+                            style="margin-right: 10px; padding-top:2px; padding-bottom: 2px; padding-left: 5px;"
+                            onchange="changeLanguage(this.value)"
+                            class="nav-item nav-link form"
+                            asp-items="@languageSelect">
+                        </select>
+                    </span>
+                    <span>
+                        <select id="theme_selector" class="nav-item nav-link form"
+                            style="margin-right: 10px; padding-top:2px;  padding-bottom: 2px; padding-left: 5px;"
+                            onchange="setTheme(this.value)" asp-items="@themes">
+                        </select>
+                    </span>
+                    @if(User is null || !User.Identity.IsAuthenticated)
+                    {
+                        <span>
+                            <a href="#" class="nav-link" onclick="login()" title="@_localizer["Login"]">🔐</a>
+                        </span>
+                    }
+                    @if(User is not null && User.Identity.IsAuthenticated)
+                    {
+                        <span>
+                            <a href="#" class="nav-link" onclick="home()" title="@_localizer["Home"]">🏠</a>
+                        </span>
+                        <span>
+                            <a href="#" class="nav-link" onclick="logs()" title="@_localizer["Logs"]">📊</a>
+                        </span>
+                        <span>
+                            <a href="#" class="nav-link" onclick="notifications()" title="@_localizer["Notifications"]">🔔</a>
+                        </span>
+                        <span>
+                            <a href="#" class="nav-link" onclick="profile()" title="@_localizer["Profile"]">👤</a>
+                        </span>
+                    }
+                    <span>
+                        <a href="#" class="nav-link" onclick="settings()" title="@_localizer["Settings"]">⚙️</a>
+                    </span>
                 </div>
             </div>
         </nav>
 
-        <!-- Postranní navigace -->
+        <!-- Side navigation -->
         <div id="side-nav" class="sidenav">
             <ul id="nav-items" class="nav flex-column">
-                <!-- Navigační položky budou dynamicky naplněny z JSON -->
+                <!-- Here we need to draw the navigation tree -->
             </ul>
         </div>
 
-        <!-- Hlavní obsah -->
+        <!-- Main content -->
         <main id="main-content" class="main-content">
             <div class="container-fluid mt-5 pt-4">
                @RenderBody()
