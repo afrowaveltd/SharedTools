@@ -35,7 +35,7 @@
 
 			Thread.CurrentThread.CurrentCulture = culture;
 			Thread.CurrentThread.CurrentUICulture = uiCulture;
-			context.Request.Headers["Accept-Language"] = uiCulture.TwoLetterISOLanguageName;
+			context.Request.Headers.AcceptLanguage = uiCulture.TwoLetterISOLanguageName;
 			_cookieService.SetCookie("language", uiCulture.TwoLetterISOLanguageName);
 
 			await next(context);

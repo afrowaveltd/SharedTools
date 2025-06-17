@@ -50,9 +50,9 @@
 		public bool IsActive { get; set; } = true;
 
 		/// <summary>
-		/// Gets or sets a value indicating whether the current user is the owner.
+		/// The user role in the system
 		/// </summary>
-		public bool IsOwner { get; set; } = false;
+		public Role Role { get; set; }
 
 		/// <summary>
 		/// Gets or sets the bearer token used for authentication or authorization purposes.

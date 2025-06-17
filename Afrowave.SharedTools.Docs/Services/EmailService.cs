@@ -77,6 +77,7 @@ namespace Afrowave.SharedTools.Docs.Services
 					}
 
 					await client.DisconnectAsync(true);
+					_logger.LogInformation("SMTP settings detected successfully: {Host}, Port: {Port}, Security: {Security}", input.Host, combination.Port, combination.Security);
 					return new SmtpDetectionResult
 					{
 						Successful = true,
@@ -87,6 +88,7 @@ namespace Afrowave.SharedTools.Docs.Services
 				}
 				catch
 				{
+					_logger.LogWarning("Failed to detect SMTP settings for {Host} on Port: {Port}, Security: {Security}", input.Host, combination.Port, combination.Security);
 					return null;
 				}
 			});
@@ -163,6 +165,7 @@ namespace Afrowave.SharedTools.Docs.Services
 			{
 				Text = body
 			};
+
 			return await SendEmailAsync(message);
 		}
 
@@ -263,6 +266,7 @@ namespace Afrowave.SharedTools.Docs.Services
 					await client.AuthenticateAsync(smtpSettings.Login, smtpSettings.Password);
 				}
 				_ = await client.SendAsync(message);
+				_logger.LogInformation("Email sent successfully to {TargetEmail} with subject: {Subject}", result.TargetEmail, result.Subject);
 				await client.DisconnectAsync(true);
 				result.Success = true;
 			}

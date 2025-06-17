@@ -10,6 +10,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="wwwroot\docs\Afrowave.SharedTools.Models\Readme\en.md" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="MailKit" Version="4.12.1" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-preview.5.25277.114" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.2.0" />
@@ -37,13 +41,15 @@
 	<ItemGroup>
 		<Folder Include="Locales\" />
 		<Folder Include="Jsons\" />
-		<Folder Include="wwwroot\docs\" />
 		<Folder Include="wwwroot\readme\" />
 	</ItemGroup>
 
   <ItemGroup>
     <Folder Include="Logs\" />
-    <Folder Include="Api\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\docs\Afrowave.SharedTools.Models\Readme\en.md" />
   </ItemGroup>
 
 </Project>

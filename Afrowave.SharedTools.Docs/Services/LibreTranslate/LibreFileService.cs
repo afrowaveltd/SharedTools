@@ -43,6 +43,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 			var path = Path.Combine(localesPath, language + ".json");
 			if(!File.Exists(path))
 			{
+				_logger.LogInformation("Dictionary for {language} was not found", language);
 				result.Translations[language] = new();
 			}
 			else
@@ -71,7 +72,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 						result.Translations[language] = new();
 					}
 				}
-				catch(Exception ex)
+				catch
 				{
 					result.Translations[language] = new();
 					_logger.LogInformation("Dictionary for {language} was not found", language);
@@ -140,6 +141,28 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	/// <returns>A task that represents the asynchronous save operation.</returns>
 	public async Task SaveTranslationsAsync(TranslationTree translations)
 	{
+		if(translations == null)
+			return;
+		if(translations.Translations == null)
+			return;
+		foreach(var dictionary in translations.Translations)
+		{
+			if(dictionary.Value != null)
+			{
+				try
+				{
+					string jsonText = JsonSerializer.Serialize<Dictionary<string, string>>(dictionary.Value);
+					string filePath = Path.Combine(localesPath, dictionary.Key + ".json");
+					if(File.Exists(filePath))
+						File.Delete(filePath);
+					await File.WriteAllTextAsync(filePath, jsonText);
+				}
+				catch
+				{
+					return;
+				}
+			}
+		}
 	}
 
 	/// <summary>

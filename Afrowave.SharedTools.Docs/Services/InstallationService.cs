@@ -114,7 +114,7 @@ public class InstallationService(ILogger<InstallationService> logger,
 			Email = application.Email,
 			DisplayName = application.DisplayName ?? "Admin",
 			IsActive = true,
-			IsOwner = true,
+			Role = Role.Owner,
 			Bearer = _encryption.GenerateApplicationSecret()
 		};
 		try

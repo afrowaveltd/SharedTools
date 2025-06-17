@@ -1,5 +1,6 @@
 ﻿const admin_hub_status_element = document.getElementById('admin-status');
 const open_hub_status_element = document.getElementById('open-status');
+const status_line = document.getElementById('bottom-line');
 
 let manager = new SignalRConnectionsManager({
 	adminEnabled: userLoggedIn, //true or false
@@ -11,4 +12,8 @@ let manager = new SignalRConnectionsManager({
 		else
 			admin_hub_status_element.textContent = '🔒';
 	}
+});
+
+manager.hubs.open.connection.on('ReceiveMessage', function (message) {
+	botom_line.textContent = message;
 });

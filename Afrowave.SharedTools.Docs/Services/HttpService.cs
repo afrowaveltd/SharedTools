@@ -1,6 +1,4 @@
-﻿using Afrowave.SharedTools.Docs.Models.Settings;
-
-namespace Afrowave.SharedTools.Docs.Services
+﻿namespace Afrowave.SharedTools.Docs.Services
 {
 	/// <summary>
 	/// Provides a service for making HTTP requests, including support for JSON serialization,  form submissions, and
@@ -15,6 +13,7 @@ namespace Afrowave.SharedTools.Docs.Services
 	/// service is no longer needed.</remarks>
 	public class HttpService : IHttpService
 	{
+		private readonly ILogger<HttpService> _logger;
 		private readonly HttpClient _client;
 		private readonly string _baseUri;
 		private readonly string _apiKey;
@@ -36,7 +35,7 @@ namespace Afrowave.SharedTools.Docs.Services
 		/// the API host, endpoints, and optional API key. If the API key is required, an authorization header is added to the
 		/// created _client/>.</remarks>
 
-		public HttpService(IConfiguration configuration)
+		public HttpService(IConfiguration configuration, ILogger<HttpService> logger)
 		{
 			LibreTranslateOptions o = configuration.GetSection("LibreTranslateOptions").Get<LibreTranslateOptions>() ?? new();
 			_baseUri = o.Host;
@@ -48,6 +47,7 @@ namespace Afrowave.SharedTools.Docs.Services
 				_client.DefaultRequestHeaders.Add("Authorization", "Bearer " + o.ApiKey);
 			}
 			_client.BaseAddress = new Uri(o.Host);
+			_logger = logger;
 		}
 
 		/// <summary>
