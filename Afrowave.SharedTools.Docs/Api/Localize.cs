@@ -12,6 +12,7 @@ public class Localize(IStringLocalizer<Localize> localizer,
 	private readonly ILibreTranslateService _translator = translator;
 	private readonly ILogger<Localize> _logger = logger;
 	private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+	List<string> supportedLanguages => _translator.GetAvailableLanguagesAsync().Result.Data?.ToList() ?? new();
 
 	[Route("{toTranslate}/{target?}")]
 	[HttpGet]
@@ -35,8 +36,8 @@ public class Localize(IStringLocalizer<Localize> localizer,
 			bool failure = true;
 			int failureCount = 0;
 
-			var supportedLanguages = await _translator.GetAvailableLanguagesAsync();
-			bool isSupported = supportedLanguages.Data.Contains(translateTo);
+
+			bool isSupported = supportedLanguages.Contains(translateTo);
 			if(!isSupported)
 			{
 				translated = toTranslate;
@@ -48,7 +49,7 @@ public class Localize(IStringLocalizer<Localize> localizer,
 				if(libreResult.Success)
 				{
 					_logger.LogInformation("Translated {toTranslate} to {translateTo} as {result}", toTranslate, translateTo, libreResult.Data);
-					translated = libreResult.Data.TranslatedText ?? toTranslate;
+					translated = libreResult.Data?.TranslatedText ?? toTranslate;
 					failure = false;
 				}
 				else

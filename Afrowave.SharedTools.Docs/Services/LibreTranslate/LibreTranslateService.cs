@@ -46,7 +46,7 @@
 			int retries = 0;
 			Response<string[]> result = new();
 
-			while(repeat || retries < options.RetriesOnFailure)
+			while(repeat && retries < options.RetriesOnFailure)
 			{
 				try
 				{
@@ -71,6 +71,7 @@
 				catch(HttpRequestException e)
 				{
 					retries++;
+					await Task.Delay(options.WaitSecondBeforeRetry * 1000);
 					_logger.LogError(e, "Error getting supported languages");
 					result.Success = false;
 					result.Warning = false;
@@ -78,6 +79,19 @@
 				}
 			}
 			return result;
+		}
+
+		public async Task<Response<string>> TranslateAsync(string text, string sourceLanguage, string targetLanguage)
+		{
+			var response = await TranslateTextAsync(text, sourceLanguage, targetLanguage);
+			if(response.Success)
+			{
+				return Response<string>.Successful(response.Data?.TranslatedText ?? string.Empty, "Translation successful");
+			}
+			else
+			{
+				return Response<string>.Fail(response.Message ?? "Translation failed");
+			}
 		}
 
 		// Private methods for comunication with LibreTranslate API proxy methods to give available all methods from the interface
@@ -120,31 +134,55 @@
 		/// failure reason.</returns>
 		public async Task<Response<LibreTranslationResult>> TranslateTextAsync(string text, string sourceLanguage, string targetLanguage)
 		{
+			var retry = 0;
+			var translated = false;
+
 			var formFields = new Dictionary<string, string>
 			{
 				{ "q", text },
 				{ "source", sourceLanguage },
 				{ "target", targetLanguage },
 				{ "format", "text" },
-				{ "alternatives", "0" } // Default to no alternatives
+				{ "alternatives", "0" },
 			};
 			if(!string.IsNullOrEmpty(api) && options.NeedsKey)
 			{
 				formFields.Add("api_key", api);
 			}
-			var response = await _httpService.PostFormAsync(options.TranslateEndpoint, formFields);
-			if(!response.IsSuccessStatusCode)
+			while(!translated && retry < options.RetriesOnFailure)
 			{
-				_logger.LogError("Failed to translate text: {StatusCode}", response.StatusCode);
-				return Response<LibreTranslationResult>.Fail($"Failed to translate text: {response.ReasonPhrase}");
+				try
+				{
+					var response = await _httpService.PostFormAsync(options.TranslateEndpoint, formFields);
+					if(response.IsSuccessStatusCode)
+					{
+						var result = await _httpService.ReadJsonAsync<LibreTranslationResult>(response.Content, _options);
+						if(result == null)
+						{
+							_logger.LogError("Failed to deserialize translation result.");
+							return Response<LibreTranslationResult>.Fail("Failed to deserialize translation result.");
+						}
+						return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful");
+					}
+					else
+					{
+						_logger.LogError("Failed to translate text: {StatusCode}", response.StatusCode);
+						return Response<LibreTranslationResult>.Fail($"Failed to translate text: {response.ReasonPhrase}");
+					}
+				}
+				catch(HttpRequestException e)
+				{
+					retry++;
+					await Task.Delay(options.WaitSecondBeforeRetry * 1000);
+					_logger.LogError(e, "Error translating text. Retry {RetryCount}", retry);
+				}
 			}
-			var result = await _httpService.ReadJsonAsync<LibreTranslationResult>(response.Content, _options);
-			if(result == null)
+			if(retry >= options.RetriesOnFailure)
 			{
-				_logger.LogError("Failed to deserialize translation result.");
-				return Response<LibreTranslationResult>.Fail("Failed to deserialize translation result.");
+				_logger.LogError("Failed to translate text after {RetryCount} retries", retry);
+				return Response<LibreTranslationResult>.Fail("Failed to translate text after maximum retries");
 			}
-			return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful");
+			return Response<LibreTranslationResult>.Fail("Failed to translate text after maximum retries");
 		}
 
 		/// <summary>
