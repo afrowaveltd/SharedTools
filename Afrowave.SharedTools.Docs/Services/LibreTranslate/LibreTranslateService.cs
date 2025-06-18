@@ -55,7 +55,7 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 			Response<string[]> result = new();
 			DateTime start = DateTime.Now;
 
-			while(repeat || retries < options.RetriesOnFailure)
+			while(repeat && retries < options.RetriesOnFailure)
 			{
 				try
 				{
@@ -80,6 +80,7 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 				catch(HttpRequestException e)
 				{
 					retries++;
+					await Task.Delay(options.WaitSecondBeforeRetry * 1000);
 					_logger.LogError(e, "Error getting supported languages");
 					result.Success = false;
 					result.Warning = false;
