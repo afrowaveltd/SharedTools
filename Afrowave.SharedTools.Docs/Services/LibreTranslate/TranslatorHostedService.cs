@@ -41,6 +41,22 @@ public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
 			_logger.LogInformation("Previous cycle of the worker is still running / skipping");
 			return;
 		}
+		_isRunning = true;
+		try
+		{
+			using IServiceScope scope = _serviceProvider.CreateScope();
+			ICyclicTranslationService cyclicService = scope.ServiceProvider.GetRequiredService<ICyclicTranslationService>();
+			await cyclicService.RunCycleAsync();
+		}
+		catch(Exception ex)
+		{
+			_logger.LogError(ex, "An error occurred while running translations");
+		}
+		finally
+		{
+			_isRunning = false;
+			_ = (_timer?.Change(TimeSpan.FromMinutes(30), Timeout.InfiniteTimeSpan));
+		}
 	}
 
 	/// <summary>
@@ -52,9 +68,11 @@ public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
 	/// <param name="cancellationToken">A token that can be used to signal the operation should be canceled.</param>
 	/// <returns>A task that represents the asynchronous stop operation.</returns>
 	/// <exception cref="NotImplementedException"></exception>
-	Task IHostedService.StopAsync(CancellationToken cancellationToken)
+	public Task StopAsync(CancellationToken cancellationToken)
 	{
-		throw new NotImplementedException();
+		_logger.LogInformation("UiTranslatorHostedService is stopping.");
+		_ = (_timer?.Change(Timeout.Infinite, 0));
+		return Task.CompletedTask;
 	}
 
 	/// <summary>
@@ -64,8 +82,5 @@ public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
 	/// unusable state. After calling <see cref="Dispose"/>, you must release all references to the instance  so the
 	/// garbage collector can reclaim the memory that the instance was occupying.</remarks>
 	/// <exception cref="NotImplementedException"></exception>
-	public void Dispose()
-	{
-		throw new NotImplementedException();
-	}
+	public void Dispose() => _timer?.Dispose();
 }
