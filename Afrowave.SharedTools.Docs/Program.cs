@@ -78,6 +78,7 @@ try
 
 	// transient services
 	builder.Services.AddTransient<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+	builder.Services.AddTransient<ILibreFileService, LibreFileService>();
 
 	// standalone services
 	builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -153,5 +154,6 @@ app.MapRazorPages()
 	.WithStaticAssets();
 app.MapHub<AdminHub>("/admin_hub");
 app.MapHub<OpenHub>("/open_hub");
+app.MapHub<RealtimeHub>("/realtime_hub");
 
 app.Run();
