@@ -18,6 +18,13 @@
 					reconnectDelay: 1000,
 					maxReconnectDelay: 60000,
 					enabled: adminEnabled,
+				},
+				realtime: {
+					url: '/realtime_hub',
+					connection: null,
+					connected: true,
+					reconnectDelay: 1000,
+					maxReconnectDelay: 60000
 				}
 			};
 			this.onStatusChange = onStatusChange;
@@ -44,6 +51,7 @@
 		getStatuses() {
 			return {
 				open: this.hubs.open.connected,
+				realtime: this.hubs.realtime.connected,
 				admin: this.hubs.admin.enabled ? this.hubs.admin.connected : null,
 			};
 		}
@@ -51,6 +59,7 @@
 		// Internal init
 		init() {
 			this.connectHub('open');
+			this.connectHub('realtime');
 			if (this.hubs.admin.enabled) {
 				this.connectHub('admin');
 			}

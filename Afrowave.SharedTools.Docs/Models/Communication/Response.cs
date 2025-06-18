@@ -36,14 +36,33 @@
 		/// </summary>
 		/// <param name="data">The data to return.</param>
 		/// <param name="message">The success message.</param>
+		/// <param name="executionMs">The running time in milliseconds</param>
 		/// <returns>A successful <see cref="Response{T}"/> instance.</returns>
+		public static Response<T> Successful(T data, string message, int executionMs = 0)
+		{
+			return new Response<T>
+			{
+				Success = true,
+				Data = data,
+				Message = message ?? string.Empty,
+				ExecutionTime = executionMs
+			};
+		}
+
+		/// <summary>
+		/// Creates a successful response with the specified data and message.
+		/// </summary>
+		/// <param name="data">The data to include in the response. This represents the result of the operation.</param>
+		/// <param name="message">An optional message providing additional context about the success. If null, an empty string is used.</param>
+		/// <returns>A <see cref="Response{T}"/> object representing a successful operation, containing the provided data and message.</returns>
 		public static Response<T> Successful(T data, string message)
 		{
 			return new Response<T>
 			{
 				Success = true,
 				Data = data,
-				Message = message ?? string.Empty
+				Message = message ?? string.Empty,
+				ExecutionTime = 0
 			};
 		}
 
@@ -64,6 +83,24 @@
 		}
 
 		/// <summary>
+		/// Creates a successful response containing the specified data and execution time.
+		/// </summary>
+		/// <param name="data">The data to include in the response.</param>
+		/// <param name="executionMs">The time taken to execute the operation, in milliseconds.</param>
+		/// <returns>A <see cref="Response{T}"/> object representing a successful operation, with the specified data and execution
+		/// time.</returns>
+		public static Response<T> Successful(T data, int executionMs)
+		{
+			return new Response<T>
+			{
+				Success = true,
+				Data = data,
+				Message = string.Empty,
+				ExecutionTime = executionMs
+			};
+		}
+
+		/// <summary>
 		/// Creates a failed response with a message.
 		/// </summary>
 		/// <param name="message">The failure message.</param>
@@ -74,6 +111,22 @@
 			{
 				Success = false,
 				Message = message ?? string.Empty
+			};
+		}
+
+		/// <summary>
+		/// Creates a failed response with the specified error message and execution time.
+		/// </summary>
+		/// <param name="message">The error message describing the failure. If null, an empty string is used.</param>
+		/// <param name="executionMs">The time, in milliseconds, that the operation took to execute.</param>
+		/// <returns>A <see cref="Response{T}"/> instance representing a failed operation.</returns>
+		public static Response<T> Fail(string message, int executionMs)
+		{
+			return new Response<T>
+			{
+				Success = false,
+				Message = message ?? string.Empty,
+				ExecutionTime = executionMs
 			};
 		}
 
@@ -120,12 +173,52 @@
 			};
 		}
 
+		/// <summary>
+		/// Creates a failed response with the specified exception and execution time.
+		/// </summary>
+		/// <param name="ex">The exception that caused the failure. If null, a default message of "Unknown error" is used.</param>
+		/// <param name="executionMs">The time, in milliseconds, that the operation took to execute.</param>
+		/// <returns>A <see cref="Response{T}"/> object representing a failed operation, including the error message and execution
+		/// time.</returns>
+		public static Response<T> Fail(Exception ex, int executionMs)
+		{
+			return new Response<T>
+			{
+				Success = false,
+				Message = ex?.Message ?? "Unknown error",
+				ExecutionTime = executionMs
+			};
+		}
+
+		/// <summary>
+		/// Creates a failed response with the specified error message and exception details.
+		/// </summary>
+		/// <param name="message">The error message describing the failure.</param>
+		/// <param name="ex">The exception that caused the failure.</param>
+		/// <returns>A <see cref="Response{T}"/> instance representing a failed operation, containing the combined error message.</returns>
 		public static Response<T> Fail(string message, Exception ex)
 		{
 			return new Response<T>
 			{
 				Success = false,
 				Message = message + "" + ex.Message
+			};
+		}
+
+		/// <summary>
+		/// Creates a failed response with the specified error message, exception details, and execution time.
+		/// </summary>
+		/// <param name="message">The error message describing the failure.</param>
+		/// <param name="ex">The exception that caused the failure. Cannot be null.</param>
+		/// <param name="executionMs">The time, in milliseconds, that the operation took to execute.</param>
+		/// <returns>A <see cref="Response{T}"/> object representing a failed operation.</returns>
+		public static Response<T> Fail(string message, Exception ex, int executionMs)
+		{
+			return new Response<T>
+			{
+				Success = false,
+				Message = message + "" + ex.Message,
+				ExecutionTime = executionMs
 			};
 		}
 	}

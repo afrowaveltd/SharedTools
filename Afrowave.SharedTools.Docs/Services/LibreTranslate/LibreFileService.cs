@@ -9,7 +9,7 @@
 /// <param name="logger"></param>
 /// <param name="configuration"></param>
 /// <param name="translateService"></param>
-public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration configuration, ILibreTranslateService translateService)
+public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration configuration, ILibreTranslateService translateService) : ILibreFileService
 {
 	private readonly ILogger<LibreFileService> _logger = logger;
 	private readonly ILibreTranslateService _translateService = translateService;

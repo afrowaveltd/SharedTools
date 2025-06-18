@@ -78,12 +78,18 @@ try
 
 	// transient services
 	builder.Services.AddTransient<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+	builder.Services.AddTransient<ILibreFileService, LibreFileService>();
+	builder.Services.AddTransient<ICyclicTranslationService, CyclicTranslationService>();
 
 	// standalone services
 	builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 	builder.Services.AddSingleton<ILanguageService, LanguageService>();
 	builder.Services.AddSingleton<ILibreTranslateService, LibreTranslateService>();
 	builder.Services.AddSingleton<IHttpService, HttpService>();
+
+	// hosted services
+	builder.Services.AddHostedService<TranslatorHostedService>();
+
 	Log.Information("Services loaded");
 }
 catch(Exception ex)
@@ -153,5 +159,6 @@ app.MapRazorPages()
 	.WithStaticAssets();
 app.MapHub<AdminHub>("/admin_hub");
 app.MapHub<OpenHub>("/open_hub");
+app.MapHub<RealtimeHub>("/realtime_hub");
 
 app.Run();
