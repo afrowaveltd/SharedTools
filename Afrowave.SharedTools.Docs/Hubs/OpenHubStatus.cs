@@ -8,13 +8,22 @@
 	/// is required if accessed concurrently.</remarks>
 	public static class OpenHubStatus
 	{
+		/// <summary>
+		/// Provides the current active connection count.
+		/// </summary>
 		public static int ActiveConnections { get; set; } = 0;
 
+		/// <summary>
+		/// Increments the current count of active connections.
+		/// </summary>
 		public static void IncrementConnections()
 		{
 			ActiveConnections++;
 		}
 
+		/// <summary>
+		/// decrements the current count of active connections.
+		/// </summary>
 		public static void DecrementConnections()
 		{
 			if(ActiveConnections > 0)

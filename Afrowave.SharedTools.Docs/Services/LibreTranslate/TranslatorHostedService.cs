@@ -29,7 +29,7 @@ public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
 	Task IHostedService.StartAsync(CancellationToken cancellationToken)
 	{
 		_logger.LogInformation("Translator Hosted Service is starting.");
-		_timer = new Timer(async _ => await DoWorkAsync(), null, TimeSpan.FromMinutes(20), Timeout.InfiniteTimeSpan);
+		_timer = new Timer(async _ => await DoWorkAsync(), null, TimeSpan.FromMinutes(5), Timeout.InfiniteTimeSpan);
 
 		return Task.CompletedTask;
 	}

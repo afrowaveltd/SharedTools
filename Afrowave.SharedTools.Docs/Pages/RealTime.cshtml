@@ -1,5 +1,9 @@
 ﻿@page
 @model Afrowave.SharedTools.Docs.Pages.RealTimeModel
+@inject IStringLocalizer<RealTimeModel> _localizer;
 @{
+	ViewData["Title"] = _localizer["Realtime"];
+	ViewData["CanonicalUrl"] = Url.Page("/RealTime", null, null, Request.Scheme);
 }
-Hello how are you
+<h2>@_localizer["Realtime"]</h2>
+<hr />
