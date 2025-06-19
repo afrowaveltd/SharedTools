@@ -288,6 +288,17 @@ const postDataWithParams = async (url, data, token = null) => {
 	const result = await apiRequest({ url, method: 'POST', data, token });
 	return result;
 }
+/*
+const getCookie = (name) => {
+	const cookies = document.cookie.split('; ');
+	for (let cookie of cookies) {
+		const [key, value] = cookie.split('=');
+		if (key === name) {
+			return value;
+		}
+	}
+	return null;
+}
 
 /**
  * Localizes text using a language cookie or specified language.
@@ -297,30 +308,18 @@ const postDataWithParams = async (url, data, token = null) => {
  * @returns {Promise<string>} - Localized text.
  */
 const localize = async (text, language = "") => {
-	const getCookie = (name) => {
-		const cookies = document.cookie.split('; ');
-		for (let cookie of cookies) {
-			const [key, value] = cookie.split('=');
-			if (key === name) {
-				return value;
-			}
-		}
-		return null;
-	}
-
 	if (language == "")
 		language = systemLanguage;
-	if (language == "")
-		language = getCookie("language")
+	if (language == "undefined")
+		language = getCookie("language");
 	language == "" ? language = "en" : language = language;
 	let res;
 	try {
 		let url = '/api/Localize/' + text + '/' + language;
-		console.log(url)
 		const result = await fetch(url);
 		res = await result.text();
-		console.log(res);
 	} catch (error) {
+		console.log(error);
 		res = text;
 	}
 	return res;
@@ -334,7 +333,6 @@ const localize = async (text, language = "") => {
  */
 const loadHelp = async (helpTopic) => {
 	const slow = "fast";
-	console.log(helpTopic)
 	const element = document.getElementById('div_help');
 	const link = '/Helps/' + helpTopic;
 	$(element).hide(slow);
@@ -342,7 +340,6 @@ const loadHelp = async (helpTopic) => {
 	const result = await fetch(link);
 	if (result.status == 404) {
 		let translation = await localize("Help topic not found");
-		console.log(translation);
 		element.innerHTML = translation;
 		$(element).show(slow);
 		return;

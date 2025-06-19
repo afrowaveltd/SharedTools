@@ -72,8 +72,8 @@ public class Localize(IStringLocalizer<Localize> localizer,
 		}
 		else
 		{
-			translated = result.Value;
+			translated = result;
 		}
-		return Ok(translated);
+		return Content(translated, "text/plain", Encoding.UTF8);
 	}
 }
