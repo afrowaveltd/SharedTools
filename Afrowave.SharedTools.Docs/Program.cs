@@ -21,7 +21,6 @@ try
 		options.UseSqlite(
 			builder.Configuration.GetConnectionString("DefaultConnection"));
 	});
-
 	// Add services to the container.
 	builder.Services.AddHttpContextAccessor();
 	builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
@@ -125,7 +124,6 @@ app.UseRequestLocalization(options =>
 		 .SetDefaultCulture("en")
 		 .ApplyCurrentCultureToResponseHeaders = true;
 });
-
 app.MapOpenApi()
 	.CacheOutput();
 
@@ -152,7 +150,6 @@ app.UseRouting();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 app.MapControllers();
 app.MapStaticAssets();
 app.MapRazorPages()

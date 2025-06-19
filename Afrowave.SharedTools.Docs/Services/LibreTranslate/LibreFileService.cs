@@ -14,9 +14,9 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	private readonly ILogger<LibreFileService> _logger = logger;
 	private readonly ILibreTranslateService _translateService = translateService;
 	private readonly TranslationsOptions _translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>() ?? new();
-	private readonly string afrowavePath = Path.Combine(Path.GetTempPath(), "afrowave");
-	private readonly string oldTranslation = Path.Combine(Path.GetTempPath(), "afrowave", "old.json");
-	private readonly string localesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.Split("bin")[0], "Locales");
+	private readonly string afrowavePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "afrowave");
+	private readonly string oldTranslation = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "afrowave", "old.json");
+	private readonly string localesPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory.Split("bin")[0], "Locales");
 
 	/// <summary>
 	/// Asynchronously retrieves all available translations for supported languages.
@@ -40,7 +40,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 		result.Translations = [];
 		foreach(var language in languages)
 		{
-			var path = Path.Combine(localesPath, language + ".json");
+			var path = System.IO.Path.Combine(localesPath, language + ".json");
 			if(!File.Exists(path))
 			{
 				_logger.LogInformation("Dictionary for {language} was not found", language);
@@ -61,7 +61,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 						// file was found, but json seems corrupted - we will create a backup
 						try
 						{
-							var target = Path.Combine(afrowavePath, language + DateTime.Now.ToString() + "-backup.json");
+							var target = System.IO.Path.Combine(afrowavePath, language + DateTime.Now.ToString() + "-backup.json");
 							File.Copy(path, target);
 							_logger.LogWarning("Lanuage file for {language} is corrupted. Backed up", language);
 						}
@@ -93,7 +93,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	public async Task<Dictionary<string, string>> GetDefaultLanguageAsync()
 	{
 		string defaultLanguage = _translationsOptions.DefaultLanguage ?? "en";
-		var filepath = Path.Combine(localesPath, defaultLanguage + ".json");
+		var filepath = System.IO.Path.Combine(localesPath, defaultLanguage + ".json");
 		if(!File.Exists(filepath))
 		{
 			return new();
@@ -121,7 +121,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	public bool DoesDefaultLanguageExist()
 	{
 		string defaultLanguage = _translationsOptions.DefaultLanguage ?? "en";
-		var filepath = Path.Combine(localesPath, defaultLanguage + ".json");
+		var filepath = System.IO.Path.Combine(localesPath, defaultLanguage + ".json");
 		return File.Exists(filepath);
 	}
 
@@ -152,7 +152,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 				try
 				{
 					string jsonText = JsonSerializer.Serialize<Dictionary<string, string>>(dictionary.Value);
-					string filePath = Path.Combine(localesPath, dictionary.Key + ".json");
+					string filePath = System.IO.Path.Combine(localesPath, dictionary.Key + ".json");
 					if(File.Exists(filePath))
 						File.Delete(filePath);
 					await File.WriteAllTextAsync(filePath, jsonText);
@@ -202,7 +202,7 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	{
 		CreateOrCheckTheTemporaryFolder();
 		string defaultLanguage = _translationsOptions.DefaultLanguage ?? "en";
-		var filepath = Path.Combine(localesPath, defaultLanguage + ".json");
+		var filepath = System.IO.Path.Combine(localesPath, defaultLanguage + ".json");
 		if(File.Exists(oldTranslation))
 		{
 			File.Delete(oldTranslation);

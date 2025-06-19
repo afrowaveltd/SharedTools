@@ -12,14 +12,19 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate;
 /// <param name="logger"></param>
 /// <param name="serviceProvider"></param>
 /// <param name="openHub"></param>
+/// <param name="configuration"></param>
 public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
-	IServiceProvider serviceProvider, IHubContext<OpenHub> openHub) : IHostedService, IDisposable
+	IServiceProvider serviceProvider,
+	IConfiguration configuration,
+	IHubContext<OpenHub> openHub) : IHostedService, IDisposable
 {
 	private readonly ILogger<TranslatorHostedService> _logger = logger;
 	private readonly IServiceProvider _serviceProvider = serviceProvider;
 	private readonly IHubContext<OpenHub> _openHub = openHub;
+	private readonly IConfiguration _configuration = configuration;
 	private Timer? _timer;
 	private volatile bool _isRunning = false;
+	private TranslationsOptions? Options => _configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
 
 	/// <summary>
 	/// Starts the hosted service asynchronously.
@@ -29,13 +34,18 @@ public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
 	Task IHostedService.StartAsync(CancellationToken cancellationToken)
 	{
 		_logger.LogInformation("Translator Hosted Service is starting.");
-		_timer = new Timer(async _ => await DoWorkAsync(), null, TimeSpan.FromMinutes(5), Timeout.InfiniteTimeSpan);
+		_timer = new Timer(async _ => await DoWorkAsync(), null, TimeSpan.FromMinutes(Options.MinutesBetweenCycles), Timeout.InfiniteTimeSpan);
 
 		return Task.CompletedTask;
 	}
 
 	private async Task DoWorkAsync()
 	{
+		if(Options == null)
+		{
+			_logger.LogError("Could not read appsettings.json options");
+			return;
+		}
 		if(_isRunning)
 		{
 			_logger.LogInformation("Previous cycle of the worker is still running / skipping");
@@ -55,7 +65,7 @@ public class TranslatorHostedService(ILogger<TranslatorHostedService> logger,
 		finally
 		{
 			_isRunning = false;
-			_ = (_timer?.Change(TimeSpan.FromMinutes(30), Timeout.InfiniteTimeSpan));
+			_ = (_timer?.Change(TimeSpan.FromMinutes(Options.MinutesBetweenCycles), Timeout.InfiniteTimeSpan));
 		}
 	}
 

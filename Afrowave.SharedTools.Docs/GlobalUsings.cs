@@ -5,7 +5,6 @@ global using Afrowave.SharedTools.Docs.Data;
 global using Afrowave.SharedTools.Docs.Helpers;
 global using Afrowave.SharedTools.Docs.I18n;
 global using Afrowave.SharedTools.Docs.Middlewares;
-global using Afrowave.SharedTools.Docs.Models;
 global using Afrowave.SharedTools.Docs.Models.Communication;
 global using Afrowave.SharedTools.Docs.Models.DatabaseModels;
 global using Afrowave.SharedTools.Docs.Models.Dto;

@@ -16,6 +16,7 @@ let manager = new SignalRConnectionsManager({
 	}
 });
 
-manager.hubs.open.connection.on('ReceiveMessage', function (message) {
-	botom_line.textContent = message;
+manager.hubs.open.connection.on("CycleStarted", async function () {
+	status_line.textContent = await localize("Cycle start") + ": " + Date.now().toLocaleTimeString();
+	console.log("Cycle started");
 });

@@ -5,5 +5,31 @@
 	ViewData["Title"] = _localizer["Realtime"];
 	ViewData["CanonicalUrl"] = Url.Page("/RealTime", null, null, Request.Scheme);
 }
+@section Scripts {
+	<script src="~/js/realtime.js"></script>
+}
+
 <h2>@_localizer["Realtime"]</h2>
 <hr />
+<div class="row">
+	
+	<!-- Column 1 -->
+	<div class="col-md-5">
+		<h4>JSON Dictionaries</h4>
+		<hr />
+	</div>
+	
+	<!-- Column 2 -->
+	<div class="col-md-5">
+		<h4>MD Help files</h4>
+		<hr />
+	</div>
+	
+	<!-- Column 3 -->
+	<div class="col-md-2">
+		<h4>General info:</h4>
+		<hr />
+	</div>
+</div>
+
+

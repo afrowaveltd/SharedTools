@@ -24,7 +24,7 @@ public class OptionsService(IStringLocalizer<OptionsService> localizer,
 	private readonly ILibreTranslateService _libreTranslateService = libreTranslateService;
 	private readonly ILanguageService _languagesService = languagesService;
 
-	private readonly string _cssFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory
+	private readonly string _cssFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory
 	[..AppDomain.CurrentDomain.BaseDirectory
 	 .IndexOf("bin")], "wwwroot", "css");
 
@@ -133,7 +133,7 @@ public class OptionsService(IStringLocalizer<OptionsService> localizer,
 		string[] themeFiles = Directory.GetFiles(_cssFolderPath, "*-theme.css", SearchOption.TopDirectoryOnly);
 
 		List<string> themeNames = [.. themeFiles
-					 .Select(file => Path.GetFileNameWithoutExtension(file)) // Extract file name without extension
+					 .Select(file => System.IO.Path.GetFileNameWithoutExtension(file)) // Extract file name without extension
 					 .Select(fileName =>
 					 {
 						 string[] parts = fileName.Split('_', 2);

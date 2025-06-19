@@ -9,8 +9,8 @@
 	/// languages and their metadata.</remarks>
 	public class LanguageService : ILanguageService
 	{
-		private static readonly string _localesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.Split("bin")[0], "Locales");
-		private static readonly string _oldTranslationPath = Path.Combine(Path.GetTempPath(), "old.json");
+		private static readonly string _localesPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory.Split("bin")[0], "Locales");
+		private static readonly string _oldTranslationPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "old.json");
 
 		/// <summary>
 		/// Retrieves the list of available languages.
@@ -76,7 +76,7 @@
 
 				foreach(var file in languageFiles)
 				{
-					var languageCode = Path.GetFileNameWithoutExtension(file).ToLowerInvariant();
+					var languageCode = System.IO.Path.GetFileNameWithoutExtension(file).ToLowerInvariant();
 
 					// Dodatečná validace - pouze písmena, přesně 2 znaky
 					if(languageCode.Length == 2 && languageCode.All(char.IsLetter))
@@ -116,7 +116,7 @@
 			{
 				return Response<Dictionary<string, string>>.Fail("Invalid code");
 			}
-			var filePath = Path.Combine(_localesPath, code.ToLowerInvariant() + ".json");
+			var filePath = System.IO.Path.Combine(_localesPath, code.ToLowerInvariant() + ".json");
 			if(!File.Exists(filePath))
 			{
 				return Response<Dictionary<string, string>>.Fail("Dictionary file not found");
@@ -228,7 +228,7 @@
 				}
 				var toStore = data == null ? [] : data;
 				string json = JsonSerializer.Serialize(toStore);
-				var path = Path.Combine(_localesPath, code + ".json");
+				var path = System.IO.Path.Combine(_localesPath, code + ".json");
 				await (File.WriteAllTextAsync(path, json));
 				return Response<bool>.Successful(true, "Successfully stored");
 			}
@@ -305,7 +305,7 @@
 			var languageFiles = Directory.GetFiles(_localesPath, "??.json");
 			foreach(var languageFile in languageFiles)
 			{
-				result.Add(Path.GetFileNameWithoutExtension(languageFile).ToLowerInvariant());
+				result.Add(System.IO.Path.GetFileNameWithoutExtension(languageFile).ToLowerInvariant());
 			}
 			return [.. result];
 		}

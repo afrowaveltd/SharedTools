@@ -12,7 +12,7 @@
 /// <param name="translator"></param>
 /// <param name="logger"></param>
 /// <param name="httpContextAccessor"></param>
-[Route("api/[controller]")]
+[Route("api/localize")]
 [ApiController]
 [Produces("application/json")]
 public class Localize(IStringLocalizer<Localize> localizer,
@@ -24,7 +24,7 @@ public class Localize(IStringLocalizer<Localize> localizer,
 	private readonly ILibreTranslateService _translator = translator;
 	private readonly ILogger<Localize> _logger = logger;
 	private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
-	List<string> supportedLanguages => _translator.GetAvailableLanguagesAsync().Result.Data?.ToList() ?? new();
+	private List<string> supportedLanguages => _translator.GetAvailableLanguagesAsync().Result.Data?.ToList() ?? new();
 
 	/// <summary>
 	/// Translates the specified text into the target language or the default language if no target is specified.

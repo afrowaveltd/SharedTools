@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Localization;
-using System.Text.Json;
 
 namespace Afrowave.SharedTools.Docs.I18n;
 
@@ -20,7 +18,7 @@ public class JsonStringLocalizer : IStringLocalizer
 	{
 		_cache = cache;
 		string projectPath = AppDomain.CurrentDomain.BaseDirectory.Split("bin")[0];
-		_localesPath = Path.Combine(projectPath, "Locales");
+		_localesPath = System.IO.Path.Combine(projectPath, "Locales");
 	}
 
 	/// <inheritdoc/>
@@ -86,8 +84,8 @@ public class JsonStringLocalizer : IStringLocalizer
 	private string GetLocaleFilePath()
 	{
 		string culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLowerInvariant();
-		string filePath = Path.Combine(_localesPath, $"{culture}.json");
-		return File.Exists(filePath) ? filePath : Path.Combine(_localesPath, "en.json");
+		string filePath = System.IO.Path.Combine(_localesPath, $"{culture}.json");
+		return File.Exists(filePath) ? filePath : System.IO.Path.Combine(_localesPath, "en.json");
 	}
 
 	private static string? GetValueFromJson(string key, string filePath)

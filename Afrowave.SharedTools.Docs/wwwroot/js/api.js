@@ -297,31 +297,27 @@ const postDataWithParams = async (url, data, token = null) => {
  * @returns {Promise<string>} - Localized text.
  */
 const localize = async (text, language = "") => {
-	const getCookie = (cname) => {
-		let name = cname + "=";
-		let decodedCookie = decodeURIComponent(document.cookie);
-		let ca = decodedCookie.split(';');
-		for (let i = 0; i < ca.length; i++) {
-			let c = ca[i];
-			while (c.charAt(0) == ' ') {
-				c = c.substring(1);
-			}
-			if (c.indexOf(name) == 0) {
-				return c.substring(name.length, c.length).trim();
+	const getCookie = (name) => {
+		const cookies = document.cookie.split('; ');
+		for (let cookie of cookies) {
+			const [key, value] = cookie.split('=');
+			if (key === name) {
+				return value;
 			}
 		}
-		return "";
+		return null;
 	}
+
+	if (language == "")
+		language = systemLanguage;
 	if (language == "")
 		language = getCookie("language")
-	if (language = "")
-		language = getCookie("Language")
 	language == "" ? language = "en" : language = language;
 	let res;
 	try {
-		let url = '/api/GetLocalized/' + text + '/' + language;
+		let url = '/api/Localize/' + text + '/' + language;
 		console.log(url)
-		const result = await fetch('/api/GetLocalized/' + text + '/' + language);
+		const result = await fetch(url);
 		res = await result.text();
 		console.log(res);
 	} catch (error) {

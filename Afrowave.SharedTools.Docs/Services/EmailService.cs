@@ -280,7 +280,7 @@ namespace Afrowave.SharedTools.Docs.Services
 
 		private static async Task<string> CreateTemporarySmtpLogFile()
 		{
-			string path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+			string path = System.IO.Path.Combine(System.IO.Path.GetTempPath(), System.IO.Path.GetRandomFileName());
 			await File.WriteAllTextAsync(path, "");
 			return path;
 		}
