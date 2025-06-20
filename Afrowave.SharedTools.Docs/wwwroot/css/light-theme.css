@@ -4,14 +4,14 @@
 	--navbar-text: #111131;
 	--navbar: #aa6633;
 	--navbar-border: #770033;
-	--text: #121221;
+	--text: #211212;
 	--background: #e0e0f3;
 	--dimmed: #353549;
 	--highlight: #000000;
 	--border: #101020;
-	--color2-background: #F7F7FF;
-	--color2-text: #151525;
-	--color2-border: #151525;
+	--color2-background: #cfc7c7;
+	--color2-text: #251505;
+	--color2-border: #251515;
 	--help-text: #033a99;
 	--help-background: #FFFFEE;
 	--help-border: #033a99;
@@ -39,4 +39,5 @@
 	--button-text: #111111;
 	--button-hover: #03dac6;
 	--font-face: "Ubuntu", sans-serif;
+	--border-radius: 5px; 
 }

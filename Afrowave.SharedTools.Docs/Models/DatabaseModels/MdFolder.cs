@@ -10,6 +10,12 @@
 public class MdFolder
 {
 	/// <summary>
+	/// Get or sets an unique ID of the entity
+	/// </summary>
+	[Key]
+	public int Id { get; set; } = 0;
+
+	/// <summary>
 	/// Gets or sets the path to the folder.
 	/// </summary>
 	public string Path { get; set; } = string.Empty; // The path to the folder, e.g., "docs/folder1"

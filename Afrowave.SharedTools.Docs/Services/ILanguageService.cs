@@ -1,6 +1,4 @@
-﻿using Afrowave.SharedTools.Docs.Models.Communication;
-
-namespace Afrowave.SharedTools.Docs.Services
+﻿namespace Afrowave.SharedTools.Docs.Services
 {
 	/// <summary>
 	/// Defines methods for retrieving and managing language-related information.
@@ -66,6 +64,13 @@ namespace Afrowave.SharedTools.Docs.Services
 		/// <returns>A <see cref="Response{T}"/> containing a list of <see cref="Language"/> objects.  The list will be empty if no
 		/// required languages are identified.</returns>
 		Response<List<Language>> GetRequiredLanguagesAsync();
+
+		/// <summary>
+		/// Retrieves the list of language objects for each member of the list of language codes passed as the parameter
+		/// </summary>
+		/// <param name="languages">List of language codes for which retreive data</param>
+		/// <returns>List of Language objects in Response object</returns>
+		Response<List<Language>> GetSelectedLanguagesInfo(List<string> languages);
 
 		/// <summary>
 		/// Determines whether the specified language code represents a right-to-left (RTL) language.

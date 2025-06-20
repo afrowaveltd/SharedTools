@@ -70,7 +70,7 @@ namespace Afrowave.SharedTools.Docs.Services
 							return new SmtpDetectionResult
 							{
 								Successful = false,
-								Message = "Server requires authentication, but no credentials provided"
+								Message = _localizer["Server requires authentication, but no credentials provided"]
 							};
 						}
 						await client.AuthenticateAsync(input.Username, input.Password);
@@ -83,7 +83,7 @@ namespace Afrowave.SharedTools.Docs.Services
 						Successful = true,
 						Port = combination.Port,
 						Secure = combination.Security,
-						Message = "SMTP settings successfully detected"
+						Message = _localizer["SMTP settings successfully detected"]
 					};
 				}
 				catch
@@ -94,7 +94,7 @@ namespace Afrowave.SharedTools.Docs.Services
 			});
 
 			var completedTask = await Task.WhenAny(tasks);
-			return completedTask.Result ?? new SmtpDetectionResult { Successful = false, Message = "SMTP settings not found" };
+			return completedTask.Result ?? new SmtpDetectionResult { Successful = false, Message = _localizer["SMTP settings not found"] };
 		}
 
 		/// <summary>
@@ -187,17 +187,17 @@ namespace Afrowave.SharedTools.Docs.Services
 
 			if(string.IsNullOrEmpty(input.Host))
 			{
-				result.Error = "Host is empty";
+				result.Error = _localizer["Host is empty"];
 				return result;
 			}
 			if(input.Port == 0)
 			{
-				result.Error = "Port is empty";
+				result.Error = _localizer["Port is empty"];
 				return result;
 			}
 			if(string.IsNullOrEmpty(input.SenderEmail))
 			{
-				result.Error = "Sender email is empty";
+				result.Error = _localizer["Sender email is empty"];
 				return result;
 			}
 			if(string.IsNullOrEmpty(input.SenderName))
@@ -216,7 +216,7 @@ namespace Afrowave.SharedTools.Docs.Services
 				{
 					if(string.IsNullOrEmpty(input.Username) || string.IsNullOrEmpty(input.Password))
 					{
-						result.Error = "Server requires authentication, but no credentials provided";
+						result.Error = _localizer["Server requires authentication, but no credentials provided"];
 						return result;
 					}
 					await client.AuthenticateAsync(input.Username, input.Password);

@@ -39,44 +39,44 @@ public class InstallationService(ILogger<InstallationService> logger,
 		InstallationResult result = new();
 		if(await IsInstalledAsync())
 		{
-			return Response<InstallationResult>.Fail("Settings already exist");
+			return Response<InstallationResult>.Fail(_localizer["Settings already exist"]);
 		}
 		// just simple checks
 		if(application == null)
 		{
-			return Response<InstallationResult>.Fail("Missing data");
+			return Response<InstallationResult>.Fail(_localizer["Missing data"]);
 		}
 		if(string.IsNullOrWhiteSpace(application.Email)
 			|| string.IsNullOrWhiteSpace(application.SmtpHost))
 		{
-			return Response<InstallationResult>.Fail("Email and Host are required");
+			return Response<InstallationResult>.Fail(_localizer["Email and Host are required"]);
 		}
 
 		if(application.SmtpPort < 1 || application.SmtpPort > 65535)
 		{
-			return Response<InstallationResult>.Fail("SMTP Port must be between 1 and 65535");
+			return Response<InstallationResult>.Fail(_localizer["SMTP Port must be between 1 and 65535"]);
 		}
 
 		if(!Validators.IsEmail(application.Email))
 		{
-			return Response<InstallationResult>.Fail("Email is not valid");
+			return Response<InstallationResult>.Fail(_localizer["Email is not valid"]);
 		}
 
 		if(string.IsNullOrWhiteSpace(application.SenderEmail))
 		{
 			if(string.IsNullOrWhiteSpace(application.SmtpLogin))
 			{
-				return Response<InstallationResult>.Fail("Sender email is required");
+				return Response<InstallationResult>.Fail(_localizer["Sender email is empty"]);
 			}
 			application.SenderEmail = application.SmtpLogin;
 		}
 		if(application.UseAuthentication && string.IsNullOrWhiteSpace(application.SmtpLogin))
 		{
-			return Response<InstallationResult>.Fail("SMTP Login is required when authentication is used");
+			return Response<InstallationResult>.Fail(_localizer["SMTP Login is required when authentication is used"]);
 		}
 		if(application.UseAuthentication && string.IsNullOrWhiteSpace(application.SmtpPassword))
 		{
-			return Response<InstallationResult>.Fail("SMTP Password is required when authentication is used");
+			return Response<InstallationResult>.Fail(_localizer["SMTP Password is required when authentication is used"]);
 		}
 		string apiKey = _encryption.GenerateApplicationSecret();
 
@@ -105,7 +105,7 @@ public class InstallationService(ILogger<InstallationService> logger,
 		catch(Exception ex)
 		{
 			_logger.LogError(ex, "Failed to save application settings: {Message}", ex.Message);
-			return Response<InstallationResult>.Fail("Failed to save application settings");
+			return Response<InstallationResult>.Fail(_localizer["Failed to save application settings"]);
 		}
 
 		// all ready to save admin;
@@ -126,7 +126,7 @@ public class InstallationService(ILogger<InstallationService> logger,
 		catch(Exception ex)
 		{
 			_logger.LogError(ex, "Failed to save admin user: {Message}", ex.Message);
-			return Response<InstallationResult>.Fail("Failed to save admin user");
+			return Response<InstallationResult>.Fail(_localizer["Failed to save admin user"]);
 		}
 		_logger.LogInformation("Application installation settings prepared for: {ApplicationName}", application.ApplicationName);
 		return Response<InstallationResult>.Successful(result, _localizer["Application installation settings prepared successfully."]);

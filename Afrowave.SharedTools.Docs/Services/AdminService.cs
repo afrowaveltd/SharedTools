@@ -29,7 +29,7 @@
 			if(model == null)
 			{
 				_logger.LogError("RegisterAdminAsync: Model is null.");
-				return Response<Admin>.Fail(_localizer["Invalid model."]);
+				return Response<Admin>.Fail(_localizer["Invalid model"]);
 			}
 			var existingAdmin = await _context.Admins
 				.FirstOrDefaultAsync(a => a.Email == model.Email);
@@ -51,7 +51,7 @@
 			await _context.Admins.AddAsync(newAdmin);
 			await _context.SaveChangesAsync();
 			_logger.LogInformation("RegisterAdminAsync: New admin registered with email {Email}.", model.Email);
-			return Response<Admin>.Successful(newAdmin, _localizer["Registration successful."]);
+			return Response<Admin>.Successful(newAdmin, _localizer["Registration was successful"]);
 		}
 
 		/// <summary>
@@ -64,7 +64,7 @@
 			if(string.IsNullOrWhiteSpace(email))
 			{
 				_logger.LogError("GetAdminByEmailAsync: Email is null or empty.");
-				return Response<Admin>.Fail(_localizer["Email cannot be null or empty."]);
+				return Response<Admin>.Fail(_localizer["Email is mandatory."]);
 			}
 			var admin = await _context.Admins
 				.FirstOrDefaultAsync(a => a.Email == email);
@@ -90,7 +90,7 @@
 			if(string.IsNullOrWhiteSpace(email))
 			{
 				_logger.LogError("DeleteAdminByEmailAsync: Email is null or empty.");
-				return Response<bool>.Fail(_localizer["Email cannot be null or empty."]);
+				return Response<bool>.Fail(_localizer["Email is mandatory."]);
 			}
 			var admin = await _context.Admins
 				.FirstOrDefaultAsync(a => a.Email == email);
@@ -119,7 +119,7 @@
 			if(string.IsNullOrWhiteSpace(email))
 			{
 				_logger.LogError("ConfirmEmail: Email is null or empty.");
-				return Response<bool>.Fail(_localizer["Email cannot be null or empty."]);
+				return Response<bool>.Fail(_localizer["Email is mandatory."]);
 			}
 			var admin = await _context.Admins
 				.FirstOrDefaultAsync(a => a.Email == email);
@@ -208,7 +208,7 @@
 			if(string.IsNullOrWhiteSpace(email))
 			{
 				_logger.LogError("GetBearer: Email is null or empty.");
-				return Response<string>.Fail(_localizer["Email cannot be null or empty."]);
+				return Response<string>.Fail(_localizer["Email is mandatory."]);
 			}
 			var admin = await _context.Admins
 				.FirstOrDefaultAsync(a => a.Email == email);

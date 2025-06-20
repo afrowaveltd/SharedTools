@@ -154,36 +154,42 @@ html {
 hr.thin {
 	border: 0;
 	border-bottom: 1px solid;
+	color: var(--border)
 }
 
 h1 {
 	text-align: center;
 	font-size: 28px;
 	font-weight: bold;
+	color: var(--header);
 }
 
 h2 {
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
+	color: var(--header);
 }
 
 h3 {
 	text-align: center;
 	font-size: 22px;
 	font-weight: bold;
+	color: var(--header);
 }
 
 h4 {
 	text-align: center;
 	font-size: 19px;
 	font-weight: bold;
+	color: var(--header);
 }
 
 h5 {
 	text-align: center;
 	font-size: 16px;
 	font-weight: bolder;
+	color: var(--header);
 }
 
 h6 {
@@ -191,6 +197,7 @@ h6 {
 	font-size: 13px;
 	font-weight: bolder;
 	font-style: italic;
+	color: var(--header);
 }
 
 .centered {
@@ -227,6 +234,7 @@ label {
 hr.thin {
 	border: 0;
 	border-bottom: 1px solid;
+	color: var(--border);
 }
 
 a {
@@ -335,6 +343,7 @@ select:-webkit-autofill:active {
 .helper {
 	color: var(--highlight);
 	border: solid 2px var(--border);
+	border-radius: var(--border-radius);
 	padding: 10px;
 	margin-right: 0px;
 	-moz-border-radius: inherit;
@@ -365,8 +374,17 @@ table {
 	margin-top: 10px;
 	width: 95%;
 	margin-right: auto;
-	border-radius: 7px;
+	border-radius: var(--border-radius);
 	margin-left: auto;
 	background-color: var(--table-row-background);
 	color: var(--table-row-text);
+}
+
+.block {
+	background-color: var(--color2-background);
+	color: var(--color2-text);
+	border: 1px solid var(--color2-border);
+	border-radius: var(--border-radius);
+	padding: 7px;
+	margin: 10px 0;
 }

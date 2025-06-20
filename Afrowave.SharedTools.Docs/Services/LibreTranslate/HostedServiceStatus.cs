@@ -13,6 +13,7 @@ public class HostedServiceStatus
 
 	public static WorkerStatus Status { get; set; } = WorkerStatus.Iddle;
 	public static DateTime CycleStart { get; set; } = DateTime.Now;
+	public static List<Language> LibreLanguages { get; set; } = new List<Language>();
 
 	/// <summary>
 	/// Resets the worker's status to its default idle state.
@@ -23,5 +24,6 @@ public class HostedServiceStatus
 	{
 		Status = WorkerStatus.Checks;
 		CycleStart = DateTime.Now;
+		LibreLanguages.Clear();
 	}
 }

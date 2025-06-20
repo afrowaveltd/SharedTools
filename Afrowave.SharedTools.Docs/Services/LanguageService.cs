@@ -100,6 +100,32 @@
 		}
 
 		/// <summary>
+		/// Retrieves the list of language object by their code
+		/// </summary>
+		/// <param name="languages">List of strings of language codes</param>
+		/// <returns>Response with list of the languages</returns>
+		public Response<List<Language>> GetSelectedLanguagesInfo(List<string> languages)
+		{
+			Response<List<Language>> result = new()
+			{
+				Data = []
+			};
+			foreach(var language in languages)
+			{
+				try
+				{
+					result.Data.Add(_languages.Where(s => s.Code == language).First());
+				}
+				catch(Exception ex)
+				{
+					result.Data.Add(new Language { Code = language, Name = language, Native = language, Rtl = false });
+					Console.WriteLine(ex);
+				}
+			}
+			return result;
+		}
+
+		/// <summary>
 		/// Asynchronously retrieves a dictionary of key-value pairs from a JSON file based on the specified locale code.
 		/// </summary>
 		/// <remarks>The method looks for a JSON file in the configured locales directory, with the file name matching
