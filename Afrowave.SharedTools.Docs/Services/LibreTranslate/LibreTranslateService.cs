@@ -198,31 +198,38 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 						ExecutionTime = DateTime.Now.Subtract(start).Milliseconds
 					};
 				}
+				try
+				{
+					var result = await _httpService.ReadJsonAsync<LibreTranslationResult>(response.Content, _options);
 
-				var result = await _httpService.ReadJsonAsync<LibreTranslationResult>(response.Content, _options);
-				if(result == null)
-				{
-					_logger.LogError("Failed to deserialize translation result.");
-					return Response<LibreTranslationResult>.Fail("Failed to deserialize translation result.", DateTime.Now.Subtract(start).Milliseconds);
-				}
-				if(result.TranslatedText == text)
-				{
-					if(text == text.ToLower() || decapitalized)
+					if(result == null)
 					{
-						_logger.LogWarning("Translated phrase is the same as orinal");
-						return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful", DateTime.Now.Subtract(start).Milliseconds);
+						_logger.LogError("Failed to deserialize translation result.");
+						return Response<LibreTranslationResult>.Fail("Failed to deserialize translation result.", DateTime.Now.Subtract(start).Milliseconds);
+					}
+					if(result.TranslatedText == text)
+					{
+						if(text == text.ToLower() || decapitalized)
+						{
+							_logger.LogWarning("Translated phrase is the same as orinal");
+							return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful", DateTime.Now.Subtract(start).Milliseconds);
+						}
+						else
+						{
+							_logger.LogInformation("Translated phrase {text} is same as original. Trying with small letters", text);
+							text = text.ToLower();
+							decapitalized = true;
+						}
 					}
 					else
 					{
-						_logger.LogInformation("Translated phrase {text} is same as original. Trying with small letters", text);
-						text = text.ToLower();
-						decapitalized = true;
+						_logger.LogInformation("{text} from {sourceLanguage} to {targetLanguage} translated as {result}", text, sourceLanguage, targetLanguage, result.TranslatedText);
+						return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful", DateTime.Now.Subtract(start).Milliseconds);
 					}
 				}
-				else
+				catch
 				{
-					_logger.LogInformation("{text} from {sourceLanguage} to {targetLanguage} translated as {result}", text, sourceLanguage, targetLanguage, result.TranslatedText);
-					return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful", DateTime.Now.Subtract(start).Milliseconds);
+
 				}
 			}
 			return new();

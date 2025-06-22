@@ -10,22 +10,22 @@
 		/// <summary>
 		/// Gets or sets the default language code used by the application.
 		/// </summary>
-		public string DefaultLanguage { get; set; } = "en";
+		public string DefaultLanguage { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or sets the list of language codes that should be ignored during JSON processing.
 		/// </summary>
-		public string[] IgnoredForJson { get; set; } = ["en", "cs"];
+		public string[] IgnoredForJson { get; set; } = [];
 
 		/// <summary>
 		/// Gets or sets the list of language codes that should be ignored for markdown processing.
 		/// </summary>
-		public string[] IgnoredForMd { get; set; } = ["en"];
+		public string[] IgnoredForMd { get; set; } = [];
 
 		/// <summary>
 		/// Gets or sets the list of folder names used for Markdown files.
 		/// </summary>
-		public string[] MdFolders { get; set; } = ["docs, readme"];
+		public string[] MdFolders { get; set; } = [];
 
 		/// <summary>
 		/// Gets or sets the number of minutes between each cycle.

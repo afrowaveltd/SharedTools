@@ -134,7 +134,15 @@
 				Content = new FormUrlEncodedContent(formFields)
 			};
 			AddHeaders(request, headers);
-			return await _client.SendAsync(request);
+			try
+			{
+				return await _client.SendAsync(request);
+			}
+			catch
+			{
+				_logger.LogError("Error sending POST request to {Url}", url);
+				return new();
+			}
 		}
 
 		/// <summary>

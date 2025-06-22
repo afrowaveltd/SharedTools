@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+﻿	@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
 :root {
 	--navbar-text: #111131;
@@ -15,10 +15,10 @@
 	--help-text: #033a99;
 	--help-background: #FFFFEE;
 	--help-border: #033a99;
-	--table-th-background: #110022;
-	--table-th-text: #ccccee;
-	--table-row-text: #000011;
-	--table-row-background: #aaaacc;
+	--table-row-background: #BBBBBB;
+	--table-th-text: #000000;
+	--table-row-text: #333333;
+	--table-th-background: #CCCCCC;
 	--table-border: #000011;
 	--input-background: #AAAAAA;
 	--input-border: #111122;

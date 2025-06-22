@@ -114,12 +114,18 @@
 			{
 				try
 				{
-					result.Data.Add(_languages.Where(s => s.Code == language).First());
+					if(_languages.Where(s => s.Code == language).First() == null)
+					{
+						result.Data.Add(new Language { Code = language, Name = language, Native = language, Rtl = false });
+					}
+					else
+					{
+						result.Data.Add(_languages.Where(s => s.Code == language).First());
+					}
 				}
 				catch(Exception ex)
 				{
 					result.Data.Add(new Language { Code = language, Name = language, Native = language, Rtl = false });
-					Console.WriteLine(ex);
 				}
 			}
 			return result;

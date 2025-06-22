@@ -13,7 +13,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 {
 	private readonly DocsDbContext _context = context;
 	private readonly IHubContext<OpenHub> _openHub = openHub;
-	private readonly TranslationsOptions _translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>() ?? new TranslationsOptions();
+	private TranslationsOptions? _translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>() ?? new TranslationsOptions();
 	private readonly IHubContext<RealtimeHub> _realtimeHub = realtimeHub;
 	private readonly ILanguageService _languageService = languageService;
 	private readonly ILibreFileService _fileService = fileService;
@@ -23,7 +23,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	public async Task RunCycleAsync()
 	{
 		// Server status
-
+		_translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
 		HostedServiceStatus.Clear();
 		HostedServiceStatus.Status = WorkerStatus.Checks;
 		await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Started");
