@@ -642,6 +642,11 @@
 		"native": "ਪੰਜਾਬੀ / पंजाबी / پنجابي"
 	},
 	{
+		"code": "pb",
+		"name": "Portuguese (Brazil)",
+		"native": "Português (Brasil)"
+	},
+	{
 		"code": "pi",
 		"name": "Pali",
 		"native": "Pāli / पाऴि"
@@ -928,6 +933,11 @@
 		"code": "zh",
 		"name": "Chinese",
 		"native": "中文"
+	},
+	{
+		"code": "zt",
+		"name": "Chinese (Traditional)",
+		"native": "中文（繁體）"
 	},
 	{
 		"code": "zu",

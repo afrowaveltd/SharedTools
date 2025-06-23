@@ -471,6 +471,7 @@
 				new Language { Code = "or", Name = "Oriya", Native = "ଓଡ଼ିଆ" },
 				new Language { Code = "os", Name = "Ossetian / Ossetic", Native = "Иронау" },
 				new Language { Code = "pa", Name = "Panjabi / Punjabi", Native = "ਪੰਜਾਬੀ / पंजाबी / پنجابي" },
+				new Language { Code = "pb", Name = "Portuguese (Brazil)", Native = "Português (Brasil)"},
 				new Language { Code = "pi", Name = "Pali", Native = "Pāli / पाऴि" },
 				new Language { Code = "pl", Name = "Polish", Native = "Polski" },
 				new Language { Code = "ps", Name = "Pashto", Native = "پښتو", Rtl = true },
@@ -528,6 +529,7 @@
 				new Language { Code = "yo", Name = "Yoruba", Native = "Yorùbá" },
 				new Language { Code = "za", Name = "Zhuang", Native = "Cuengh / Tôô / 壮语" },
 				new Language { Code = "zh", Name = "Chinese", Native = "中文" },
+				new Language { Code = "zt", Name = "Chinese (Traditional)", Native = "中文（繁體）" },
 				new Language { Code = "zu", Name = "Zulu", Native = "isiZulu" }
 		  ];
 	}

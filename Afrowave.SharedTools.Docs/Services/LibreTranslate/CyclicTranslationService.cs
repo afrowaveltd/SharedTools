@@ -23,6 +23,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	public async Task RunCycleAsync()
 	{
 		// Server status
+		await _realtimeHub.Clients.All.SendAsync("NewCycle");
 		_translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
 		HostedServiceStatus.Clear();
 		HostedServiceStatus.Status = WorkerStatus.Checks;
@@ -32,7 +33,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		if(langArray is null || langArray.Success == false)
 		{
 			HostedServiceStatus.Status = WorkerStatus.Iddle;
-			await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Finished");
+			await _openHub.Clients.All.SendAsync("StatusChanged", "Error - Cycle skipped");
 			return;
 		}
 
@@ -40,7 +41,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		if(languagesResponse is null || languagesResponse.Success == false)
 		{
 			HostedServiceStatus.Status = WorkerStatus.Iddle;
-			await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Finished");
+			await _openHub.Clients.All.SendAsync("StatusChanged", "Error - Cycle skipped");
 			return;
 		}
 

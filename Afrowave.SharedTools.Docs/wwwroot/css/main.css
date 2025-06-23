@@ -93,10 +93,10 @@ html {
 	margin-top: auto;
 	position: fixed;
 	bottom: 0px;
-	height: auto;
+	height: 30px;
 	width: 100%;
 	padding-left: 7px;
-	padding-top: 3px;
+	padding-top: 2px;
 	padding-bottom: 3px;
 	background-color: var(--navbar);
 	z-index: 1000;
@@ -104,7 +104,7 @@ html {
 }
 
 .footer-element {
-	padding: 5px;
+	padding: 2px 5px;
 }
 
 .spinner {
@@ -350,6 +350,11 @@ select:-webkit-autofill:active {
 	color: var(--info);
 }
 
+.highlight {
+	color: var(--highlight);
+	font-weight: bold;
+}
+
 .helper {
 	color: var(--highlight);
 	border: solid 2px var(--border);
@@ -382,7 +387,7 @@ select:-webkit-autofill:active {
 
 table {
 	margin-top: 10px;
-    width: 95%;
+	width: 95%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -392,7 +397,6 @@ tr {
 }
 
 th {
-	
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 5px;
@@ -402,7 +406,6 @@ th {
 }
 
 td {
-	
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 5px;

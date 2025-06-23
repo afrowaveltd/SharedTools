@@ -17,22 +17,49 @@
 	<div class="col-md-5">
 		<h4>@_localizer["JSON Dictionaries"]</h4>
 		<hr />
+		<div id="json_table" style="display: none;">
+		</div>
 	</div>
 	
 	<!-- Column 2 -->
 	<div class="col-md-5">
 		<h4>@_localizer["MD Help files"]</h4>
 		<hr />
+		<div id="md_table" style="display: none;">
+		</div>
 	</div>
 	
 	<!-- Column 3 -->
 	<div class="col-md-2">
 		<h4>@_localizer["General info"]</h4>
 		<hr />
-		<h5>@_localizer["Status"]</h5>
-		<hr />
-		<div class="block" id="status_table">
-					
+		<div class="block">
+			<div>
+				<span id="last_update_tick">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span style="margin-right: 5px;">@_localizer["Last update"]:</span>
+				<span id="last_update" class="fw-bold highlight">&nbsp;</span>
+			</div>
+			<hr />
+			<div>
+			<span id="languages_received_tick">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span style="margin-right: 5px;">@_localizer["Libretranslate languages count"]:</span>
+			<span id="languages_count" class="fw-bold highlight">&nbsp;</span>
+			</div>
+			<div>
+				<span id="default_language_tick">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span style="margin-right: 5px;">@_localizer["Default language"]:</span>
+				<span id="default_language" class="fw-bold highlight">&nbsp;</span>
+			</div>
+			<div>
+				<span id="ignore_json_tick">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span style="margin-right: 5px;">@_localizer["Ignored languages for JSON"]:</span>
+				<span id="ignore_json" class="fw-bold highlight">&nbsp;</span>
+			</div>
+			<div>
+				<span id="ignore_md_tick">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span style="margin-right: 5px;">@_localizer["Ignored languages for MD"]:</span>
+				<span id="ignore_md" class="fw-bold highlight">&nbsp;</span>
+			</div>
 		</div>
 	</div>
 </div>
