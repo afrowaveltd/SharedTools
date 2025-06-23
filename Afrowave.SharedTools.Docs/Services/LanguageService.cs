@@ -20,6 +20,15 @@
 		public List<Language> GetLanguages() => _languages;
 
 		/// <summary>
+		/// Gets the names of all available languages.
+		/// </summary>
+		/// <returns></returns>
+		public List<string> GetLanguageNames()
+		{
+			return _languages.Select(l => l.Name).ToList();
+		}
+
+		/// <summary>
 		/// Determines whether the specified language code corresponds to a right-to-left (RTL) script.
 		/// </summary>
 		/// <param name="code">The language code to check.</param>

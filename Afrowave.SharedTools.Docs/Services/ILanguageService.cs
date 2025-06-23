@@ -39,6 +39,12 @@
 		Response<Language>? GetLanguageByCode(string code);
 
 		/// <summary>
+		/// Gets all available language names.
+		/// </summary>
+		/// <returns></returns>
+		List<string> GetLanguageNames();
+
+		/// <summary>
 		/// Retrieves a list of all available languages.
 		/// </summary>
 		/// <returns>A list of <see cref="Language"/> objects representing the available languages.  The list will be empty if no
