@@ -52,7 +52,7 @@ public class Localize(IStringLocalizer<Localize> localizer,
 		if(translateTo == "en")
 		{
 			_logger.LogDebug("No point to translate from English to English");
-			return Ok(toTranslate);
+			return Content(toTranslate, "text/plain", Encoding.UTF8); ;
 		}
 		LocalizedString result = _localizer[toTranslate];
 		if(result.ResourceNotFound)

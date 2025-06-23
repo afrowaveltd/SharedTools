@@ -421,4 +421,5 @@ td {
 	border-radius: var(--border-radius);
 	padding: 7px;
 	margin: 10px 0;
+	font-size: smaller;
 }
