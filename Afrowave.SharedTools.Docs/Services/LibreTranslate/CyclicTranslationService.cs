@@ -20,6 +20,17 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	private readonly ILibreTranslateService _translateService = translateService;
 	private readonly ILogger<CyclicTranslationService> _logger = logger;
 
+	/// <summary>
+	/// Executes a single operational cycle asynchronously, performing various tasks such as updating server status,
+	/// retrieving available languages, and broadcasting translation settings.
+	/// </summary>
+	/// <remarks>This method performs the following steps: <list type="bullet"> <item>Notifies connected clients
+	/// about the start of a new cycle.</item> <item>Retrieves available languages and selected language
+	/// information.</item> <item>Updates the server's hosted service status based on the success or failure of language
+	/// retrieval.</item> <item>Broadcasts the retrieved languages and translation settings to connected clients.</item>
+	/// </list> If any critical step fails (e.g., language retrieval), the cycle is terminated early, and the status is
+	/// updated accordingly.</remarks>
+	/// <returns>A task that represents the asynchronous operation.</returns>
 	public async Task RunCycleAsync()
 	{
 		// Server status
@@ -27,6 +38,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		_translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
 		HostedServiceStatus.Clear();
 		HostedServiceStatus.Status = WorkerStatus.Checks;
+		HostedServiceStatus.TranslationOptions = _translationsOptions;
 		await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Started");
 
 		var langArray = await _translateService.GetAvailableLanguagesAsync();
@@ -52,13 +64,48 @@ public class CyclicTranslationService(ILibreFileService fileService,
 			await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Finished");
 			return;
 		}
+
 		HostedServiceStatus.LibreLanguages = languages;
 		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
 		await _realtimeHub.Clients.All.SendAsync("ReceiveTranslationSettings", _translationsOptions);
-		// A - JSON Dictionary translation
 
+		// A - JSON Dictionary translation //
 		HostedServiceStatus.Status = WorkerStatus.JsonBackendDataLoading;
 		await _openHub.Clients.All.SendAsync("StatusChanged", "JSON backend data loading");
+
+		/* check presence of languages names in each language file */
+		HostedServiceStatus.Status = WorkerStatus.CheckLanguageNames;
+		await _openHub.Clients.All.SendAsync("StatusChanged", "Checking translation of the language names");
+
+		var dictionary = await _fileService.GetDefaultLanguageAsync();
+
+		List<string> englishLanguageNames = [.. languages.Select(s => s.Name)];
+		List<string> translatedLangugeNames = [];
+
+		if(_translationsOptions?.DefaultLanguage == "en")
+		{
+			// easier - just use what is in the table as a key and value
+			translatedLangugeNames = englishLanguageNames;
+		}
+		else
+		{
+			int languageCount = englishLanguageNames.Count;
+			int translatedCount = 0;
+
+			// harder - we must first translate name to the default language and then add them to its file
+			foreach(var name in englishLanguageNames)
+			{
+				var translationResponse = await _translateService.TranslateTextAsync(name, "en", _translationsOptions?.DefaultLanguage ?? "en");
+				if(translationResponse.Success)
+				{
+					translatedLangugeNames.Add(translationResponse.Data?.TranslatedText ?? name);
+					translatedCount++;
+					await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationChanged", languageCount, translatedCount);
+				}
+				await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished");
+			}
+		}
+		/* now we have set of phrazes to add to the default language */
 
 		// B - MD Files translation
 

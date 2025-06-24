@@ -93,21 +93,39 @@ public class LibreFileService(ILogger<LibreFileService> logger, IConfiguration c
 	public async Task<Dictionary<string, string>> GetDefaultLanguageAsync()
 	{
 		string defaultLanguage = _translationsOptions.DefaultLanguage ?? "en";
-		var filepath = System.IO.Path.Combine(localesPath, defaultLanguage + ".json");
+		return await GetLanguageByCode(defaultLanguage);
+	}
+
+	/// <summary>
+	/// Asynchronously retrieves a dictionary of language translations based on the specified language code.
+	/// </summary>
+	/// <remarks>The method attempts to locate a JSON file in the configured locales directory using the provided
+	/// language code. If the file exists, it reads and deserializes the JSON content into a dictionary. If the file is
+	/// missing, invalid, or an error occurs during deserialization, the method returns an empty dictionary.</remarks>
+	/// <param name="code">The language code used to identify the desired translations. Must be either a 2-character or 4-character code.</param>
+	/// <returns>A dictionary containing key-value pairs representing translations for the specified language code. Returns an empty
+	/// dictionary if the code is invalid, the file does not exist, or an error occurs during processing.</returns>
+	public async Task<Dictionary<string, string>> GetLanguageByCode(string code)
+	{
+		var filepath = System.IO.Path.Combine(localesPath, code + ".json");
+		if(code.Length != 2)
+		{
+			return [];
+		}
 		if(!File.Exists(filepath))
 		{
-			return new();
+			return [];
 		}
 		try
 		{
 			string json = await File.ReadAllTextAsync(filepath);
 			if(json == null)
-				return new();
+				return [];
 			return JsonSerializer.Deserialize<Dictionary<string, string>>(json) ?? new();
 		}
 		catch
 		{
-			return new();
+			return [];
 		}
 	}
 
