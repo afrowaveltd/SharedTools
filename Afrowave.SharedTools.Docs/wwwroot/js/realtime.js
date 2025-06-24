@@ -63,11 +63,11 @@ manager.hubs.realtime.connection.on("ReceiveTranslationSettings", (settings) => 
 });
 
 // language names translation - status changed
-manager.hub.realtime.connection.on("LanguageNameTranslationChanged", async (languageCount, translatedCount) => {
+manager.hubs.realtime.connection.on("LanguageNameTranslationChanged", async (languageCount, translatedCount) => {
 	console.log("status changed");
 });
 
 // language names translation finished
-manager.hub.realtime.connection.on("LanguageNamesTranslationFinished", async () => {
+manager.hubs.realtime.connection.on("LanguageNamesTranslationFinished", async () => {
 	console.log("language names translation finished");
 });
