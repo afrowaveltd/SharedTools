@@ -91,7 +91,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		{
 			int languageCount = englishLanguageNames.Count;
 			int translatedCount = 0;
-
+			int errorCount = 0;
 			// harder - we must first translate name to the default language and then add them to its file
 			foreach(var name in englishLanguageNames)
 			{
@@ -102,8 +102,13 @@ public class CyclicTranslationService(ILibreFileService fileService,
 					translatedCount++;
 					await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationChanged", languageCount, translatedCount);
 				}
-				await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished");
+				else
+				{
+					errorCount++;
+					await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationError", errorCount);
+				}
 			}
+			await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished");
 		}
 		/* now we have set of phrazes to add to the default language */
 

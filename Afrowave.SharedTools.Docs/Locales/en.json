@@ -39,6 +39,7 @@
 	"Invalid model": "Invalid model",
 	"JSON backend data loading": "JSON backend data loading",
 	"JSON Dictionaries": "JSON Dictionaries",
+	"Language names translation": "Language names translation",
 	"Last update": "Last update",
 	"Libretranslate languages count": "Libretranslate languages count",
 	"Login": "Login",
@@ -48,6 +49,7 @@
 	"No": "No",
 	"No settings found.": "No settings found.",
 	"Notifications": "Notifications",
+	"of": "of",
 	"Old and new email cannot be null or empty.": "Old and new email cannot be null or empty.",
 	"Port is empty": "Port is empty",
 	"Profile": "Profile",
@@ -70,5 +72,7 @@
 	"Target email is empty": "Target email is empty",
 	"test": "Test string to verify that the file works correctly.",
 	"The application name can't be empty": "The application name can't be empty",
+	"together": "together",
+	"Translated": "Translated",
 	"Waiting for data": "Waiting for data"
 }

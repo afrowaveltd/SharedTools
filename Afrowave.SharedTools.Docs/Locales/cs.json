@@ -39,6 +39,7 @@
 	"Invalid model": "Chybný model",
 	"JSON backend data loading": "Nahrávání dat z JSON backendu",
 	"JSON Dictionaries": "JSON slovníky",
+	"Language names translation": "Překlad názvů jazyků",
 	"Last update": "Poslední aktualizace",
 	"Libretranslate languages count": "Počet jazyků Libretranslate",
 	"Login": "Přihlásit se",
@@ -48,6 +49,7 @@
 	"No": "Ne",
 	"No settings found.": "Nebyly nalezeny žádná nastavení.",
 	"Notifications": "Upozornění",
+	"of": "z",
 	"Old and new email cannot be null or empty.": "Stará nebo nová adresa nesmí být prázdná",
 	"Port is empty": "Port je prázdný",
 	"Profile": "Profil",
@@ -70,5 +72,7 @@
 	"Target email is empty": "Cílový email je prázdný",
 	"test": "Testovací řetězec pro ověření, že soubor funguje správně.",
 	"The application name can't be empty": "Název aplikace nemůže být prázdný",
+	"together": "celkem",
+	"Translated": "Přeloženo",
 	"Waiting for data": "Čekání na data"
 }
