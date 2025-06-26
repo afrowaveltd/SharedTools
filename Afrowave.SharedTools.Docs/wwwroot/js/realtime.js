@@ -17,9 +17,15 @@ const language_translation_done = document.getElementById("language_translation_
 const language_count_nr = document.getElementById("language_count_nr");
 const language_names_translation_error = document.getElementById('language_names_translation_error');
 const language_names_translation_error_count = document.getElementById('language_names_translation_error_count');
+const segmentedProgressElement = document.getElementById("language_segmented_progress");
+const languageProgressText = document.getElementById("language_progress_text");
 const ok_tick = "✅&nbsp;&nbsp; ";
 const warning_tick = "⚠️&nbsp;&nbsp; ";
 const error_tick = "⛔&nbsp;&nbsp; "
+
+let totalLanguageCount = 1;
+let successCount = 0;
+let errorCount = 0;
 
 //page functions
 const initializeCycle = () => {
@@ -41,8 +47,37 @@ const initializeCycle = () => {
 	language_translation_finished_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
 	language_names_translation_error.style.display = 'none';
 	language_names_translation_error_count.innerHTML = '';
+	segmentedProgressElement.innerHTML = '';
+	languageProgressText.innerHTML = '';
+	totalLanguageCount = 1;
+	successCount = 0;
+	errorCount = 0;
 
 	updateLastUpdated();
+}
+
+async function updateSegmentedProgressBar() {
+	const successPercent = (successCount / totalLanguageCount) * 100;
+	const errorPercent = (errorCount / totalLanguageCount) * 100;
+
+	segmentedProgressElement.innerHTML = '';
+
+	if (successCount > 0) {
+		const successSegment = document.createElement('div');
+		successSegment.className = 'segment success';
+		successSegment.style.width = `${successPercent}%`;
+		segmentedProgressElement.appendChild(successSegment);
+	}
+
+	if (errorCount > 0) {
+		const errorSegment = document.createElement('div');
+		errorSegment.className = 'segment error';
+		errorSegment.style.width = `${errorPercent}%`;
+		segmentedProgressElement.appendChild(errorSegment);
+	}
+	let successText = await localize("Successful") + ":";
+	let errorText = await localize("Errors") + ":";
+	languageProgressText.innerHTML = `${successText} ${successCount} / ${totalLanguageCount}, ${errorText} ${errorCount}`;
 }
 
 const updateLastUpdated = () => {
@@ -83,17 +118,22 @@ manager.hubs.realtime.connection.on("ReceiveTranslationSettings", (settings) => 
 
 // language names translation - status changed
 manager.hubs.realtime.connection.on("LanguageNameTranslationChanged", async (languageCount, translatedCount) => {
-	language_names_translation_progress.max = languageCount;
-	language_names_translation_progress.value = translatedCount;
-	language_translation_done.innerHTML = translatedCount;
+	totalLanguageCount = languageCount;
+	successCount = translatedCount;
+	updateSegmentedProgressBar();
+	if (successCount + errorCount === totalLanguageCount)
+		segmentedProgressElement.classList.add("completed");
+	language_translation_done.innerHTML = translatedCount; // zůstává pro starý text
 });
 
 // language names translation - error
-manager.hubs.realtime.connection.on("LanguageNameTranslationError", (errorCount) => {
+manager.hubs.realtime.connection.on("LanguageNameTranslationError", (errorCountValue) => {
+	errorCount = errorCountValue;
+	updateSegmentedProgressBar();
+	if (successCount + errorCount === totalLanguageCount)
+		segmentedProgressElement.classList.add("completed");
 	language_names_translation_error.style.display = 'inline-block';
-	language_names_translation_error_count.innerHTML = errorCount;
-
-	
+	language_names_translation_error_count.innerHTML = errorCountValue;
 });
 
 // language names translation finished

@@ -109,8 +109,29 @@ public class CyclicTranslationService(ILibreFileService fileService,
 				}
 			}
 			await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished");
+			errorCount = 0;
 		}
 		/* now we have set of phrazes to add to the default language */
+		foreach(var language in translatedLangugeNames)
+		{
+			try
+			{
+				string? value = dictionary?[language];
+				if(string.IsNullOrEmpty(value))
+				{
+					dictionary?.Add(language, language);
+				}
+			}
+			catch
+			{
+				dictionary.Add(language, language);
+			}
+		}
+		/* default language dictionary is ready */
+		/* now we will check if old translations are presented */
+
+		HostedServiceStatus.Status = WorkerStatus.OldDictionaryLoading;
+		await _openHub.Clients.All.SendAsync("StatusChanged", "Checking old translations");
 
 		// B - MD Files translation
 

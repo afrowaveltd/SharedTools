@@ -64,19 +64,11 @@
 		</div>
 		<div class="block" id="languages_translate_info" style="display:none">
 			<h6>@_localizer["Language names translation"]</h6>
-			<progress id="language_names_translation_progress" style="width: 100%"></progress>
-			<div style="display:inline-block">
-				<span id="language_translation_finished_tick">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span style ="margin-right: 5px;">
-					@_localizer["Translated"]
-					<b><span id="language_translation_done">0</span></b>, @_localizer["together"]
-					<b><span style="margin-right: 5px;" id="language_count_nr">0</span></b>
-				</span>
-					<span id="language_names_translation_error" style="display:none">
-					⚠️&nbsp;&nbsp;
-					<b><span id="language_names_translation_error_count"></span></b>
-					</span>
-			</div>
+			<!--
+				<progress id="language_names_translation_progress" style="width: 100%"></progress>
+			-->
+			<div class="multi-progress" id="language_segmented_progress"></div>
+			<div id="language_progress_text" class="dimmed small"></div>
 		</div>
 	</div>
 </div>
