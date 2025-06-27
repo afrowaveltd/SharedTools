@@ -28,6 +28,7 @@
 	"Email is mandatory.": "Email is mandatory",
 	"Email is not valid": "Email is not valid",
 	"Error": "Error",
+	"Errors": "Errors",
 	"Error - Cycle skipped": "Error - Cycle skipped",
 	"Error sending email": "Error sending email",
 	"Failed to save admin user": "Failed to save admin user",

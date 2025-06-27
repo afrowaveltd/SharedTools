@@ -189,14 +189,16 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 							};
 						}
 					}
-					exitTheLoop = true;
-					return new Response<LibreTranslationResult>
+					else
 					{
-						Data = new LibreTranslationResult() { TranslatedText = text },
-						Success = false,
-						Message = response.ReasonPhrase,
-						ExecutionTime = DateTime.Now.Subtract(start).Milliseconds
-					};
+						return new Response<LibreTranslationResult>
+						{
+							Data = new LibreTranslationResult() { TranslatedText = text },
+							Success = false,
+							Message = response.ReasonPhrase,
+							ExecutionTime = DateTime.Now.Subtract(start).Milliseconds
+						};
+					}
 				}
 				try
 				{
@@ -229,7 +231,6 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 				}
 				catch
 				{
-
 				}
 			}
 			return new();

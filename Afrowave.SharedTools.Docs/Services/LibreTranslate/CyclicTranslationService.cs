@@ -34,8 +34,8 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	public async Task RunCycleAsync()
 	{
 		// Server status
-		await _realtimeHub.Clients.All.SendAsync("NewCycle");
 		_translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
+		await _realtimeHub.Clients.All.SendAsync("NewCycle");
 		HostedServiceStatus.Clear();
 		HostedServiceStatus.Status = WorkerStatus.Checks;
 		HostedServiceStatus.TranslationOptions = _translationsOptions;

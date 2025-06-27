@@ -26,6 +26,7 @@
 	"Email is mandatory.": "Email je nezbytný.",
 	"Email is not valid": "Email není platný",
 	"Error": "Chyba",
+	"Errors": "Chyby",
 	"Error - Cycle skipped": "Chyba - cyklus vynechán",
 	"Error sending email": "Chyba při odesílání emailu",
 	"Failed to save admin user": "Chyba při ukládání administrátorského uživatele",

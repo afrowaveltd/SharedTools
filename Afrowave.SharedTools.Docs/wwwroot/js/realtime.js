@@ -19,9 +19,6 @@ const language_names_translation_error = document.getElementById('language_names
 const language_names_translation_error_count = document.getElementById('language_names_translation_error_count');
 const segmentedProgressElement = document.getElementById("language_segmented_progress");
 const languageProgressText = document.getElementById("language_progress_text");
-const ok_tick = "✅&nbsp;&nbsp; ";
-const warning_tick = "⚠️&nbsp;&nbsp; ";
-const error_tick = "⛔&nbsp;&nbsp; "
 
 let totalLanguageCount = 1;
 let successCount = 0;
@@ -40,19 +37,22 @@ const initializeCycle = () => {
 	language_translation_done.innerHTML = "0";
 	default_language.innerHTML = "";
 	ignore_json.innerHTML = "";
-	ignore_md.innterHTML = "";
+	ignore_md.innerHTML = "";
 	languages_translate_info.style.display = "none";
 	language_names_translation_progress.value = 0;
 	language_names_translation_progress.max = 1;
 	language_translation_finished_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
 	language_names_translation_error.style.display = 'none';
+	language_names_translation_error.style.width = '0px';
 	language_names_translation_error_count.innerHTML = '';
 	segmentedProgressElement.innerHTML = '';
+	successSegment.width = 0;
+	errorSegment.width = 0;
 	languageProgressText.innerHTML = '';
 	totalLanguageCount = 1;
 	successCount = 0;
 	errorCount = 0;
-
+	segmentedProgressElement.classList.remove("completed");
 	updateLastUpdated();
 }
 
@@ -94,7 +94,7 @@ manager.hubs.realtime.connection.on('ReceiveLanguages', async (languages) => {
 	languages_translate_info.style.display = 'block';
 	language_names_translation_progress.max = languages.length;
 	language_count_nr.innerHTML = languages.length;
-
+	segmentedProgressElement.classList.remove("completed");
 	updateLastUpdated();
 	// Process the received languages as needed
 	// For example, you can update the UI or store them in a variable
@@ -123,7 +123,11 @@ manager.hubs.realtime.connection.on("LanguageNameTranslationChanged", async (lan
 	updateSegmentedProgressBar();
 	if (successCount + errorCount === totalLanguageCount)
 		segmentedProgressElement.classList.add("completed");
+	else try {
+		segmentedProgressElement.classList.remove("completed");
+	} catch { };
 	language_translation_done.innerHTML = translatedCount; // zůstává pro starý text
+	updateLastUpdated();
 });
 
 // language names translation - error
@@ -132,12 +136,18 @@ manager.hubs.realtime.connection.on("LanguageNameTranslationError", (errorCountV
 	updateSegmentedProgressBar();
 	if (successCount + errorCount === totalLanguageCount)
 		segmentedProgressElement.classList.add("completed");
+	else try {
+		segmentedProgressElement.classList.remove("completed");
+	} catch { };
 	language_names_translation_error.style.display = 'inline-block';
 	language_names_translation_error_count.innerHTML = errorCountValue;
+	updateLastUpdated();
 });
 
 // language names translation finished
 manager.hubs.realtime.connection.on("LanguageNamesTranslationFinished", async () => {
-	language_translation_finished_tick.innerHTML = ok_tick;
+	if (successCount + errorCount === totalLanguageCount)
+		segmentedProgressElement.classList.add("completed");
+	updateLastUpdated();
 	console.log("language names translation finished");
 });
