@@ -14,15 +14,52 @@
 <div class="row">
 	
 	<!-- Column 1 -->
-	<div class="col-md-5">
+	<div class="col-lg-5">
 		<h4>@_localizer["JSON Dictionaries"]</h4>
 		<hr />
-		<div id="json_table" style="display: none;">
+		<div id="json_table_div" class="container" style="display: block;">
+			<table class="bordered-table table-stripped stripped" id="json_table">
+				<thead>
+					<tr>
+						<th class="text-center">🌐</th>
+						<th class="text-center">♾️</th>
+						<th class="text-center">➕</th>
+						<th class="text-center">➖</th>
+						<th class="text-center">〰️</th>
+						<th class="text-center" style="width:30%">▶️</th>
+						<th class="text-center">✔️</th>
+					</tr>
+				</thead>
+				<tbody id="json_table_body">
+					<tr>
+						<td>English</td>
+						<td class="text-center">125</td>
+						<td class="text-center">0</td>
+						<td class="text-center">0</td>
+						<td class="text-center">3</td>
+						<td><span class="multi-progress"></span></td>
+						<td class="text-center">🟡</td>
+					</tr>
+					<tr>
+						<td>Czech</td>
+						<td class="text-center">125</td>
+						<td class="text-center">N/A</td>
+						<td class="text-center">N/A</td>
+						<td class="text-center">N/A</td>
+						<td><span class="multi-progress"></span></td>
+						<td class="text-center">🔴</td>
+					</tr>
+					<!-- Rows will be added here dynamically -->
+				</tbody>
+			</table>
+			<div class="text-center" id="json_table_loading" style="display: none;">
+				<img src="~/images/loading.gif" alt="@_localizer["Loading..."]" />
+			</div>
 		</div>
 	</div>
 	
 	<!-- Column 2 -->
-	<div class="col-md-5">
+	<div class="col-lg-5">
 		<h4>@_localizer["MD Help files"]</h4>
 		<hr />
 		<div id="md_table" style="display: none;">
@@ -30,7 +67,7 @@
 	</div>
 	
 	<!-- Column 3 -->
-	<div class="col-md-2">
+	<div class="col-lg-2">
 		<h4>@_localizer["General info"]</h4>
 		<hr />
 		<!-- Here we put basic info and also progress of translating of the language names -->
@@ -64,9 +101,6 @@
 		</div>
 		<div class="block" id="languages_translate_info" style="display:none">
 			<h6>@_localizer["Language names translation"]</h6>
-			<!--
-				<progress id="language_names_translation_progress" style="width: 100%"></progress>
-			-->
 			<div class="multi-progress" id="language_segmented_progress"></div>
 			<div id="language_progress_text" class="dimmed small"></div>
 		</div>

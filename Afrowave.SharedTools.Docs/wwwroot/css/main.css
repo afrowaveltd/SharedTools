@@ -216,6 +216,17 @@ h6 {
 .bordered-table {
 	border: 1px solid var(--table-border);
 	border-radius: var(--border-radius);
+	overflow: hidden; /* nutné pro ořez rohů */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.stripped tr:nth-child(even) {
+	background-color: var(--table-row-background);
+}
+
+.stripped tr:nth-child(odd) {
+	background-color: var(--table-row-alternate-background);
 }
 
 .fullscreen-centered {
@@ -387,13 +398,10 @@ select:-webkit-autofill:active {
 
 table {
 	margin-top: 10px;
-	width: 95%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-tr {
-	min-width: 95%;
+	background-color: var(--table-row-background);
 }
 
 th {
@@ -410,7 +418,6 @@ td {
 	padding-bottom: 2px;
 	padding-left: 5px;
 	padding-right: 5px;
-	background-color: var(--table-row-background);
 	color: var(--table-row-text);
 }
 

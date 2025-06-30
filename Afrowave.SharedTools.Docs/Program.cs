@@ -77,8 +77,8 @@ try
 
 	// transient services
 	builder.Services.AddTransient<IStringLocalizerFactory, JsonStringLocalizerFactory>();
-	builder.Services.AddTransient<ILibreFileService, LibreFileService>();
-	builder.Services.AddTransient<ICyclicTranslationService, CyclicTranslationService>();
+	builder.Services.AddSingleton<ILibreFileService, LibreFileService>();
+	builder.Services.AddScoped<ICyclicTranslationService, CyclicTranslationService>();
 
 	// standalone services
 	builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
