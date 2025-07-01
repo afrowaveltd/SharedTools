@@ -516,7 +516,7 @@
 				new Language { Code = "th", Name = "Thai", Native = "ไทย / Phasa Thai" },
 				new Language { Code = "ti", Name = "Tigrinya", Native = "ትግርኛ" },
 				new Language { Code = "tk", Name = "Turkmen", Native = "Туркмен / تركمن" },
-				new Language { Code = "tl", Name = "Tagalog / Filipino", Native = "Tagalog" },
+				new Language { Code = "tl", Name = "Filipino", Native = "Tagalog" },
 				new Language { Code = "tn", Name = "Tswana", Native = "Setswana" },
 				new Language { Code = "to", Name = "Tonga", Native = "Lea Faka-Tonga" },
 				new Language { Code = "tr", Name = "Turkish", Native = "Türkçe" },

@@ -211,7 +211,7 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 						_logger.LogError("Failed to deserialize translation result.");
 						return Response<LibreTranslationResult>.Fail("Failed to deserialize translation result.", DateTime.Now.Subtract(start).Milliseconds);
 					}
-					if(result.TranslatedText == text)
+					if(result.TranslatedText == text || string.IsNullOrEmpty(result.TranslatedText))
 					{
 						if(text == text.ToLower() || decapitalized)
 						{

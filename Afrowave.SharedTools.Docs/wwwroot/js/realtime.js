@@ -27,7 +27,8 @@ const segmentedProgressElement = document.getElementById("language_segmented_pro
 let totalLanguageCount = 1;
 let successCount = 0;
 let errorCount = 0;
-let isEnglishDefault = true; // Track if English is the default language
+let isEnglishDefault = true;// Track if English is the default language
+let defaultLanguageCode = 'en'; // Default language code, used for checking
 
 // ===================== Page Functions =====================
 
@@ -98,25 +99,61 @@ async function updateSegmentedProgressBar() {
  */
 
 const generateJsonTranslationProgressTable = async (languages) => {
-	console.log(languages);
 	json_table_body.innerHTML = ''; // Clear existing table body
 	for (let i = 0; i < languages.length; i++) {
 		let language = languages[i];
-		console.log(language);
 		let row = document.createElement('tr');
+		let actualStatus = language.code == defaultLanguageCode ? "🟡" : "🔴";
+		let languageName = await localize(language.name);
 		row.innerHTML = `
-			<td>${await localize(language.name)}</td>
+			<td>${languageName}</td>
 			<td class="text-center" id="${language.code}_json_summa">0</td>
 			<td class="text-center" id="${language.code}_json_toAdd">0</td>
 			<td class="text-center" id="${language.code}_json_toRemove">0</td>
 			<td class="text-center" id="${language.code}_json_toUpdate">0</td>
 			<td><span class="multi-progress" id="${language.code}_json_progress"></span></td>
-			<td class="text-center" id="${language.code}_json_status">${language.code == trans ? "🟡" : "🔴"}</td>
+			<td class="text-center" id="${language.code}_json_status">${actualStatus}</td>
 		`;
-		json_table_body.innerHTML += row;
+		json_table_body.appendChild(row);
 	}
 	updateLastUpdated();
 }
+
+function updateLanguageProgressBar(languageCode, translationsCount, translationsDone) {
+	const progressElement = document.getElementById(`${languageCode}_json_progress`);
+	const statusElement = document.getElementById(`${languageCode}_json_status`);
+	if (!progressElement) return;
+
+	const percent = (translationsDone / translationsCount) * 100;
+
+	// Výpočet stavů
+	const successPercent = percent;
+	const remainingPercent = 100 - successPercent;
+
+	// Vymazání starého obsahu
+	progressElement.innerHTML = '';
+	progressElement.classList.add('multi-progress');
+
+	// Vykreslení úspěšné části
+	if (translationsDone > 0) {
+		const successSegment = document.createElement('div');
+		successSegment.className = 'segment success';
+		successSegment.style.width = `${successPercent}%`;
+		progressElement.appendChild(successSegment);
+	}
+
+	// Nevyplněný zbytek jako pozadí (nepřidáváme žádný segment – jen pozadí z `multi-progress`)
+
+	// Možný bonus: změnit textový stav
+	if (statusElement) {
+		if (translationsDone === translationsCount) {
+			statusElement.innerHTML = `✅ Hotovo`;
+		} else {
+			statusElement.innerHTML = `${translationsDone} / ${translationsCount}`;
+		}
+	}
+}
+
 
 /**
  * Updates the last updated time and sets the tick icon.
@@ -173,6 +210,7 @@ manager.hubs.realtime.connection.on("ReceiveTranslationSettings", (settings) => 
 	ignore_md_tick.innerHTML = ok_tick;
 	ignore_md.innerHTML = settings.ignoredForMd.join(", ");
 	isEnglishDefault = settings.defaultLanguage == 'en';
+	defaultLanguageCode = settings.defaultLanguage.toLowerCase();
 	updateLastUpdated();
 });
 

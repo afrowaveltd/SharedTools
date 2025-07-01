@@ -66,8 +66,8 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		}
 
 		HostedServiceStatus.LibreLanguages = languages;
-		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
 		await _realtimeHub.Clients.All.SendAsync("ReceiveTranslationSettings", _translationsOptions);
+		await Task.Delay(50);
 
 		// A - JSON Dictionary translation //
 		HostedServiceStatus.Status = WorkerStatus.JsonBackendDataLoading;
@@ -127,6 +127,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 				dictionary?.Add(language, language);
 			}
 		}
+		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
 		/* default language dictionary is ready */
 		/* now we will check if old translations are presented */
 

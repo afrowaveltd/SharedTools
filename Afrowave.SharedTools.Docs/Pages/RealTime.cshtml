@@ -14,11 +14,11 @@
 <div class="row">
 	
 	<!-- Column 1 -->
-	<div class="col-lg-5">
+	<div class="col-xl-5">
 		<h4>@_localizer["JSON Dictionaries"]</h4>
 		<hr />
 		<div id="json_table_div" style="display: block;">
-			<table class="bordered-table table-stripped stripped" id="json_table">
+			<table class="bordered-table table-stripped stripped smaller" id="json_table">
 				<thead>
 					<tr>
 						<th class="text-center" title="@_localizer["Language"]">🌐</th>
@@ -31,34 +31,22 @@
 					</tr>
 				</thead>
 				<tbody id="json_table_body">
-				<!-- 
-
-					<tr>
-						<td>English</td>
-						<td class="text-center">125</td>
-						<td class="text-center">0</td>
-						<td class="text-center">0</td>
-						<td class="text-center">3</td>
-						<td><span class="multi-progress"></span></td>
-						<td class="text-center">🟡</td>
-					</tr>
-					<tr>
-						<td>Czech</td>
-						<td class="text-center">125</td>
-						<td class="text-center">N/A</td>
-						<td class="text-center">N/A</td>
-						<td class="text-center">N/A</td>
-						<td><span class="multi-progress"></span></td>
-						<td class="text-center">🔴</td>
-					</tr>
-					-- Rows will be added here dynamically -->
+					<!--
+						This tbody will be filled with data dynamically
+					--> 
 				</tbody>
+				
+				<tfoot>
+					<tr style="border-top: 1px solid">
+						<th colspan="7" id="table_legend"></th>
+					</tr>
+				</tfoot>
 			</table>
 		</div>
 	</div>
 	
 	<!-- Column 2 -->
-	<div class="col-lg-5">
+	<div class="col-xl-5">
 		<h4>@_localizer["MD Help files"]</h4>
 		<hr />
 		<div id="md_table" style="display: none;">
@@ -66,7 +54,7 @@
 	</div>
 	
 	<!-- Column 3 -->
-	<div class="col-lg-2">
+	<div class="col-xl-2">
 		<h4>@_localizer["General info"]</h4>
 		<hr />
 		<!-- Here we put basic info and also progress of translating of the language names -->

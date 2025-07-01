@@ -58,6 +58,7 @@ html {
 .main-content {
 	transition: margin-left 0.3s;
 	padding: 10px;
+	margin-bottom: 50px; /* Prostor pro footer */
 }
 
 /* Mobilní zobrazení */
@@ -237,6 +238,11 @@ h6 {
 	/* Full viewport height */
 	width: 100vw;
 	/* Full viewport width */;
+}
+
+.smaller 
+{
+	font-size: 90%;
 }
 
 label {
