@@ -17,20 +17,22 @@
 	<div class="col-lg-5">
 		<h4>@_localizer["JSON Dictionaries"]</h4>
 		<hr />
-		<div id="json_table_div" class="container" style="display: block;">
+		<div id="json_table_div" style="display: block;">
 			<table class="bordered-table table-stripped stripped" id="json_table">
 				<thead>
 					<tr>
-						<th class="text-center">🌐</th>
-						<th class="text-center">♾️</th>
-						<th class="text-center">➕</th>
-						<th class="text-center">➖</th>
-						<th class="text-center">〰️</th>
+						<th class="text-center" title="@_localizer["Language"]">🌐</th>
+						<th class="text-center" title="@_localizer["Count of phrases in the dictionary"]">♾️</th>
+						<th class="text-center" title="@_localizer["Count of phrases to add to the dictionary"]">➕</th>
+						<th class="text-center" title="@_localizer["Count of phrases to remove from the dictionary"]">➖</th>
+						<th class="text-center" title="@_localizer["Count of phrases changed in the dictionary"]">〰️</th>
 						<th class="text-center" style="width:30%">▶️</th>
-						<th class="text-center">✔️</th>
+						<th class="text-center" title="@_localizer["Translation status"]">✔️</th>
 					</tr>
 				</thead>
 				<tbody id="json_table_body">
+				<!-- 
+
 					<tr>
 						<td>English</td>
 						<td class="text-center">125</td>
@@ -49,12 +51,9 @@
 						<td><span class="multi-progress"></span></td>
 						<td class="text-center">🔴</td>
 					</tr>
-					<!-- Rows will be added here dynamically -->
+					-- Rows will be added here dynamically -->
 				</tbody>
 			</table>
-			<div class="text-center" id="json_table_loading" style="display: none;">
-				<img src="~/images/loading.gif" alt="@_localizer["Loading..."]" />
-			</div>
 		</div>
 	</div>
 	

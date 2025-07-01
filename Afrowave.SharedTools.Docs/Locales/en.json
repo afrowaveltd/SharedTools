@@ -18,6 +18,10 @@
 	"Body is empty": "Body is empty",
 	"Checking old translations": "Checking old translations",
 	"Checking translation of the language names": "Checking translation of the language names",
+	"Count of phrases changed in the dictionary": "Count of phrases changed in the dictionary",
+	"Count of phrases in the dictionary": "Count of phrases in the dictionary",
+	"Count of phrases to add to the dictionary": "Count of phrases to add to the dictionary",
+	"Count of phrases to remove from the dictionary": "Count of phrases to remove from the dictionary",
 	"Cycle start": "Cycle start",
 	"Cycle Finished": "Cycle finished",
 	"Default language": "Default language",
@@ -41,6 +45,7 @@
 	"Invalid model": "Invalid model",
 	"JSON backend data loading": "JSON backend data loading",
 	"JSON Dictionaries": "JSON Dictionaries",
+	"Language": "Language",
 	"Language names translation": "Language names translation",
 	"Last update": "Last update",
 	"Libretranslate languages count": "Libretranslate languages count",
@@ -77,5 +82,6 @@
 	"The application name can't be empty": "The application name can't be empty",
 	"together": "together",
 	"Translated": "Translated",
+	"Translation status": "Translation status",
 	"Waiting for data": "Waiting for data"
 }

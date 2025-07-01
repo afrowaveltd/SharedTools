@@ -397,10 +397,8 @@ select:-webkit-autofill:active {
 }
 
 table {
-	margin-top: 10px;
+	margin: 10px 0;
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
 	background-color: var(--table-row-background);
 }
 
