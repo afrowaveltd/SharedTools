@@ -124,7 +124,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 			}
 			catch
 			{
-				dictionary.Add(language, language);
+				dictionary?.Add(language, language);
 			}
 		}
 		/* default language dictionary is ready */

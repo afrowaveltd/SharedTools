@@ -76,12 +76,13 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 					_logger.LogInformation("{languages.Count} languages found", languages.Count);
 					retries = 0;
 					repeat = false;
+					result.Success = true;
 				}
 				catch(HttpRequestException e)
 				{
 					retries++;
 					await Task.Delay(options.WaitSecondBeforeRetry * 1000);
-					_logger.LogError(e, "Error getting supported languages");
+					_logger.LogError(e, "Error getting supported languages retry {retry}", retries);
 					result.Success = false;
 					result.Warning = false;
 					result.Message += $"Error: Try {retries}: {e.Message}\n";
@@ -191,6 +192,7 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 					}
 					else
 					{
+						_logger.LogError("Error during translation {error}", response.ToString());
 						return new Response<LibreTranslationResult>
 						{
 							Data = new LibreTranslationResult() { TranslatedText = text },
@@ -229,8 +231,10 @@ namespace Afrowave.SharedTools.Docs.Services.LibreTranslate
 						return Response<LibreTranslationResult>.Successful(result ?? new(), "Translation successful", DateTime.Now.Subtract(start).Milliseconds);
 					}
 				}
-				catch
+				catch(Exception e)
 				{
+					_logger.LogWarning("Unsuccessful translation due to {error}", e);
+					return new() { Success = false, Message = e.Message };
 				}
 			}
 			return new();
