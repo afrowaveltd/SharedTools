@@ -8,6 +8,7 @@ const ignore_json_tick = document.getElementById('ignore_json_tick');
 const ignore_md = document.getElementById('ignore_md');
 const ignore_md_tick = document.getElementById('ignore_md_tick');
 const json_table_body = document.getElementById('json_table_body');
+const json_table = document.getElementById('json_table_div');
 const language_count_nr = document.getElementById("language_count_nr");
 const language_names_translation_error = document.getElementById('language_names_translation_error');
 const language_names_translation_error_count = document.getElementById('language_names_translation_error_count');
@@ -63,6 +64,7 @@ const initializeCycle = () => {
 	successCount = 0;
 	errorCount = 0;
 	segmentedProgressElement.classList.remove("completed");
+	json_table.style.display = 'none'; // Hide the JSON table
 	json_table_body.innerHTML = ''; // Clear the JSON table body
 	updateLastUpdated();
 }
@@ -100,7 +102,9 @@ async function updateSegmentedProgressBar() {
  */
 
 const generateJsonTranslationProgressTable = async (languages) => {
-	json_table_body.innerHTML = ''; // Clear existing table body
+	json_table_body.innerHTML = '';
+	json_table.style.display = 'block'; // Show the JSON table
+	// Clear existing table body
 	for (let i = 0; i < languages.length; i++) {
 		let language = languages[i];
 		let row = document.createElement('tr');
@@ -149,7 +153,7 @@ function updateLanguageProgressBar(languageCode, translationsCount, translations
 	// Možný bonus: změnit textový stav
 	if (statusElement) {
 		if (translationsDone === translationsCount) {
-			statusElement.innerHTML = `✅`;
+			statusElement.innerHTML = emoji_green_circle;
 		} else {
 			statusElement.innerHTML = `${translationsDone} / ${translationsCount}`;
 		}
@@ -268,7 +272,7 @@ manager.hubs.realtime.connection.on("LanguageNamesTranslationFinished", async ()
 	if (successCount + errorCount === totalLanguageCount)
 		segmentedProgressElement.classList.add("completed");
 	updateLastUpdated();
-	console.log("language names translation finished");
+
 });
 
 manager.hubs.realtime.connection.on("JsonDictionaryTranslationStateChanged", async (languageStatus) => {

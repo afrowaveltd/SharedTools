@@ -17,7 +17,7 @@
 	<div class="col-xl-5">
 		<h4>@_localizer["JSON Dictionaries"]</h4>
 		<hr />
-		<div id="json_table_div" style="display: block;">
+		<div id="json_table_div" style="display: none;">
 			<table class="bordered-table table-stripped stripped smaller" id="json_table">
 				<thead>
 					<tr>
@@ -38,9 +38,11 @@
 				
 				<tfoot>
 					<tr style="border-top: 1px solid">
-						<th colspan="7" id="table_legend">
-
-
+						<th colspan="7" id="table_legend" class="text-center">
+							🔵  @_localizer["Default language"]&nbsp;|&nbsp;
+							🟢   @_localizer["Done"]&nbsp;|&nbsp;
+							🔴  @_localizer["Ignored language"]&nbsp;|&nbsp;
+							🟤  @_localizer["In queue"]&nbsp;|&nbsp;
 						</th>
 					</tr>
 				</tfoot>
