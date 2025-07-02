@@ -1,4 +1,5 @@
 ﻿using Afrowave.SharedTools.Docs.Hubs;
+using Afrowave.SharedTools.Docs.Models.SignalR;
 
 namespace Afrowave.SharedTools.Docs.Services.LibreTranslate;
 
@@ -11,6 +12,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	ILibreTranslateService translateService,
 	ILogger<CyclicTranslationService> logger) : ICyclicTranslationService
 {
+	private List<JsonDictionaryTranslationLanguageStatus> _jsonTranslationStatuses = [];
 	private readonly DocsDbContext _context = context;
 	private readonly IHubContext<OpenHub> _openHub = openHub;
 	private TranslationsOptions? _translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>() ?? new TranslationsOptions();
@@ -68,6 +70,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		HostedServiceStatus.LibreLanguages = languages;
 		await _realtimeHub.Clients.All.SendAsync("ReceiveTranslationSettings", _translationsOptions);
 		await Task.Delay(50);
+		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
 
 		// A - JSON Dictionary translation //
 		HostedServiceStatus.Status = WorkerStatus.JsonBackendDataLoading;
@@ -127,12 +130,33 @@ public class CyclicTranslationService(ILibreFileService fileService,
 				dictionary?.Add(language, language);
 			}
 		}
-		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
+		await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished", languages);
 		/* default language dictionary is ready */
-		/* now we will check if old translations are presented */
 
 		HostedServiceStatus.Status = WorkerStatus.OldDictionaryLoading;
 		await _openHub.Clients.All.SendAsync("StatusChanged", "Checking old translations");
+		Task.Delay(500).Wait();
+		var oldDictionary = await _fileService.GetOldDefaultAsync();
+
+		var defaultLanguageData = new JsonDictionaryTranslationLanguageStatus()
+		{
+			LanguageCode = _translationsOptions?.DefaultLanguage,
+			ExistingPhrases = dictionary.Count,
+			ToAddPhrases = 0,
+			ToDeletePhrases = 0,
+			ToUpdatePhrases = 0,
+			IsDefault = true,
+			IsDone = true
+		};
+
+		if(oldDictionary.Any())
+		{
+		}
+
+		await _realtimeHub.Clients.All.SendAsync("JsonDictionaryTranslationStateChanged", defaultLanguageData);
+		// now we send default language data
+
+		/* Now we get information about the default language and old translation file*/
 
 		// B - MD Files translation
 

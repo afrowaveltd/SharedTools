@@ -28,7 +28,8 @@ let totalLanguageCount = 1;
 let successCount = 0;
 let errorCount = 0;
 let isEnglishDefault = true;// Track if English is the default language
-let defaultLanguageCode = 'en'; // Default language code, used for checking
+let defaultLanguageCode = 'en';// Default language code, used for checking
+let jsonIgnored = [];
 
 // ===================== Page Functions =====================
 
@@ -103,8 +104,9 @@ const generateJsonTranslationProgressTable = async (languages) => {
 	for (let i = 0; i < languages.length; i++) {
 		let language = languages[i];
 		let row = document.createElement('tr');
-		let actualStatus = language.code == defaultLanguageCode ? "🟡" : "🔴";
-		let languageName = await localize(language.name);
+		let actualStatus = language.code == defaultLanguageCode ? emoji_blue_circle : emoji_brown_circle;
+		actualStatus = jsonIgnored.includes(language.code.toLowerCase()) ? emoji_red_circle : actualStatus; // Green if ignored
+		let languageName = await localize(language.name) ?? language.name;
 		row.innerHTML = `
 			<td>${languageName}</td>
 			<td class="text-center" id="${language.code}_json_summa">0</td>
@@ -147,13 +149,12 @@ function updateLanguageProgressBar(languageCode, translationsCount, translations
 	// Možný bonus: změnit textový stav
 	if (statusElement) {
 		if (translationsDone === translationsCount) {
-			statusElement.innerHTML = `✅ Hotovo`;
+			statusElement.innerHTML = `✅`;
 		} else {
 			statusElement.innerHTML = `${translationsDone} / ${translationsCount}`;
 		}
 	}
 }
-
 
 /**
  * Updates the last updated time and sets the tick icon.
@@ -183,10 +184,17 @@ manager.hubs.realtime.connection.on('ReceiveLanguages', async (languages) => {
 	} else {
 		languages_translate_info.style.display = 'none';
 	}
-	await generateJsonTranslationProgressTable(languages);
+
 	updateLastUpdated();
 	// Process the received languages as needed
 	// For example, you can update the UI or store them in a variable
+});
+/**
+ * Handles 'LanguageNamesTranslationFinished' event from SignalR.
+ * @param {Array} languages - Array of language objects with translation progress.
+ */
+manager.hubs.realtime.connection.on('LanguageNamesTranslationFinished', async (languages) => {
+	await generateJsonTranslationProgressTable(languages);
 });
 
 /**
@@ -211,6 +219,7 @@ manager.hubs.realtime.connection.on("ReceiveTranslationSettings", (settings) => 
 	ignore_md.innerHTML = settings.ignoredForMd.join(", ");
 	isEnglishDefault = settings.defaultLanguage == 'en';
 	defaultLanguageCode = settings.defaultLanguage.toLowerCase();
+	jsonIgnored = settings.ignoredForJson.map(lang => lang.toLowerCase());
 	updateLastUpdated();
 });
 
@@ -260,4 +269,10 @@ manager.hubs.realtime.connection.on("LanguageNamesTranslationFinished", async ()
 		segmentedProgressElement.classList.add("completed");
 	updateLastUpdated();
 	console.log("language names translation finished");
+});
+
+manager.hubs.realtime.connection.on("JsonDictionaryTranslationStateChanged", async (languageStatus) => {
+	updateLanguageProgressBar(languageStatus.languageCode, languageStatus.existingPhrases, languageStatus.existingPhrases);
+	document.getElementById(languageStatus.languageCode.toLowerCase() + '_json_summa').innerHTML = languageStatus.existingPhrases;
+	console.log(languageStatus);
 });

@@ -317,7 +317,7 @@ const localize = async (text, language = "") => {
 	try {
 		let url = '/api/Localize/' + text + '/' + language;
 		const result = await fetch(url);
-		res = await result.text();
+		res = await result.text() ?? text;
 	} catch (error) {
 		console.log(error);
 		res = text;
