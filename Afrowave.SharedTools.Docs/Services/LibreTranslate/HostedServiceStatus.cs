@@ -12,10 +12,10 @@ public class HostedServiceStatus
 	/// will contain no items and its count will be zero.</remarks>
 
 	public static WorkerStatus Status { get; set; } = WorkerStatus.Iddle;
-	public static DateTime CycleStart { get; set; } = DateTime.Now;
-	public static List<Language> LibreLanguages { get; set; } = new List<Language>();
-
+	public static DateTime? CycleStart { get; set; } = DateTime.Now;
+	public static List<Language>? LibreLanguages { get; set; } = [];
 	public static TranslationsOptions TranslationOptions { get; set; } = new();
+	public static List<StepSummary> StepSummaries { get; set; } = [];
 
 	/// <summary>
 	/// Resets the worker's status to its default idle state.
@@ -26,7 +26,17 @@ public class HostedServiceStatus
 	{
 		Status = WorkerStatus.Checks;
 		CycleStart = DateTime.Now;
-		LibreLanguages.Clear();
+		LibreLanguages?.Clear();
+		StepSummaries.Clear();
 		TranslationOptions = new();
 	}
+}
+
+public class StepSummary
+{
+	public WorkerStatus Status { get; set; } = default;
+	public DateTime StartTime { get; set; } = DateTime.UtcNow;
+	public DateTime EndTime { get; set; } = DateTime.UtcNow;
+	public bool Successful { get; set; } = true;
+	public string? Message { get; set; }
 }

@@ -42,6 +42,7 @@
 	<ItemGroup>
 		<Folder Include="Locales\" />
 		<Folder Include="Jsons\" />
+		<Folder Include="Models\TranslationCanvasModels\" />
 		<Folder Include="wwwroot\readme\" />
 	</ItemGroup>
 

@@ -21,6 +21,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	private readonly ILibreFileService _fileService = fileService;
 	private readonly ILibreTranslateService _translateService = translateService;
 	private readonly ILogger<CyclicTranslationService> _logger = logger;
+	private List<JsonTranslationRequest> jsonQueue = [];
 
 	/// <summary>
 	/// Executes a single operational cycle asynchronously, performing various tasks such as updating server status,
@@ -36,18 +37,25 @@ public class CyclicTranslationService(ILibreFileService fileService,
 	public async Task RunCycleAsync()
 	{
 		// Server status
-		_translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
-		await _realtimeHub.Clients.All.SendAsync("NewCycle");
+		_logger.LogInformation("Cycle starts");
 		HostedServiceStatus.Clear();
+		await SendCycleStarts();
 		HostedServiceStatus.Status = WorkerStatus.Checks;
+		_translationsOptions = configuration.GetSection("TranslationsOptions").Get<TranslationsOptions>();
 		HostedServiceStatus.TranslationOptions = _translationsOptions;
-		await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Started");
-
+		if(_translationsOptions == null)
+		{
+			HostedServiceStatus.Status = WorkerStatus.Iddle;
+			_logger.LogError("Translation options were not found - check your appsettings.json file");
+			await SendError();
+			return;
+		}
 		var langArray = await _translateService.GetAvailableLanguagesAsync();
 		if(langArray is null || langArray.Success == false)
 		{
 			HostedServiceStatus.Status = WorkerStatus.Iddle;
-			await _openHub.Clients.All.SendAsync("StatusChanged", "Error - Cycle skipped");
+			_logger.LogError("We were unable to receive the languages list from the server");
+			await SendError();
 			return;
 		}
 
@@ -55,7 +63,8 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		if(languagesResponse is null || languagesResponse.Success == false)
 		{
 			HostedServiceStatus.Status = WorkerStatus.Iddle;
-			await _openHub.Clients.All.SendAsync("StatusChanged", "Error - Cycle skipped");
+			_logger.LogError("Unable to get the language description due to {error}", languagesResponse.Message);
+			await SendError();
 			return;
 		}
 
@@ -63,22 +72,21 @@ public class CyclicTranslationService(ILibreFileService fileService,
 		if(languages is null || languages.Count == 0)
 		{
 			HostedServiceStatus.Status = WorkerStatus.Iddle;
-			await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Finished");
+			_logger.LogWarning("Connection was established to the translation server, but an empty list of Languages received");
+			await SendError();
 			return;
 		}
 
 		HostedServiceStatus.LibreLanguages = languages;
-		await _realtimeHub.Clients.All.SendAsync("ReceiveTranslationSettings", _translationsOptions);
-		await Task.Delay(50);
-		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
+		await SendLanguagesAndSettingsLoaded(_translationsOptions ?? new(), languages);
 
 		// A - JSON Dictionary translation //
 		HostedServiceStatus.Status = WorkerStatus.JsonBackendDataLoading;
-		await _openHub.Clients.All.SendAsync("StatusChanged", "JSON backend data loading");
+		await SendStatusChanged("JSON backend data loading");
 
 		/* check presence of languages names in each language file */
 		HostedServiceStatus.Status = WorkerStatus.CheckLanguageNames;
-		await _openHub.Clients.All.SendAsync("StatusChanged", "Checking translation of the language names");
+		await SendStatusChanged("Checking translation of the language names");
 
 		var dictionary = await _fileService.GetDefaultLanguageAsync();
 
@@ -103,15 +111,14 @@ public class CyclicTranslationService(ILibreFileService fileService,
 				{
 					translatedLangugeNames.Add(translationResponse.Data?.TranslatedText ?? name);
 					translatedCount++;
-					await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationChanged", languageCount, translatedCount);
 				}
 				else
 				{
 					errorCount++;
-					await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationError", errorCount);
 				}
+				await SendLanguageNameTranslationProgress(languageCount, translatedCount, errorCount);
 			}
-			await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished");
+
 			errorCount = 0;
 		}
 		/* now we have set of phrazes to add to the default language */
@@ -130,12 +137,13 @@ public class CyclicTranslationService(ILibreFileService fileService,
 				dictionary?.Add(language, language);
 			}
 		}
-		await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished", languages);
+		await SendLanguageNamesTranslationsDone(languages);
 		/* default language dictionary is ready */
 
 		HostedServiceStatus.Status = WorkerStatus.OldDictionaryLoading;
-		await _openHub.Clients.All.SendAsync("StatusChanged", "Checking old translations");
-		Task.Delay(500).Wait();
+		await SendStatusChanged("Checking old translations");
+
+		Task.Delay(200).Wait();
 		var oldDictionary = await _fileService.GetOldDefaultAsync();
 
 		var defaultLanguageData = new JsonDictionaryTranslationLanguageStatus()
@@ -151,6 +159,7 @@ public class CyclicTranslationService(ILibreFileService fileService,
 
 		if(oldDictionary.Any())
 		{
+			// old dictionary found, let compare its content with actual state
 		}
 
 		await _realtimeHub.Clients.All.SendAsync("JsonDictionaryTranslationStateChanged", defaultLanguageData);
@@ -162,4 +171,44 @@ public class CyclicTranslationService(ILibreFileService fileService,
 
 		// C - Old DB dataCleaning
 	}
+
+	private async Task SendCycleStarts()
+	{
+		await _realtimeHub.Clients.All.SendAsync("NewCycle");
+		await _openHub.Clients.All.SendAsync("StatusChanged", "Cycle Started");
+	}
+
+	private async Task SendError()
+	{
+		await SendStatusChanged("Error - Cycle skipped");
+	}
+
+	private async Task SendLanguagesAndSettingsLoaded(TranslationsOptions options, List<Language> languages)
+	{
+		await _realtimeHub.Clients.All.SendAsync("ReceiveTranslationSettings", options);
+		await Task.Delay(50);
+		await _realtimeHub.Clients.All.SendAsync("ReceiveLanguages", languages);
+	}
+
+	private async Task SendLanguageNamesTranslationsDone(List<Language> languages)
+	{
+		await _realtimeHub.Clients.All.SendAsync("LanguageNamesTranslationFinished", languages);
+	}
+
+	private async Task SendLanguageNameTranslationProgress(int all, int translated, int errors)
+	{
+		await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationChanged", all, translated);
+		await _realtimeHub.Clients.All.SendAsync("LanguageNameTranslationError", errors);
+	}
+
+	private async Task SendStatusChanged(string statusText)
+	{
+		await _openHub.Clients.All.SendAsync("StatusChanged", statusText);
+	}
+
+	// here we put private SignalR methods and HostedServiceStatus updating stuff
+
+	// first we define methods for an open hub
+
+	// then we define methods for a realtime hub
 }
