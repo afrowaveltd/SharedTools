@@ -16,6 +16,10 @@
     <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
     <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
     <Copyright>Copyright © Afrowave Community</Copyright>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Afrowave.SharedTools.Models</Title>
+    <PackageIcon>AIfrowave.png</PackageIcon>
+    <PackageReleaseNotes>First version of the Models library - just for testing. Version 0.0.2 will include models for LibreTranslate</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +29,16 @@
     <Folder Include="Errors\" />
     <Folder Include="Readme\" />
     <Folder Include="Validation\" />
-    <None Include="Readme\en.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\AfrowaveWeb\Id\wwwroot\AIfrowave.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="Readme\en.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
+    <PackageReference Include="System.Text.Json" Version="10.0.0-rc.1.25451.107" />
   </ItemGroup>
 
 </Project>
