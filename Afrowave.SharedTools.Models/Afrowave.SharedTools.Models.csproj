@@ -5,6 +5,17 @@
     <Nullable>disable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
+    <PackageId>Afrowave.SharedTools.Models</PackageId>
+    <PackageReadmeFile>en.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>0.0.1</Version>
+    <Authors>Mukwano</Authors>
+    <Company>Afrowave Community</Company>
+    <Description>Shared models and enums for Afrowave projects, including user status, roles, gender, and age group access. Designed for .NET Standard 2.1 compatibility.</Description>
+    <PackageTags>afrowave;shared;models;enums;user;dotnet;library</PackageTags>
+    <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+    <Copyright>Copyright © Afrowave Community</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +25,7 @@
     <Folder Include="Errors\" />
     <Folder Include="Readme\" />
     <Folder Include="Validation\" />
+    <None Include="Readme\en.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
