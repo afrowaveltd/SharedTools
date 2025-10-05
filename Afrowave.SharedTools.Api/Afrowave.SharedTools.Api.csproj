@@ -4,6 +4,28 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Nullable>enable</Nullable>
+		<PackageId>Afrowave.SharedTools.Api</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Afrowave Ltd</Authors>
+		<Company>Afrowave Ltd</Company>
+		<Description>API abstractions and helpers for Afrowave.SharedTools. Provides standardized interfaces and wrappers for integration.</Description>
+		<PackageTags>afrowave;sharedtools;api;abstractions;helpers</PackageTags>
+		<RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Folder Include="Interfaces\" />
+	  <Folder Include="DI\" />
+	  <Folder Include="Serialization\" />
+	  <Folder Include="Static\" />
+	  <Folder Include="Readme\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.21" />
+	</ItemGroup>
 
 </Project>

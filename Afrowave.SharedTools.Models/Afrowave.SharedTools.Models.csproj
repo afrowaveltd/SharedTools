@@ -8,18 +8,18 @@
     <PackageId>Afrowave.SharedTools.Models</PackageId>
     <PackageReadmeFile>en.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>0.0.1</Version>
+    <Version>0.0.21</Version>
     <Authors>Mukwano</Authors>
     <Company>Afrowave Community</Company>
-    <Description>Shared models and enums for Afrowave projects, including user status, roles, gender, and age group access. Designed for .NET Standard 2.1 compatibility.</Description>
+    <Description>Shared models and enums for Afrowave projects, including user status, roles, gender, and age group access. Supported models for interacting with the LibreTranslate APIs Designed for .NET Standard 2.1 compatibility.</Description>
     <PackageTags>afrowave;shared;models;enums;user;dotnet;library</PackageTags>
     <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
     <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
     <Copyright>Copyright © Afrowave Community</Copyright>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Afrowave.SharedTools.Models</Title>
-    <PackageIcon>AIfrowave.png</PackageIcon>
-    <PackageReleaseNotes>First version of the Models library - just for testing. Version 0.0.2 will include models for LibreTranslate</PackageReleaseNotes>
+    <PackageIcon></PackageIcon>
+    <PackageReleaseNotes>Same as 0.0.2 Readme fixed. Support for LibreTranslate models</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,10 +29,7 @@
     <Folder Include="Errors\" />
     <Folder Include="Readme\" />
     <Folder Include="Validation\" />
-    <None Include="..\..\AfrowaveWeb\Id\wwwroot\AIfrowave.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    
     <None Include="Readme\en.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 

@@ -41,5 +41,13 @@ namespace Afrowave.SharedTools.Models.LibreTranslate.Settings
 		/// Gets or sets the endpoint URL used for file translation requests.
 		/// </summary>
 		public string TranslateFileEndpoint { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the number of threads to use for parallel processing.
+		/// </summary>
+		/// <remarks>Increasing the number of threads may improve performance for workloads that can be parallelized,
+		/// but may also increase resource usage. The optimal value depends on the nature of the task and the available system
+		/// resources.</remarks>
+		public int Threads { get; set; } = 1;
 	}
 }
