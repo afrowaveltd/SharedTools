@@ -18,13 +18,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Readme\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Afrowave.SharedTools.Api" Version="0.0.2" />
-    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.21" />
+    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.30" />
   </ItemGroup>
 
 </Project>

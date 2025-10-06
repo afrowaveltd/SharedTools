@@ -3,11 +3,39 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Afrowave.SharedTools.I18N</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Afrowave Ltd</Authors>
+    <Company>Afrowave Ltd</Company>
+    <Description>Internationalization (I18N) utilities and services for Afrowave projects, including country and language models and helpers.</Description>
+    <PackageTags>i18n;localization;languages;countries;afrowave;sharedtools</PackageTags>
+    <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>en.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Middlewares\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.30" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Jsons\countries.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Jsons\languages.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Readme\en.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
