@@ -17,15 +17,21 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Folder Include="Interfaces\" />
-	  <Folder Include="DI\" />
-	  <Folder Include="Serialization\" />
-	  <Folder Include="Static\" />
+	  <Compile Remove="DI\**" />
+	  <Compile Remove="Interfaces\**" />
+	  <EmbeddedResource Remove="DI\**" />
+	  <EmbeddedResource Remove="Interfaces\**" />
+	  <None Remove="DI\**" />
+	  <None Remove="Interfaces\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Folder Include="Readme\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.21" />
+	  <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0-rc.1.25451.107" />
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
-﻿
-namespace Afrowave.SharedTools.Docs.Services.LibreTranslate;
+﻿namespace Afrowave.SharedTools.Docs.Services.LibreTranslate;
 
 public interface ICyclicTranslationService
 {

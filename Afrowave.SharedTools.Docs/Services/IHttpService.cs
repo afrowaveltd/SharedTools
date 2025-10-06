@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace Afrowave.SharedTools.Docs.Services
+﻿namespace Afrowave.SharedTools.Docs.Services
 {
 	/// <summary>
 	/// Defines a contract for making HTTP requests and handling HTTP responses.

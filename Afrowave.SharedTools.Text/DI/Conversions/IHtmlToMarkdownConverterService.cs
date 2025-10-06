@@ -1,5 +1,4 @@
-﻿
-using Afrowave.SharedTools.Text.Models.Markdown;
+﻿using Afrowave.SharedTools.Text.Models.Markdown;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
@@ -13,6 +12,7 @@ namespace Afrowave.SharedTools.Text.DI.Conversions
 	public interface IHtmlToMarkdownConverterService
 	{
 		string Convert(string html, List<MarkdownTagMapping> mappings);
+
 		Task ConvertStreamAsync(TextReader input, TextWriter output, List<MarkdownTagMapping> mappings, CancellationToken cancellationToken = default);
 	}
 }

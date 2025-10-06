@@ -1,9 +1,6 @@
-﻿using System;
-
-namespace Afrowave.SharedTools.Time
+﻿namespace Afrowave.SharedTools.Time
 {
 	public class Class1
 	{
-
 	}
 }

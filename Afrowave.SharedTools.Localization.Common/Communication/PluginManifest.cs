@@ -1,10 +1,10 @@
 ﻿namespace Afrowave.SharedTools.Localization.Communication
 {
-	using Afrowave.SharedTools.Localization.Common.Communication;
-	using Afrowave.SharedTools.Localization.Common.Models;
-	using Afrowave.SharedTools.Localization.Common.Models.Enums;
-	using Afrowave.SharedTools.Localization.Common.Options;
-	using System.Collections.Generic;
+   using Afrowave.SharedTools.Localization.Common.Communication;
+   using Afrowave.SharedTools.Localization.Common.Models;
+   using Afrowave.SharedTools.Localization.Common.Models.Enums;
+   using Afrowave.SharedTools.Localization.Common.Options;
+   using System.Collections.Generic;
 
 	/// <summary>
 	/// Represents a plugin and its declared capabilities, metadata, and runtime status.

@@ -1,3 +1,4 @@
-# .editorconfig - přidání slova Afrowave do slovníku pro SPELL analyzátor
-[*.cs]
-dotnet_diagnostic.SPELL.excluded_words = Afrowave
+﻿[*.cs]
+
+# CS1658: Varování přepisuje chybu.
+dotnet_diagnostic.CS1658.severity = silent

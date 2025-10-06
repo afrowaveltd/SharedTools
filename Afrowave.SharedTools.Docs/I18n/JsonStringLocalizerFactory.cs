@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Localization;
 
 namespace Afrowave.SharedTools.Docs.I18n
 {

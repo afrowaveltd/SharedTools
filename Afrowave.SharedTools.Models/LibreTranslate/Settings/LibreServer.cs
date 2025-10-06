@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Afrowave.SharedTools.Models.LibreTranslate.Settings
+﻿namespace Afrowave.SharedTools.Models.LibreTranslate.Settings
 {
 	public class LibreServer
 	{

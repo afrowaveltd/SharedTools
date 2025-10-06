@@ -39,34 +39,34 @@ let jsonIgnored = [];
  * Called at the start of a new translation cycle.
  */
 const initializeCycle = () => {
-	last_update_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	last_update.innerHTML = ""; // Reset last update time
-	languages_received_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	default_language_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	ignore_json_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	ignore_md_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	languages_count.innerHTML = "";
-	languages_count_nr.innerHTML = "0";
-	language_translation_done.innerHTML = "0";
-	default_language.innerHTML = "";
-	ignore_json.innerHTML = "";
-	ignore_md.innerHTML = "";
-	languages_translate_info.style.display = "none";
-	language_names_translation_progress.value = 0;
-	language_names_translation_progress.max = 1;
-	language_translation_finished_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	language_names_translation_error.style.display = 'none';
-	language_names_translation_error.style.width = '0px';
-	language_names_translation_error_count.innerHTML = '';
-	segmentedProgressElement.innerHTML = '';
-	languageProgressText.innerHTML = '';
-	totalLanguageCount = 1;
-	successCount = 0;
-	errorCount = 0;
-	segmentedProgressElement.classList.remove("completed");
-	json_table.style.display = 'none'; // Hide the JSON table
-	json_table_body.innerHTML = ''; // Clear the JSON table body
-	updateLastUpdated();
+    last_update_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    last_update.innerHTML = ""; // Reset last update time
+    languages_received_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    default_language_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    ignore_json_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    ignore_md_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    languages_count.innerHTML = "";
+    languages_count_nr.innerHTML = "0";
+    language_translation_done.innerHTML = "0";
+    default_language.innerHTML = "";
+    ignore_json.innerHTML = "";
+    ignore_md.innerHTML = "";
+    languages_translate_info.style.display = "none";
+    language_names_translation_progress.value = 0;
+    language_names_translation_progress.max = 1;
+    language_translation_finished_tick.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    language_names_translation_error.style.display = 'none';
+    language_names_translation_error.style.width = '0px';
+    language_names_translation_error_count.innerHTML = '';
+    segmentedProgressElement.innerHTML = '';
+    languageProgressText.innerHTML = '';
+    totalLanguageCount = 1;
+    successCount = 0;
+    errorCount = 0;
+    segmentedProgressElement.classList.remove("completed");
+    json_table.style.display = 'none'; // Hide the JSON table
+    json_table_body.innerHTML = ''; // Clear the JSON table body
+    updateLastUpdated();
 }
 
 /**
@@ -74,27 +74,27 @@ const initializeCycle = () => {
  * Also updates the progress text with localized labels.
  */
 async function updateSegmentedProgressBar() {
-	const successPercent = (successCount / totalLanguageCount) * 100;
-	const errorPercent = (errorCount / totalLanguageCount) * 100;
+    const successPercent = (successCount / totalLanguageCount) * 100;
+    const errorPercent = (errorCount / totalLanguageCount) * 100;
 
-	segmentedProgressElement.innerHTML = '';
+    segmentedProgressElement.innerHTML = '';
 
-	if (successCount > 0) {
-		const successSegment = document.createElement('div');
-		successSegment.className = 'segment success';
-		successSegment.style.width = `${successPercent}%`;
-		segmentedProgressElement.appendChild(successSegment);
-	}
+    if (successCount > 0) {
+        const successSegment = document.createElement('div');
+        successSegment.className = 'segment success';
+        successSegment.style.width = `${successPercent}%`;
+        segmentedProgressElement.appendChild(successSegment);
+    }
 
-	if (errorCount > 0) {
-		const errorSegment = document.createElement('div');
-		errorSegment.className = 'segment error';
-		errorSegment.style.width = `${errorPercent}%`;
-		segmentedProgressElement.appendChild(errorSegment);
-	}
-	let successText = await localize("Successful") + ":";
-	let errorText = await localize("Errors") + ":";
-	languageProgressText.innerHTML = `${successText} ${successCount} / ${totalLanguageCount}, ${errorText} ${errorCount}`;
+    if (errorCount > 0) {
+        const errorSegment = document.createElement('div');
+        errorSegment.className = 'segment error';
+        errorSegment.style.width = `${errorPercent}%`;
+        segmentedProgressElement.appendChild(errorSegment);
+    }
+    let successText = await localize("Successful") + ":";
+    let errorText = await localize("Errors") + ":";
+    languageProgressText.innerHTML = `${successText} ${successCount} / ${totalLanguageCount}, ${errorText} ${errorCount}`;
 }
 
 /**
@@ -102,16 +102,16 @@ async function updateSegmentedProgressBar() {
  */
 
 const generateJsonTranslationProgressTable = async (languages) => {
-	json_table_body.innerHTML = '';
-	json_table.style.display = 'block'; // Show the JSON table
-	// Clear existing table body
-	for (let i = 0; i < languages.length; i++) {
-		let language = languages[i];
-		let row = document.createElement('tr');
-		let actualStatus = language.code == defaultLanguageCode ? emoji_blue_circle : emoji_brown_circle;
-		actualStatus = jsonIgnored.includes(language.code.toLowerCase()) ? emoji_red_circle : actualStatus; // Green if ignored
-		let languageName = await localize(language.name) ?? language.name;
-		row.innerHTML = `
+    json_table_body.innerHTML = '';
+    json_table.style.display = 'block'; // Show the JSON table
+    // Clear existing table body
+    for (let i = 0; i < languages.length; i++) {
+        let language = languages[i];
+        let row = document.createElement('tr');
+        let actualStatus = language.code == defaultLanguageCode ? emoji_blue_circle : emoji_brown_circle;
+        actualStatus = jsonIgnored.includes(language.code.toLowerCase()) ? emoji_red_circle : actualStatus; // Green if ignored
+        let languageName = await localize(language.name) ?? language.name;
+        row.innerHTML = `
 			<td>${languageName}</td>
 			<td class="text-center" id="${language.code}_json_summa">0</td>
 			<td class="text-center" id="${language.code}_json_toAdd">0</td>
@@ -120,53 +120,53 @@ const generateJsonTranslationProgressTable = async (languages) => {
 			<td><span class="multi-progress" id="${language.code}_json_progress"></span></td>
 			<td class="text-center" id="${language.code}_json_status">${actualStatus}</td>
 		`;
-		json_table_body.appendChild(row);
-	}
-	updateLastUpdated();
+        json_table_body.appendChild(row);
+    }
+    updateLastUpdated();
 }
 
 function updateLanguageProgressBar(languageCode, translationsCount, translationsDone) {
-	const progressElement = document.getElementById(`${languageCode}_json_progress`);
-	const statusElement = document.getElementById(`${languageCode}_json_status`);
-	if (!progressElement) return;
+    const progressElement = document.getElementById(`${languageCode}_json_progress`);
+    const statusElement = document.getElementById(`${languageCode}_json_status`);
+    if (!progressElement) return;
 
-	const percent = (translationsDone / translationsCount) * 100;
+    const percent = (translationsDone / translationsCount) * 100;
 
-	// Výpočet stavů
-	const successPercent = percent;
-	const remainingPercent = 100 - successPercent;
+    // Výpočet stavů
+    const successPercent = percent;
+    const remainingPercent = 100 - successPercent;
 
-	// Vymazání starého obsahu
-	progressElement.innerHTML = '';
-	progressElement.classList.add('multi-progress');
+    // Vymazání starého obsahu
+    progressElement.innerHTML = '';
+    progressElement.classList.add('multi-progress');
 
-	// Vykreslení úspěšné části
-	if (translationsDone > 0) {
-		const successSegment = document.createElement('div');
-		successSegment.className = 'segment success';
-		successSegment.style.width = `${successPercent}%`;
-		progressElement.appendChild(successSegment);
-	}
+    // Vykreslení úspěšné části
+    if (translationsDone > 0) {
+        const successSegment = document.createElement('div');
+        successSegment.className = 'segment success';
+        successSegment.style.width = `${successPercent}%`;
+        progressElement.appendChild(successSegment);
+    }
 
-	// Nevyplněný zbytek jako pozadí (nepřidáváme žádný segment – jen pozadí z `multi-progress`)
+    // Nevyplněný zbytek jako pozadí (nepřidáváme žádný segment – jen pozadí z `multi-progress`)
 
-	// Možný bonus: změnit textový stav
-	if (statusElement) {
-		if (translationsDone === translationsCount) {
-			statusElement.innerHTML = emoji_green_circle;
-		} else {
-			statusElement.innerHTML = `${translationsDone} / ${translationsCount}`;
-		}
-	}
+    // Možný bonus: změnit textový stav
+    if (statusElement) {
+        if (translationsDone === translationsCount) {
+            statusElement.innerHTML = emoji_green_circle;
+        } else {
+            statusElement.innerHTML = `${translationsDone} / ${translationsCount}`;
+        }
+    }
 }
 
 /**
  * Updates the last updated time and sets the tick icon.
  */
 const updateLastUpdated = () => {
-	let now = new Date().toLocaleTimeString();
-	last_update_tick.innerHTML = ok_tick;
-	last_update.innerHTML = now;
+    let now = new Date().toLocaleTimeString();
+    last_update_tick.innerHTML = ok_tick;
+    last_update.innerHTML = now;
 }
 
 // ===================== SignalR Event Handlers =====================
@@ -177,28 +177,28 @@ const updateLastUpdated = () => {
  * @param {Array} languages - Array of received language objects or codes.
  */
 manager.hubs.realtime.connection.on('ReceiveLanguages', async (languages) => {
-	languages_received_tick.innerHTML = ok_tick;
-	let msg2 = "<b>" + languages.length + "</b>";
-	languages_count.innerHTML = msg2;
-	if (!isEnglishDefault) {
-		languages_translate_info.style.display = 'block';
-		language_names_translation_progress.max = languages.length;
-		language_count_nr.innerHTML = languages.length;
-		segmentedProgressElement.classList.remove("completed");
-	} else {
-		languages_translate_info.style.display = 'none';
-	}
+    languages_received_tick.innerHTML = ok_tick;
+    let msg2 = "<b>" + languages.length + "</b>";
+    languages_count.innerHTML = msg2;
+    if (!isEnglishDefault) {
+        languages_translate_info.style.display = 'block';
+        language_names_translation_progress.max = languages.length;
+        language_count_nr.innerHTML = languages.length;
+        segmentedProgressElement.classList.remove("completed");
+    } else {
+        languages_translate_info.style.display = 'none';
+    }
 
-	updateLastUpdated();
-	// Process the received languages as needed
-	// For example, you can update the UI or store them in a variable
+    updateLastUpdated();
+    // Process the received languages as needed
+    // For example, you can update the UI or store them in a variable
 });
 /**
  * Handles 'LanguageNamesTranslationFinished' event from SignalR.
  * @param {Array} languages - Array of language objects with translation progress.
  */
 manager.hubs.realtime.connection.on('LanguageNamesTranslationFinished', async (languages) => {
-	await generateJsonTranslationProgressTable(languages);
+    await generateJsonTranslationProgressTable(languages);
 });
 
 /**
@@ -206,7 +206,7 @@ manager.hubs.realtime.connection.on('LanguageNamesTranslationFinished', async (l
  * Resets the UI for a new translation cycle.
  */
 manager.hubs.realtime.connection.on('NewCycle', () => {
-	initializeCycle();
+    initializeCycle();
 });
 
 /**
@@ -215,16 +215,16 @@ manager.hubs.realtime.connection.on('NewCycle', () => {
  * @param {Object} settings - Settings object containing defaultLanguage, ignoredForJson, ignoredForMd.
  */
 manager.hubs.realtime.connection.on("ReceiveTranslationSettings", (settings) => {
-	default_language_tick.innerHTML = ok_tick;
-	default_language.innerHTML = settings.defaultLanguage;
-	ignore_json_tick.innerHTML = ok_tick;
-	ignore_json.innerHTML = settings.ignoredForJson.join(", ");
-	ignore_md_tick.innerHTML = ok_tick;
-	ignore_md.innerHTML = settings.ignoredForMd.join(", ");
-	isEnglishDefault = settings.defaultLanguage == 'en';
-	defaultLanguageCode = settings.defaultLanguage.toLowerCase();
-	jsonIgnored = settings.ignoredForJson.map(lang => lang.toLowerCase());
-	updateLastUpdated();
+    default_language_tick.innerHTML = ok_tick;
+    default_language.innerHTML = settings.defaultLanguage;
+    ignore_json_tick.innerHTML = ok_tick;
+    ignore_json.innerHTML = settings.ignoredForJson.join(", ");
+    ignore_md_tick.innerHTML = ok_tick;
+    ignore_md.innerHTML = settings.ignoredForMd.join(", ");
+    isEnglishDefault = settings.defaultLanguage == 'en';
+    defaultLanguageCode = settings.defaultLanguage.toLowerCase();
+    jsonIgnored = settings.ignoredForJson.map(lang => lang.toLowerCase());
+    updateLastUpdated();
 });
 
 /**
@@ -234,16 +234,16 @@ manager.hubs.realtime.connection.on("ReceiveTranslationSettings", (settings) => 
  * @param {number} translatedCount - Number of successfully translated languages.
  */
 manager.hubs.realtime.connection.on("LanguageNameTranslationChanged", async (languageCount, translatedCount) => {
-	totalLanguageCount = languageCount;
-	successCount = translatedCount;
-	updateSegmentedProgressBar();
-	if (successCount + errorCount === totalLanguageCount)
-		segmentedProgressElement.classList.add("completed");
-	else try {
-		segmentedProgressElement.classList.remove("completed");
-	} catch { };
-	language_translation_done.innerHTML = translatedCount; // remains for legacy text
-	updateLastUpdated();
+    totalLanguageCount = languageCount;
+    successCount = translatedCount;
+    updateSegmentedProgressBar();
+    if (successCount + errorCount === totalLanguageCount)
+        segmentedProgressElement.classList.add("completed");
+    else try {
+        segmentedProgressElement.classList.remove("completed");
+    } catch { };
+    language_translation_done.innerHTML = translatedCount; // remains for legacy text
+    updateLastUpdated();
 });
 
 /**
@@ -252,16 +252,16 @@ manager.hubs.realtime.connection.on("LanguageNameTranslationChanged", async (lan
  * @param {number} errorCountValue - Number of translation errors.
  */
 manager.hubs.realtime.connection.on("LanguageNameTranslationError", (errorCountValue) => {
-	errorCount = errorCountValue;
-	updateSegmentedProgressBar();
-	if (successCount + errorCount === totalLanguageCount)
-		segmentedProgressElement.classList.add("completed");
-	else try {
-		segmentedProgressElement.classList.remove("completed");
-	} catch { };
-	language_names_translation_error.style.display = 'inline-block';
-	language_names_translation_error_count.innerHTML = errorCountValue;
-	updateLastUpdated();
+    errorCount = errorCountValue;
+    updateSegmentedProgressBar();
+    if (successCount + errorCount === totalLanguageCount)
+        segmentedProgressElement.classList.add("completed");
+    else try {
+        segmentedProgressElement.classList.remove("completed");
+    } catch { };
+    language_names_translation_error.style.display = 'inline-block';
+    language_names_translation_error_count.innerHTML = errorCountValue;
+    updateLastUpdated();
 });
 
 /**
@@ -269,14 +269,13 @@ manager.hubs.realtime.connection.on("LanguageNameTranslationError", (errorCountV
  * Marks the progress bar as completed and updates the last updated time.
  */
 manager.hubs.realtime.connection.on("LanguageNamesTranslationFinished", async () => {
-	if (successCount + errorCount === totalLanguageCount)
-		segmentedProgressElement.classList.add("completed");
-	updateLastUpdated();
-
+    if (successCount + errorCount === totalLanguageCount)
+        segmentedProgressElement.classList.add("completed");
+    updateLastUpdated();
 });
 
 manager.hubs.realtime.connection.on("JsonDictionaryTranslationStateChanged", async (languageStatus) => {
-	updateLanguageProgressBar(languageStatus.languageCode, languageStatus.existingPhrases, languageStatus.existingPhrases);
-	document.getElementById(languageStatus.languageCode.toLowerCase() + '_json_summa').innerHTML = languageStatus.existingPhrases;
-	console.log(languageStatus);
+    updateLanguageProgressBar(languageStatus.languageCode, languageStatus.existingPhrases, languageStatus.existingPhrases);
+    document.getElementById(languageStatus.languageCode.toLowerCase() + '_json_summa').innerHTML = languageStatus.existingPhrases;
+    console.log(languageStatus);
 });
