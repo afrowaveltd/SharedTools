@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PackageId>Afrowave.SharedTools.LibreTranslate</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Mukwano</Authors>
+    <Company>Afrowave Community</Company>
+    <Description>Integration library for LibreTranslate in Afrowave projects. Provides translation features for .NET Standard 2.1 applications.</Description>
+    <PackageTags>afrowave;libretranslate;translation;dotnet;library</PackageTags>
+    <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+    <Copyright>Copyright © Afrowave Community</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Readme\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Afrowave.SharedTools.Api" Version="0.0.2" />
+    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.21" />
+  </ItemGroup>
+
+</Project>

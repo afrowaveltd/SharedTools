@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11018.127 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -85,6 +85,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Localization.AssemblyTools", "Afrowave.SharedTools.Localization.AssemblyTools\Afrowave.SharedTools.Localization.AssemblyTools.csproj", "{5B2D079B-F9A5-FC50-BF10-7E5F66E354CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Docs", "Afrowave.SharedTools.Docs\Afrowave.SharedTools.Docs.csproj", "{BB914E75-E7C9-4E30-8826-1E6C250606B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.LibreTranslate", "Afrowave.SharedTools.LibreTranslate\Afrowave.SharedTools.LibreTranslate.csproj", "{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -200,6 +202,10 @@ Global
 		{BB914E75-E7C9-4E30-8826-1E6C250606B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB914E75-E7C9-4E30-8826-1E6C250606B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB914E75-E7C9-4E30-8826-1E6C250606B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,6 +247,7 @@ Global
 		{A161A846-EABC-4024-A58F-2F8B8BAFB32E} = {29B25D8B-DC9A-4A7A-BF09-E366ADB60528}
 		{5B2D079B-F9A5-FC50-BF10-7E5F66E354CF} = {8BA53AC0-1113-41AE-B6D4-67196A110F04}
 		{BB914E75-E7C9-4E30-8826-1E6C250606B0} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A1E5EFA-9EB7-40F9-A9FD-4999E1F1EE25}
