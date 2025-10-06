@@ -8,6 +8,17 @@ This module contains standardized models and data wrappers used across Afrowave 
 
 * `Results/Result.cs` – A minimal boolean result wrapper
 * `Results/Response<T>.cs` – A generic response container with data, message, and flags
+* `LibreTranslate/Settings/LibreServer.cs` – LibreTranslate server configuration
+* `LibreTranslate/Request/Translate.cs` – Text translation request
+* `LibreTranslate/Request/TranslateFile.cs` – File translation request
+* `LibreTranslate/Request/DetectLanguage.cs` – Language detection request
+* `LibreTranslate/Response/Detections.cs` – Language detection result
+* `LibreTranslate/Response/Translate.cs` – Text translation result
+* `LibreTranslate/Response/TranslateFile.cs` – File translation result
+* `LibreTranslate/Response/Error.cs` – Error response
+* `LibreTranslate/Response/Language.cs` – Supported language info
+* `Localization/Country.cs` – Country metadata (name, dial code, emoji, ISO code)
+* `Localization/Language.cs` – Language metadata (code, name, native name)
 
 ---
 
@@ -129,6 +140,27 @@ Information about a supported language.
 - `string Code` – Language code  
 - `string Name` – Language name  
 - `List<string> Targets` – Supported target languages
+
+---
+
+## 🌍 Localization Models
+
+Models describing countries and languages for localization, UI selection, and metadata.
+
+**Country**  
+Represents country metadata useful for localization and phone number formatting.  
+*Members:*  
+- `string Name` – Country display name  
+- `string Dial_code` – Country calling code (dial code)  
+- `string Emoji` – Country flag emoji  
+- `string Code` – ISO 3166-1 alpha-2 country code
+
+**Language**  
+Represents language metadata for localization and UI display.  
+*Members:*  
+- `string Code` – Language code (e.g., ISO 639-1)  
+- `string Name` – English display name  
+- `string Native` – Native language name
 
 ---
 
