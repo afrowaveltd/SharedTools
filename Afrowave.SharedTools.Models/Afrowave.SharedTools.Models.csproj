@@ -25,6 +25,7 @@
   <ItemGroup>
     <Folder Include="Api\" />
     <Folder Include="Constants\" />
+    <Folder Include="LibreTranslate\Services\" />
     <Folder Include="Metadata\" />
     <Folder Include="Errors\" />
     <Folder Include="Readme\" />
