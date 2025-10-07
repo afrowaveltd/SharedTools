@@ -88,7 +88,7 @@ namespace Afrowave.SharedTools.I18N.Services
 				return new Language();
 			}
 			var language = _languages.Find(lang => string.Equals(lang.Code, code, StringComparison.OrdinalIgnoreCase));
-			return language;
+			return language ?? new Language();
 		}
 
 		/// <summary>
@@ -186,6 +186,7 @@ namespace Afrowave.SharedTools.I18N.Services
 			{
 				_languages.Add(language);
 				StoreLanguagesToJson();
+				UpdateLanguagesFromJson();
 				return Result.Ok("Language added");
 			}
 
@@ -253,7 +254,7 @@ namespace Afrowave.SharedTools.I18N.Services
 			}
 
 			toUpdate.Rtl = language.Rtl;
-
+			StoreLanguagesToJson();
 			return Result.Ok("Language updated successfully");
 		}
 
