@@ -27,9 +27,9 @@ namespace Afrowave.SharedTools.Api.Serialization
 					PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 					WriteIndented = false,
 					AllowTrailingCommas = true,
-					ReadCommentHandling = JsonCommentHandling.Skip
+					ReadCommentHandling = JsonCommentHandling.Skip,
+					DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
 				};
-				o.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 				return o;
 			}
 		}
