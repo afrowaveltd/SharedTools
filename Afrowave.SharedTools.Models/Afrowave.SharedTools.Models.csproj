@@ -8,7 +8,7 @@
     <PackageId>Afrowave.SharedTools.Models</PackageId>
     <PackageReadmeFile>en.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>0.0.30</Version>
+    <Version>0.0.31</Version>
     <Authors>Mukwano</Authors>
     <Company>Afrowave Community</Company>
     <Description>Shared models and enums for Afrowave projects, including user status, roles, gender, and age group access. Supported models for interacting with the LibreTranslate APIs Designed for .NET Standard 2.1 compatibility.</Description>
@@ -19,7 +19,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Afrowave.SharedTools.Models</Title>
     <PackageIcon></PackageIcon>
-    <PackageReleaseNotes>Added support for Countries and Languages tools in I18N packgages</PackageReleaseNotes>
+    <PackageReleaseNotes>Correction - added missing class member for Language (rtl). Added support for Countries and Languages tools in I18N packgages</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

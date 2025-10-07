@@ -24,5 +24,11 @@ namespace Afrowave.SharedTools.Models.Localization
 		/// </summary>
 		[JsonPropertyName("native")]
 		public string Native { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the content should be displayed in a right-to-left layout.
+		/// </summary>
+		[JsonPropertyName("rtl")]
+		public bool Rtl { get; set; } = false;
 	}
 }

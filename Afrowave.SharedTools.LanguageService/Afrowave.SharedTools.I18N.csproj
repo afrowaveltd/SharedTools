@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.30" />
+    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
   </ItemGroup>
 
   <ItemGroup>

@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.21" />
+	  <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
 	  <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0-rc.1.25451.107" />
 	</ItemGroup>
 
