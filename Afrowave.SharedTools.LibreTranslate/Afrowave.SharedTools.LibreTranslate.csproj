@@ -18,8 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="Readme\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
