@@ -1,12 +1,14 @@
 ﻿# Afrowave.SharedTools.Api
 
-This module provides **universal HTTP and API communication utilities** for Afrowave projects.
-It offers both **static** and **dependency-injectable (DI)** variants for handling web requests, data serialization, retries, and fault-tolerant communication.
+This module provides **universal HTTP, API, and web interaction utilities** for Afrowave projects.
+It includes both **static** and **dependency-injectable (DI)** variants for handling HTTP requests, cookies, and related web behaviors.
 All components are fully compatible with **.NET Standard 2.1** and can be used in desktop, web, and service environments.
 
 ---
 
 ## 📦 Contents
+
+### Networking Core
 
 * `Models/HttpRequestOptions.cs` – Configuration for timeout, proxy, and retry policy
 * `Models/RetryPolicyOptions.cs` – Exponential retry with optional jitter
@@ -15,12 +17,19 @@ All components are fully compatible with **.NET Standard 2.1** and can be used i
 * `Static/HttpClientHelper.cs` – Lightweight static helper (no DI required)
 * `Serialization/JsonOptions.cs` – Preconfigured JSON serialization settings
 
+### Web & Cookie Utilities *(added in 0.0.3)*
+
+* `Options/CookieSettings.cs` – Defines domain, path, SameSite, and security policies with full enum-based configuration
+* `Services/ICookieService.cs` – Injectable cookie management interface for reading, writing, updating, and deleting cookies
+* `Services/CookieService.cs` – DI implementation supporting named profiles and long-lived cookies
+* `Static/CookieHelper.cs` – Static helper version for cookie operations without DI (ideal for controllers, scripts, or testing)
+
 ---
 
 ## ⚙️ Purpose
 
-Afrowave.SharedTools.Api acts as the **networking foundation** for all Afrowave tools.
-It standardizes request logic, response wrapping, retry behavior, and proxy handling — enabling consistent API access across backend, frontend, and CLI applications.
+Afrowave.SharedTools.Api acts as the **foundation for all HTTP, API, and web-based operations** across Afrowave tools.
+It standardizes network access, proxy behavior, retry policies, and now includes high-level cookie management to ensure consistent, configurable, and secure session handling.
 
 ---
 
@@ -61,55 +70,107 @@ All methods return `Response<T>` from **Afrowave.SharedTools.Models**, providing
 
 ---
 
-## ⚙️ Static Helper
+## 🍪 Cookie Management (added in v0.0.3)
 
-For projects without dependency injection (e.g. CLI tools, scripts, or test runners),
-the static version `HttpClientHelper` offers identical features using a direct API.
+Starting with version **0.0.3**, Afrowave.SharedTools.Api introduces a robust cookie management subsystem that simplifies HTTP cookie handling for ASP.NET Core and similar environments.
+
+### `CookieSettings`
+
+Defines the behavior and security policies for all cookies.
 
 ```csharp
-var opts = new HttpRequestOptions
+public sealed class CookieSettings
 {
-    Timeout = TimeSpan.FromSeconds(10),
-    Retry = new RetryPolicyOptions { MaxRetries = 3 }
-};
-
-var res = await HttpClientHelper.GetJsonAsync<MyDto>("https://api.example.com", opts);
-if (res.Success)
-    Console.WriteLine(res.Data.Name);
+    public string Domain { get; set; }
+    public string Path { get; set; } = "/";
+    public int ExpiryInDays { get; set; } = 30;
+    public bool HttpOnly { get; set; } = true;
+    public bool Secure { get; set; } = true;
+    public bool IsEssential { get; set; } = true;
+    public SameSitePolicy SameSite { get; set; } = SameSitePolicy.Lax;
+    public CookieSecurePolicy SecurePolicy { get; set; } = CookieSecurePolicy.Always;
+}
 ```
 
----
+**SameSitePolicy Enum:**
 
-## 🧬 Configuration Models
+* `None` – Send cookie in all contexts (cross-site allowed)
+* `Lax` – Default modern behavior (safe for most cases)
+* `Strict` – Cookie only sent in first-party contexts
 
-### HttpRequestOptions
-
-Defines global behavior of HTTP clients.
-*Members:*
-
-* `Uri BaseAddress` – Base URL for requests
-* `TimeSpan Timeout` – Timeout duration
-* `bool UseProxy` – Whether to use proxy
-* `string ProxyAddress` – Proxy host and port
-* `bool AllowInvalidCertificates` – Ignore SSL validation (for dev only)
-* `RetryPolicyOptions Retry` – Retry configuration
-* `IDictionary<string,string> DefaultHeaders` – Default headers (e.g., User-Agent)
-
-### RetryPolicyOptions
-
-Controls exponential retry with optional random jitter.
-*Members:*
-
-* `int MaxRetries`
-* `TimeSpan BaseDelay`
-* `double BackoffFactor`
-* `bool Jitter`
+The settings can be bound via configuration or named options to define multiple cookie policies (e.g., for session, analytics, or consent).
 
 ---
 
-## 🌐 Example Integration
+### `ICookieService` and `CookieService` (DI)
 
-**Program.cs (DI registration)**
+Dependency-injectable cookie manager using `IOptionsMonitor<CookieSettings>` for per-profile configurations.
+Supports automatic option binding and long-lived (≈20 years) cookie lifetimes.
+
+**Example:**
+
+```csharp
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddConfiguredService<ICookieService, CookieService, CookieSettings>(options =>
+{
+    options.Domain = ".afrowave.ltd";
+    options.SameSite = CookieSettings.SameSitePolicy.Lax;
+    options.ExpiryInDays = 30;
+    options.HttpOnly = true;
+});
+```
+
+**Usage in controllers:**
+
+```csharp
+public class LocaleController : ControllerBase
+{
+    private readonly ICookieService _cookies;
+
+    public LocaleController(ICookieService cookies) => _cookies = cookies;
+
+    [HttpPost("/lang")]
+    public IActionResult SetLang(string code)
+    {
+        var res = _cookies.Update("lang", code);
+        return res.Success ? Ok() : BadRequest(res.Message);
+    }
+
+    [HttpGet("/lang")]
+    public IActionResult GetLang()
+    {
+        var val = _cookies.ReadOrCreate("lang", "en");
+        return Ok(val);
+    }
+}
+```
+
+**Key methods:**
+
+* `Write(name, value)` – writes cookie only if it does not exist
+* `Update(name, value)` – creates or overwrites cookie
+* `Read(name)` – returns cookie value or null
+* `ReadOrCreate(name, default)` – returns cookie or creates one with the default value
+* `Delete(name)` – removes cookie with matching policy
+* JSON helpers: `UpdateObject<T>()`, `ReadObjectOrCreate<T>()`
+
+---
+
+### `CookieHelper` (Static)
+
+A fully static version of the same functionality, usable without DI. Ideal for quick use in middleware, test utilities, or lightweight apps.
+
+```csharp
+var val = CookieHelper.ReadOrCreate(HttpContext, "theme", "dark");
+CookieHelper.Update(HttpContext, "session", Guid.NewGuid().ToString());
+```
+
+Methods mirror the DI version, taking `HttpContext` as the first argument.
+
+---
+
+## 🌐 Example Integration (combined)
 
 ```csharp
 services.AddHttpClient("AfrowaveHttpService");
@@ -121,16 +182,18 @@ services.AddSingleton(new HttpRequestOptions
         ["User-Agent"] = "Afrowave-HttpService/1.0"
     }
 });
+
+// HTTP service
 services.AddSingleton<IHttpService, HttpService>();
-```
 
-**Usage in app code:**
-
-```csharp
-var res = await _http.PostJsonAsync<RequestDto, ResponseDto>(
-    "https://api.example.com/process", payload);
-if (res.Success)
-    Console.WriteLine("Response OK");
+// Cookie service
+builder.Services.AddHttpContextAccessor();
+services.AddConfiguredService<ICookieService, CookieService, CookieSettings>(cfg =>
+{
+    cfg.Domain = ".afrowave.ltd";
+    cfg.SameSite = CookieSettings.SameSitePolicy.Lax;
+    cfg.ExpiryInDays = 7;
+});
 ```
 
 ---
@@ -138,18 +201,20 @@ if (res.Success)
 ## 🧱 Design Principles
 
 * Compatible with **.NET Standard 2.1**
-* No dependency on ASP.NET Core runtime — only `Microsoft.Extensions.Http`
-* Optional proxy and SSL flexibility
-* Consistent `Response<T>` return type across all methods
-* Automatic retry and exponential backoff
-* Parallel processing support for bulk HTTP operations
+* Unified, predictable interfaces for both DI and static usage
+* Fully documented XML and markdown-based documentation
+* Secure defaults: `HttpOnly = true`, `SameSite = Lax`, `Secure = true`
+* Long-lived cookie helpers for persistent preferences
+* Seamless integration with `IOptionsMonitor<T>` for named profiles
 
 ---
 
-## 🧭 Structure
+## 📦 Version 0.0.3 Release Notes
 
-All classes include XML documentation and follow Afrowave naming conventions.
-Both static and DI versions share identical logic to simplify cross-project usage.
+| Version   | Changes                                                                                                                                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **0.0.3** | Added complete cookie management subsystem:<br>• `CookieSettings` with enum-based policies<br>• `ICookieService` + `CookieService` (DI)<br>• `CookieHelper` (static)<br>• Improved documentation structure for web tools |
+| **0.0.2** | Initial release – HTTP/REST utilities and retry logic                                                                                                                                                                    |
 
 ---
 

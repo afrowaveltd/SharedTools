@@ -5,7 +5,7 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Nullable>enable</Nullable>
 		<PackageId>Afrowave.SharedTools.Api</PackageId>
-		<Version>0.0.2</Version>
+		<Version>0.0.3</Version>
 		<Authors>Afrowave Ltd</Authors>
 		<Company>Afrowave Ltd</Company>
 		<Description>API abstractions and helpers for Afrowave.SharedTools. Provides standardized interfaces and wrappers for integration.Added multipart forms</Description>
