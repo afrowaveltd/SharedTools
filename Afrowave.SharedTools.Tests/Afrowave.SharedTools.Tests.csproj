@@ -66,6 +66,7 @@
 		<ProjectReference Include="..\Afrowave.SharedTools.Validation\Afrowave.SharedTools.Validation.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools\Afrowave.SharedTools.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.LanguageService\Afrowave.SharedTools.I18N.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.Common\Afrowave.SharedTools.Common.csproj" />
 	</ItemGroup>
 
 </Project>
