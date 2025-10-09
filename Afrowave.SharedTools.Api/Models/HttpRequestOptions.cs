@@ -60,8 +60,10 @@ namespace Afrowave.SharedTools.Api.Models
 		/// </summary>
 		public HttpRequestOptions()
 		{
-			DefaultHeaders = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-			DefaultHeaders.Add("User-Agent", "Afrowave.SharedTools.ApiClient/1.0");
+			DefaultHeaders = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+			{
+				{ "User-Agent", "Afrowave.SharedTools.ApiClient/1.0" }
+			};
 			Retry = new RetryPolicyOptions();
 			DecompressionGzipDeflate = true;
 		}

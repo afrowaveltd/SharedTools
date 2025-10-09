@@ -16,7 +16,7 @@ namespace Afrowave.SharedTools.Api.Models
 		/// </summary>
 		/// <remarks>Set this property to control how many times the operation will be retried before failing. A value
 		/// less than zero disables retries.</remarks>
-		public int MaxRetries { get; set; } = 3;
+		public int MaxRetries { get; set; } = 5;
 
 		/// <summary>
 		/// Gets or sets the base delay interval used for retry operations.
@@ -48,7 +48,7 @@ namespace Afrowave.SharedTools.Api.Models
 		/// customized as needed for specific use cases.</remarks>
 		public RetryPolicyOptions()
 		{
-			MaxRetries = 3;
+			MaxRetries = 5;
 			BaseDelay = TimeSpan.FromSeconds(2);
 			BackoffFactor = 2.0;
 			Jitter = true;

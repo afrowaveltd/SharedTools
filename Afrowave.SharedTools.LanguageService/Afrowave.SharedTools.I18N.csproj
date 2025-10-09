@@ -21,10 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Middlewares\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Afrowave.SharedTools.Api" Version="0.0.3" />
     <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
   </ItemGroup>
 
