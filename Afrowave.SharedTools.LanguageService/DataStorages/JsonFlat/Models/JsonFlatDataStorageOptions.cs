@@ -28,6 +28,14 @@ namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Models
 		public bool CreateIfNotExists { get; set; } = true;
 
 		/// <summary>
+		/// Gets or sets the default language code used for localization.
+		/// </summary>
+		/// <remarks>The default value is "en" (English). This property should be set to a valid ISO language code
+		/// representing the primary language for the application.</remarks>
+
+		public string DefaultLanguage { get; set; } = "en";
+
+		/// <summary>
 		/// Initializes a new instance of the JsonFlatDataStorageOptions class with default settings.
 		/// </summary>
 		/// <remarks>The default constructor sets the LocalesPath property to the 'Locales' directory located at the

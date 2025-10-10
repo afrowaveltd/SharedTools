@@ -1,6 +1,8 @@
-﻿using Afrowave.SharedTools.I18N.Interfaces;
+﻿using Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Models;
+using Afrowave.SharedTools.I18N.Interfaces;
 using Afrowave.SharedTools.I18N.Models;
 using Afrowave.SharedTools.Models.Results;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +20,13 @@ namespace Afrowave.SharedTools.I18N.DataStorages
 	/// characteristics depend on the underlying file system and usage patterns.</remarks>
 	public class FlatJsonDataStorage : IDataStorage
 	{
+		private readonly JsonFlatDataStorageOptions _options;
+
+		public FlatJsonDataStorage(IOptions<JsonFlatDataStorageOptions> options)
+		{
+			_options = options.Value ?? new JsonFlatDataStorageOptions();
+		}
+
 		public Task<Result> DeleteDictionaryAsync(string languageCode)
 		{
 			throw new NotImplementedException();
