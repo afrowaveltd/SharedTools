@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Afrowave.SharedTools.I18N.Services
 {
-	public class JsonStringLocalizer
+	public class StringLocalizer
 	{
 	}
 }

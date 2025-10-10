@@ -12,12 +12,10 @@ namespace Afrowave.SharedTools.I18N.Models
 	/// <remarks>Use this class to customize how localized strings are loaded, translated, and managed when working
 	/// with JSON resources. These options control aspects such as the default language, the location of locale files,
 	/// integration with external translation services, and handling of missing localization keys.</remarks>
-	public sealed class JsonStringLocalizerOptions
+	public sealed class StringLocalizerOptions
 	{
-		/// <summary>
-		/// Gets or sets the file system path to the directory containing locale resources.
-		/// </summary>
-		public string LocalesPath { get; set; } = string.Empty;
+
+
 
 		/// <summary>
 		/// Gets or sets a value indicating whether LibreTranslate should be used as the translation provider.
