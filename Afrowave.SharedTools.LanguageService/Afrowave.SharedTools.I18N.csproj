@@ -23,6 +23,8 @@
   <ItemGroup>
     <PackageReference Include="Afrowave.SharedTools.Api" Version="0.0.3" />
     <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.0-rc.1.25451.107" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.0-rc.1.25451.107" />
   </ItemGroup>
 
   <ItemGroup>
