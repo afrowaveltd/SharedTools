@@ -25,13 +25,13 @@ namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Models
 		/// <remarks>Set this property to <see langword="true"/> to automatically create the resource when performing
 		/// operations that require its existence. If set to <see langword="false"/>, an exception may be thrown if the
 		/// resource is missing.</remarks>
-		public bool CreateIfNotExists { get; set; } = true;
+		public bool CreateIfNotExists { get; set; } = false;
 
 		/// <summary>
 		/// Gets or sets the default language code used for localization.
 		/// </summary>
 		/// <remarks>The default value is "en" (English). This property should be set to a valid ISO language code
-		/// representing the primary language for the application.</remarks>
+		/// representing the primary language for the application.</rem
 
 		public string DefaultLanguage { get; set; } = "en";
 
