@@ -94,7 +94,44 @@ namespace Afrowave.SharedTools.I18N.Interfaces
 		/// </summary>
 		/// <param name="sender">The source of the event, typically the dictionary instance that triggered the change.</param>
 		/// <param name="e">The event object</param>
-
 		public delegate void DictionaryChangedEventHandler(object sender, DictionaryChangedEventArgs e);
+
+		/// <summary>
+		/// Occurs when the contents of the dictionary are changed.
+		/// </summary>
+		/// <remarks>This event is raised whenever an item is added, removed, or updated in the dictionary.
+		/// Subscribers can use this event to respond to changes in the dictionary's state. The event handler receives
+		/// information about the specific change that occurred.</remarks>
+		public event DictionaryChangedEventHandler DictionaryChanged;
+
+		/// <summary>
+		/// Adds a new translation entry for the specified language and key asynchronously.
+		/// </summary>
+		/// <param name="languageCode">The ISO language code that identifies the language for the translation. Cannot be null or empty.</param>
+		/// <param name="key">The key that uniquely identifies the translation entry. Cannot be null or empty.</param>
+		/// <param name="value">The translated text to associate with the specified key and language. Cannot be null.</param>
+		/// <returns>A task that represents the asynchronous operation. The result contains the outcome of the add operation, including
+		/// success or failure details.</returns>
+		public Task<Result> AddTranslation(string languageCode, string key, string value);
+
+		/// <summary>
+		/// Updates the translation value for the specified language and key asynchronously.
+		/// </summary>
+		/// <param name="languageCode">The language code representing the target language for the translation. Must be a valid ISO language code and
+		/// cannot be null or empty.</param>
+		/// <param name="key">The key identifying the translation entry to update. Cannot be null or empty.</param>
+		/// <param name="value">The new translation value to associate with the specified key and language. Cannot be null.</param>
+		/// <returns>A task that represents the asynchronous operation. The result contains the outcome of the update, including
+		/// success or failure information.</returns>
+		public Task<Result> UpdateTranslation(string languageCode, string key, string value);
+
+		/// <summary>
+		/// Removes the translation entry for the specified language code and key.
+		/// </summary>
+		/// <param name="lanugageCode">The language code identifying the language of the translation to remove. Cannot be null or empty.</param>
+		/// <param name="key">The key associated with the translation entry to remove. Cannot be null or empty.</param>
+		/// <returns>A task that represents the asynchronous operation. The result indicates whether the translation was successfully
+		/// removed.</returns>
+		public Task<Result> RemoveTranslation(string lanugageCode, string key);
 	}
 }

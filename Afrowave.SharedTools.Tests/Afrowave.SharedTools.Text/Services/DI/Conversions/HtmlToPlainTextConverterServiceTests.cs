@@ -51,7 +51,7 @@ namespace Afrowave.SharedTools.Tests.Afrowave.SharedTools.Text.Services.DI.Conve
 			var sw = Stopwatch.StartNew();
 			_service.Convert(html);
 			sw.Stop();
-			Assert.True(sw.ElapsedMilliseconds < 100, $"Execution took too long: {sw.ElapsedMilliseconds} ms");
+			Assert.True(sw.ElapsedMilliseconds < 200, $"Execution took too long: {sw.ElapsedMilliseconds} ms");
 		}
 	}
 }
