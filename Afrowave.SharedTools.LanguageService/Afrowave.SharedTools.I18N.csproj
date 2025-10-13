@@ -37,4 +37,17 @@
     <None Include="Readme\en.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataStorages\JsonNested\" />
+    <Folder Include="DataStorages\CSV\" />
+    <Folder Include="DataStorages\MO\" />
+    <Folder Include="DataStorages\MongoDb\" />
+    <Folder Include="DataStorages\CustomFormat\" />
+    <Folder Include="DataStorages\SQL\" />
+    <Folder Include="DataStorages\PO\" />
+    <Folder Include="DataStorages\RESX\" />
+    <Folder Include="DataStorages\YAML\" />
+    <Folder Include="DataStorages\XML\" />
+  </ItemGroup>
+
 </Project>

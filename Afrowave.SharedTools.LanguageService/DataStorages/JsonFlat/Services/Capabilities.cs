@@ -31,7 +31,7 @@ namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Services
 				CanDelete = true,
 				CanListLanguages = true,
 				CanCheckExistence = true,
-				CanReportDictionaryChanges = false,
+				CanReportDictionaryChanges = true,
 				IsReadOnly = false,
 				DictionaryFormat = DictionaryFormat.JSON_FLAT
 			};

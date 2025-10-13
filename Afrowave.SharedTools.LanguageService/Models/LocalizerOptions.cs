@@ -42,7 +42,7 @@ namespace Afrowave.SharedTools.I18N.Models
 		/// <remarks>The default format is <see cref="DictionaryFormat.JSON_FLAT"/>. Additional formats can be added to
 		/// the collection as needed to support different serialization styles for language resources.</remarks>
 		///
-		public List<DictionaryFormat> SupportedFormats { get; set; } = new List<DictionaryFormat> { DictionaryFormat.JSON_FLAT };
+		public DictionaryFormat SupportedFormat { get; set; } = DictionaryFormat.JSON_FLAT;
 
 		/// <summary>
 		/// Gets or sets a value indicating whether missing keys should be stored when encountered.

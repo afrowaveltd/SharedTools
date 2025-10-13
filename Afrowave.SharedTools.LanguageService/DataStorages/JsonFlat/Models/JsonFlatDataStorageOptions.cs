@@ -31,7 +31,7 @@ namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Models
 		/// Gets or sets the default language code used for localization.
 		/// </summary>
 		/// <remarks>The default value is "en" (English). This property should be set to a valid ISO language code
-		/// representing the primary language for the application.</rem
+		/// representing the primary language for the application.</remarks>
 
 		public string DefaultLanguage { get; set; } = "en";
 

@@ -96,8 +96,13 @@ namespace Afrowave.SharedTools.I18N.Models
 		SQL = 9,
 
 		/// <summary>
+		/// Mongo database format.
+		/// </summary>
+		MongoDB = 10,
+
+		/// <summary>
 		/// Custom or user-defined format.
 		/// </summary>
-		CustomFormat = 10
+		CustomFormat = 100
 	}
 }
