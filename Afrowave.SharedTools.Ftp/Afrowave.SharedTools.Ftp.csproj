@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Afrowave.SharedTools.Ftp</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Afrowave Ltd</Authors>
+    <Company>Afrowave Ltd</Company>
+    <Description>Universal FTP toolkit.</Description>
+    <PackageTags>ftp;web;api;afrowave;sharedtools</PackageTags>
+    <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>en.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>	  
+ 
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Readme\" />
+	<None Include="Readme\en.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

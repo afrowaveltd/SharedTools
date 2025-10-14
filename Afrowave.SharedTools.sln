@@ -92,6 +92,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.I18N",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Common", "Afrowave.SharedTools.Common\Afrowave.SharedTools.Common.csproj", "{CAAA60EF-1FA7-44D6-81B7-56183044E8B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afrowave.SharedTools.Ftp", "Afrowave.SharedTools.Ftp\Afrowave.SharedTools.Ftp.csproj", "{A2D102D2-808E-4748-AE6C-AD968A5C508B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -218,6 +220,10 @@ Global
 		{CAAA60EF-1FA7-44D6-81B7-56183044E8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAAA60EF-1FA7-44D6-81B7-56183044E8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAAA60EF-1FA7-44D6-81B7-56183044E8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D102D2-808E-4748-AE6C-AD968A5C508B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D102D2-808E-4748-AE6C-AD968A5C508B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D102D2-808E-4748-AE6C-AD968A5C508B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D102D2-808E-4748-AE6C-AD968A5C508B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,6 +268,7 @@ Global
 		{55F2CE32-70FC-4E3F-A0EC-CC5CD4169310} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{27D88810-206F-45E0-9643-AA3EF2F43E26} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{CAAA60EF-1FA7-44D6-81B7-56183044E8B4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A2D102D2-808E-4748-AE6C-AD968A5C508B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A1E5EFA-9EB7-40F9-A9FD-4999E1F1EE25}
