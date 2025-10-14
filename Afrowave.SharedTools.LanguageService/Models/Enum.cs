@@ -93,7 +93,6 @@ namespace Afrowave.SharedTools.I18N.Models
 		/// <summary>
 		/// SQL database format.
 		/// </summary>
-		SQL = 9,
 
 		/// <summary>
 		/// Mongo database format.

@@ -2,23 +2,31 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Nullable>enable</Nullable>
-	  <PackageId>Afrowave.SharedTools.Ftp</PackageId>
-	  <Version>0.0.1</Version>
-	  <Authors>Afrowave Ltd</Authors>
-	  <Company>Afrowave Ltd</Company>
-	  <Description>Ftp tools</Description>
-	  <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
-	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
-	  <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Afrowave.SharedTools.Ftp</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Afrowave Ltd</Authors>
+    <Company>Afrowave Ltd</Company>
+    <Description>Universal FTP toolkit.</Description>
+    <PackageTags>ftp;web;api;afrowave;sharedtools</PackageTags>
+    <RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>en.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>	  
+ 
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
-    <PackageReference Include="FluentFTP" Version="53.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0-rc.1.25451.107" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Readme\" />
+	<None Include="Readme\en.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 </Project>
