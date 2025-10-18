@@ -1,6 +1,6 @@
 ﻿using Afrowave.SharedTools.I18N.Models;
 
-namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Services
+namespace Afrowave.SharedTools.I18N.DataStorages.Services
 {
 	/// <summary>
 	/// Defines a contract for retrieving the capabilities supported by a data storage provider.

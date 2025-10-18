@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Services
+namespace Afrowave.SharedTools.I18N.DataStorages.Services
 {
 	/// <summary>
 	/// Provides access to the set of supported data storage capabilities for the current context.

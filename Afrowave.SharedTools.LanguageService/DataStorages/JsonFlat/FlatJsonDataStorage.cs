@@ -1,5 +1,4 @@
 ﻿using Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Models;
-using Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Services;
 using Afrowave.SharedTools.I18N.Interfaces;
 using Afrowave.SharedTools.I18N.Models;
 using Afrowave.SharedTools.I18N.EventHandler;
@@ -12,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Afrowave.SharedTools.I18N.DataStorages.Services;
 
 namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat
 {
@@ -43,7 +43,10 @@ namespace Afrowave.SharedTools.I18N.DataStorages.JsonFlat
 		/// </summary>
 		/// <param name="options">The configuration options for the JSON flat data storage. If null, default options are used.</param>
 		/// <param name="capabilities">The capabilities to be associated with this storage instance. If null, default capabilities are assigned.</param>
+#pragma warning disable CS8618 // Pole, které nemůže být null, musí při ukončování konstruktoru obsahovat hodnotu, která není null. Zvažte přidání modifikátoru required nebo deklaraci s možnou hodnotou null.
+
 		public FlatJsonDataStorage(IOptions<JsonFlatDataStorageOptions> options, ICapabilities capabilities)
+#pragma warning restore CS8618 // Pole, které nemůže být null, musí při ukončování konstruktoru obsahovat hodnotu, která není null. Zvažte přidání modifikátoru required nebo deklaraci s možnou hodnotou null.
 		{
 			JsonFlatDataStorageOptions _options = options.Value ?? new JsonFlatDataStorageOptions();
 			_localesPath = _options.LocalesPath;
