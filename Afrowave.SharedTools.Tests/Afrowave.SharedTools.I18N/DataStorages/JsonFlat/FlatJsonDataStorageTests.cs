@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Afrowave.SharedTools.I18N.DataStorages.JsonFlat;
 using Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Models;
-using Afrowave.SharedTools.I18N.DataStorages.JsonFlat.Services;
+using Afrowave.SharedTools.I18N.DataStorages.Services;
 using Afrowave.SharedTools.I18N.EventHandler;
 using Afrowave.SharedTools.I18N.Interfaces;
 using Afrowave.SharedTools.I18N.Models;

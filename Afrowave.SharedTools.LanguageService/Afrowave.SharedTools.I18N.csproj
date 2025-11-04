@@ -22,9 +22,10 @@
 
   <ItemGroup>
     <PackageReference Include="Afrowave.SharedTools.Api" Version="0.0.3" />
+    <PackageReference Include="Afrowave.SharedTools.Ftp" Version="0.0.1" />
     <PackageReference Include="Afrowave.SharedTools.Models" Version="0.0.31" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.0-rc.1.25451.107" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.0-rc.1.25451.107" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.0-rc.2.25502.107" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.0-rc.2.25502.107" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,9 +44,9 @@
     <Folder Include="DataStorages\MO\" />
     <Folder Include="DataStorages\MongoDb\" />
     <Folder Include="DataStorages\CustomFormat\" />
-    <Folder Include="DataStorages\JsonFlatFtp\" />
     <Folder Include="DataStorages\CSVFtp\" />
     <Folder Include="DataStorages\JsonNestedFtp\" />
+    <Folder Include="DataStorages\Models\" />
     <Folder Include="DataStorages\YAMLFtp\" />
     <Folder Include="DataStorages\XMLFtp\" />
     <Folder Include="DataStorages\SQL\" />
