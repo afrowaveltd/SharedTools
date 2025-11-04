@@ -4,6 +4,29 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Nullable>enable</Nullable>
+		<PackageId>Afrowave.SharedTools.IO</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Afrowave Ltd</Authors>
+		<Company>Afrowave Ltd</Company>
+		<Description>Universal IO toolkit.</Description>
+		<PackageTags>files;json;yaml;csv</PackageTags>
+		<RepositoryUrl>https://github.com/afrowaveltd/SharedTools</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/afrowaveltd/SharedTools</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>en.md</PackageReadmeFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 	</PropertyGroup>
-
+	<ItemGroup>
+		<None Include="Readme\en.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Afrowave.SharedTools.Models\Afrowave.SharedTools.Models.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="CsvHelper" Version="30.0.1" />
+	  <PackageReference Include="YamlDotNet" Version="15.1.6" />
+	</ItemGroup>
 </Project>
