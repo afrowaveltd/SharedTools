@@ -48,6 +48,7 @@
 		<ProjectReference Include="..\Afrowave.SharedTools.Helpers\Afrowave.SharedTools.Helpers.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.IO\Afrowave.SharedTools.IO.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Json\Afrowave.SharedTools.Json.csproj" />
+		<ProjectReference Include="..\Afrowave.SharedTools.LibreTranslate\Afrowave.SharedTools.LibreTranslate.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Localization.AssemblyTools\Afrowave.SharedTools.Localization.AssemblyTools.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Api\Afrowave.SharedTools.Localization.Backend.Api.csproj" />
 		<ProjectReference Include="..\Afrowave.SharedTools.Localization.Backend.Folder\Afrowave.SharedTools.Localization.Backend.Folder.csproj" />

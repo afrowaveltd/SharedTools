@@ -12,7 +12,8 @@ namespace Afrowave.SharedTools.IO.Services
    /// Supports JSON, XML, CSV, and YAML formats. Defaults use UTF-8 without BOM, JSON/YAML camelCase,
    /// XML indented output, and CSV with header and invariant culture. The <c>TOptions</c> parameter can be a native
    /// options type to override defaults (e.g., <see cref="System.Text.Json.JsonSerializerOptions"/>,
-   /// <see cref="CsvHelper.Configuration.CsvConfiguration"/>, <see cref="System.Xml.XmlWriterSettings"/>,
+   /// <see cref="CsvHelper.Configuration.CsvConfiguration"/>, <see cref="System.Xml.XmlWriterSettings"/>,
+
    /// </remarks>
    public interface IFileService
    {
