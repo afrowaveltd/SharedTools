@@ -1,173 +1,208 @@
 # Afrowave.SharedTools.Models
 
-This module contains standardized models and data wrappers used across Afrowave projects. These structures are intended to simplify the design of method results, API communication, and metadata encapsulation.
+This module contains **foundational, framework-agnostic models** used across the Afrowave ecosystem.  
+Its primary goal is to provide **simple, consistent, and developer-friendly primitives** for:
+
+- method results
+- data responses
+- request/command envelopes
+- metadata transport
+
+All models are compatible with **.NET Standard 2.1** and are designed to scale from small utilities to distributed, plugin-based systems.
 
 ---
 
 ## 📦 Contents
 
-* `Results/Result.cs` – A minimal boolean result wrapper
-* `Results/Response<T>.cs` – A generic response container with data, message, and flags
-* `LibreTranslate/Settings/LibreServer.cs` – LibreTranslate server configuration
-* `LibreTranslate/Request/Translate.cs` – Text translation request
-* `LibreTranslate/Request/TranslateFile.cs` – File translation request
-* `LibreTranslate/Request/DetectLanguage.cs` – Language detection request
-* `LibreTranslate/Response/Detections.cs` – Language detection result
-* `LibreTranslate/Response/Translate.cs` – Text translation result
-* `LibreTranslate/Response/TranslateFile.cs` – File translation result
-* `LibreTranslate/Response/Error.cs` – Error response
-* `LibreTranslate/Response/Language.cs` – Supported language info
-* `Localization/Country.cs` – Country metadata (name, dial code, emoji, ISO code)
-* `Localization/Language.cs` – Language metadata (code, name, native name)
+### Results
+
+- `Results/Result.cs` – Boolean result wrapper (no payload)
+- `Results/Response.cs` – Generic and non-generic response wrappers
+- `Results/Unit.cs` – Explicit "no data" value for generic responses
+
+### Communication
+
+- `Communication/Request.cs` – Request and Request<T> envelopes
+
+### Other domains (unchanged)
+
+- LibreTranslate models (settings, requests, responses)
+- Localization models (Country, Language)
 
 ---
 
 ## ✅ Result
 
-A simple result type for indicating success or failure without returning data.
+`Result` represents the outcome of an operation **without returning data**.
 
 ```csharp
 var result = Result.Ok("Operation succeeded");
-if (!result.Success) Console.WriteLine(result.Message);
+
+if (!result.Success)
+{
+    Console.WriteLine(result.Message);
+}
 ```
 
-**Main members:**
+### Members
 
-* `bool Success`
-* `string Message`
-* `Result.Ok(string message)` – success with message
-* `Result.Fail(string message)` – failure with message
+- `bool Success`
+- `bool Warning`
+- `string Message`
+
+### Factory methods
+
+- `Result.Ok()`
+- `Result.Ok(string message)`
+- `Result.OkWithWarning(string message)`
+- `Result.Fail()`
+- `Result.Fail(string message)`
+- `Result.Fail(Exception ex)`
+
+> Result and Response intentionally share the same factory syntax.
 
 ---
 
-## ✅ Response<T>
+## ✅ Response / Response<T>
 
-A standardized generic response class for wrapping data with result metadata.
+`Response` and `Response<T>` represent standardized operation responses **with optional payload**.
+
+### Non-generic Response
+
+Use when no data needs to be returned:
 
 ```csharp
-var response = Response<User>.SuccessResponse(user, "User loaded successfully");
-if (response.Success) Display(response.Data);
+return Response.Ok("Saved successfully");
+return Response.Fail("Invalid input");
 ```
 
-**Main members:**
+### Generic Response<T>
 
-* `bool Success`
-* `bool Warning`
-* `string Message`
-* `T Data`
+Use when an operation may return data:
 
-**Factory methods:**
+```csharp
+var response = Response<User>.Ok(user, "User loaded");
 
-* `SuccessResponse(T data, string message)`
-* `Fail(string message)`
-* `EmptySuccess()`
-* `SuccessWithWarning(T data, string warningMessage)`
-* `Fail(Exception ex)`
+if (response.Success && response.HasData)
+{
+    Display(response.Data);
+}
+```
 
----
+### Key properties
 
-## 🌐 LibreTranslate Models
+- `bool Success`
+- `bool Warning`
+- `string Message`
+- `T Data`
+- `bool HasData` – indicates whether `Data` was explicitly provided
 
-Models for integration with the LibreTranslate API.
+### Factory methods (unified)
 
-### Settings
+- `Ok()`
+- `Ok(string message)`
+- `Ok(T data)`
+- `Ok(T data, string message)`
+- `OkWithWarning(string message)`
+- `OkWithWarning(T data, string message)`
+- `Fail()`
+- `Fail(string message)`
+- `Fail(Exception ex)`
 
-**LibreServer**  
-Configuration for LibreTranslate server endpoints and authentication.  
-*Members:*  
-- `string ApiKey` – API key for authentication  
-- `string Host` – Server host or IP  
-- `string DetectLanguageEndpoint` – Endpoint for language detection  
-- `string LanguagesEndpoint` – Endpoint for supported languages  
-- `string TranslateEndpoint` – Endpoint for text translation  
-- `string TranslateFileEndpoint` – Endpoint for file translation  
-- `bool NeedsKey` – Indicates if API key is required
+### Backward-compatible methods
 
-### Requests
+Existing APIs remain supported:
 
-**Translate**  
-Request for translating text.  
-*Members:*  
-- `string Q` – Text to translate  
-- `string Source` – Source language code  
-- `string Target` – Target language code  
-- `string Format` – Output format  
-- `int Alternatives` – Number of alternatives  
-- `string? Api_key` – API key
-
-**TranslateFile**  
-Request for translating a file.  
-*Members:*  
-- `IFormFile File` – File to translate  
-- `string Source` – Source language code  
-- `string Target` – Target language code  
-- `string Api_key` – API key
-
-**DetectLanguage**  
-Request for detecting the language of a text.  
-*Members:*  
-- `string Q` – Text to analyze  
-- `string Api_key` – API key
-
-### Responses
-
-**Detections**  
-Result of language detection.  
-*Members:*  
-- `string Language` – Detected language code  
-- `int Confidence` – Confidence score
-
-**Translate**  
-Result of a text translation.  
-*Members:*  
-- `string TranslatedText` – Translated text  
-- `Detections DetectedLanguage` – Detected source language  
-- `List<string> Alternatives` – Alternative translations
-
-**TranslateFile**  
-Result of a file translation.  
-*Members:*  
-- `string TranslatedFileUrl` – URL to the translated file
-
-**ErrorResponse**  
-Error details from LibreTranslate API.  
-*Members:*  
-- `string Error` – Error message
-
-**LibreLanguage**  
-Information about a supported language.  
-*Members:*  
-- `string Code` – Language code  
-- `string Name` – Language name  
-- `List<string> Targets` – Supported target languages
+- `SuccessResponse(T data, string message)`
+- `SuccessWithWarning(T data, string warningMessage)`
+- `EmptySuccess()`
 
 ---
 
-## 🌍 Localization Models
+## 🧩 Unit
 
-Models describing countries and languages for localization, UI selection, and metadata.
+`Unit` represents an explicit **"no payload"** value for generic responses.
 
-**Country**  
-Represents country metadata useful for localization and phone number formatting.  
-*Members:*  
-- `string Name` – Country display name  
-- `string Dial_code` – Country calling code (dial code)  
-- `string Emoji` – Country flag emoji  
-- `string Code` – ISO 3166-1 alpha-2 country code
+```csharp
+return Response<Unit>.Ok();
+return Response<Unit>.Fail("Not allowed");
+```
 
-**Language**  
-Represents language metadata for localization and UI display.  
-*Members:*  
-- `string Code` – Language code (e.g., ISO 639-1)  
-- `string Name` – English display name  
-- `string Native` – Native language name
+This avoids forcing placeholder values when `T` is not meaningful.
 
 ---
 
-## 🧭 Structure
+## 📩 Request / Request<T>
 
-All model classes follow clear, consistent naming and XML documentation. They are compatible with .NET Standard 2.1 and intended for use across console, web, and library layers.
+Request models provide a lightweight, framework-independent **command/query envelope**.
+They are suitable for:
+
+- API calls
+- plugin dispatchers
+- internal messaging
+- background workers
+
+### Request (non-generic)
+
+```csharp
+var request = Request.Create("localization.resolve");
+```
+
+### Request<T> (with payload)
+
+```csharp
+var request = Request<string>.Create(
+    action: "docs.translate",
+    body: "Hello world",
+    sender: "Client",
+    target: "Translator"
+);
+```
+
+### Common properties
+
+- `Guid Id` – correlation identifier
+- `DateTimeOffset TimestampUtc`
+- `string Action` – operation identifier
+- `string? Sender`
+- `string? Target`
+- `Dictionary<string,string>? Meta`
+
+### Generic-only properties
+
+- `T Body`
+- `bool HasBody`
+
+### Factory methods
+
+- `Request.Create(...)`
+- `Request<T>.Create(action, body, ...)`
+- `Request<T>.CreateNoBody(...)`
 
 ---
 
-✍️ This file is part of the multilingual documentation system. Translations will be managed by LangHub.
+## 🌍 LibreTranslate Models
+
+Models for integration with the LibreTranslate API (settings, requests, responses).
+These remain unchanged and coexist with the shared Result / Response infrastructure.
+
+---
+
+## 🌐 Localization Models
+
+Metadata models for countries and languages used in localization, UI selection, and formatting.
+
+---
+
+## 🧭 Design principles
+
+- ✔ .NET Standard 2.1 compatible
+- ✔ No framework dependencies
+- ✔ Nullable-friendly without forcing newer runtimes
+- ✔ Unified syntax across Result / Response / Request
+- ✔ Safe defaults, explicit intent (`HasData`, `HasBody`)
+
+---
+
+✍️ This documentation is part of the Afrowave multilingual docs system.  
+Translations are generated and maintained via LangHub.

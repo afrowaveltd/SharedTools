@@ -8,7 +8,7 @@
     <PackageId>Afrowave.SharedTools.Models</PackageId>
     <PackageReadmeFile>en.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>0.0.31</Version>
+    <Version>1.4.0-alpha</Version>
     <Authors>Mukwano</Authors>
     <Company>Afrowave Community</Company>
     <Description>Shared models and enums for Afrowave projects, including user status, roles, gender, and age group access. Supported models for interacting with the LibreTranslate APIs Designed for .NET Standard 2.1 compatibility.</Description>
@@ -36,7 +36,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
-    <PackageReference Include="System.Text.Json" Version="10.0.0-rc.2.25502.107" />
+    <PackageReference Include="System.Text.Json" Version="10.0.1" />
   </ItemGroup>
 
 </Project>
